@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack -d --watch",
-    "start": "nodemon --exec babel-node app.js"
+    "start": "nodemon --exec babel-node app.js",
+    "refreshMongo": "babel-node ./server/tools/refreshMongo.js"
   },
   "repository": {
     "type": "git",
@@ -26,13 +27,21 @@
     "extract-text-webpack-plugin": "^2.1.0",
     "mongoose": "^4.10.3",
     "nodemon": "^1.11.0",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
+    "superagent": "^3.5.2",
     "webpack": "^2.6.1"
   },
   "dependencies": {
     "babel-cli": "^6.24.1",
+    "body-parser": "^1.17.2",
+    "css-loader": "^0.28.3",
+    "eslint": "^3.19.0",
+    "express": "^4.15.3",
+    "file-loader": "^0.11.1",
+    "path": "^0.12.7",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
     "react-redux": "^5.0.5",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "style-loader": "^0.18.1"
   }
 }
