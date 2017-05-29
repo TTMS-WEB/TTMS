@@ -1,4 +1,8 @@
-/**
- * Created by lipeishang on 17-5-29.
- */
 import {connect} from 'react-redux';
+import Login from '../components/Login';
+
+const mapStateToProps = (state) => {
+    return state;
+};
+
+export default connect(mapStateToProps)(Login);
