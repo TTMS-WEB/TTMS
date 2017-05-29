@@ -2,28 +2,15 @@
   "name": "TTMS",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack -d --watch",
     "start": "nodemon --exec babel-node app.js",
     "refreshMongo": "babel-node ./server/tools/refreshMongo.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TTMS-WEB/TTMS.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/TTMS-WEB/TTMS/issues"
-  },
-  "homepage": "https://github.com/TTMS-WEB/TTMS#readme",
   "devDependencies": {
-    "babel-core": "^6.24.1",
-    "babel-loader": "^7.0.0",
-    "babel-preset-es2015": "^6.24.1",
+    "babel-cli": "^6.24.1",
     "extract-text-webpack-plugin": "^2.1.0",
     "mongoose": "^4.10.3",
     "nodemon": "^1.11.0",
@@ -32,6 +19,11 @@
   },
   "dependencies": {
     "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-node6": "^11.0.0",
+    "babel-preset-react": "^6.24.1",
     "body-parser": "^1.17.2",
     "css-loader": "^0.28.3",
     "eslint": "^3.19.0",

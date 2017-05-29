@@ -1,11 +1,21 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 
-class Login extends React.Component {
+class Counter extends Component {
     render() {
+        //从组件的props属性中导入2个方法和一个变量
+        const {increment, decrement, counter} = this.props;
+        //渲染组件，包括一个数字，四个按钮
         return (
-            <div>Hello World!</div>
+            <p>
+                Clicked: {counter} times
+                {' '}
+                <button onClick={increment}>+</button>
+                {' '}
+                <button onClick={decrement}>-</button>
+                {' '}
+            </p>
         )
     }
 }
 
-export default Login;
+export default Counter

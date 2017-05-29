@@ -10,6 +10,6 @@ ReactDom.render(
     <Provider store={store}>
         <Login/>
     </Provider>
-    ,document.getElementById('root')
+    , document.getElementById('root')
 );
 
