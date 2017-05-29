@@ -24,5 +24,9 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "webpack": "^2.6.1"
+  },
+  "dependencies": {
+    "react-redux": "^5.0.5",
+    "redux": "^3.6.0"
   }
 }
