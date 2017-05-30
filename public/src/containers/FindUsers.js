@@ -1,0 +1,29 @@
+/**
+ * Created by lipeishang on 17-5-30.
+ */
+import {connect} from 'react-redux';
+import Login from '../components/Login';
+import actions from '../actions/FindUsers';
+import {withRouter} from 'react-router';
+import ShowAllTasks from '../actions/ShowAllTasks';
+
+const mapStateToProps = (state)=> {
+    return state
+};
+
+const mapDispatchToProps = (dispatch)=> {
+    return {
+        findUsers: (content)=> {
+            dispatch(actions.findUsers(content));
+        },
+
+        isLegal: (content) => {
+            dispatch(actions.isLegal(content));
+        },
+        loadUsername:()=>{
+            dispatch(ShowAllTasks.loadUsername());
+        }
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Login));
