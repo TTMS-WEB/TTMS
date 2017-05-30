@@ -75,3 +75,13 @@ router.post('/exitUser', (req, res)=> {
         }
     })
 });
+
+router.get('/allEmployees',(req,res)=>{
+    UserInfo.find({},(err,data)=>{
+        if(err){
+            return next(err);
+        }
+        console.log(data);
+        res.send(data);
+    })
+});

@@ -1,6 +1,3 @@
-/**
- * Created by lipeishang on 17-5-30.
- */
 import {connect} from 'react-redux';
 import Login from '../components/Login';
 import actions from '../actions/FindUsers';

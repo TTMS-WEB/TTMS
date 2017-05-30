@@ -9,17 +9,18 @@ import {createStore, applyMiddleware} from 'redux';
 import ShowLoginRegister from './containers/ShowLoginRegister'
 import {createLogger} from 'redux-logger';
 import  thunkMiddleware from 'redux-thunk';
+import AllEmployees from './containers/AllEmployees';
+import GetAllEmployees from './middlewares/GetAllEmployees';
+const Middleware = applyMiddleware(thunkMiddleware, createLogger(), FindAllUsers, register,GetAllEmployees);
 
-const Middleware = applyMiddleware(thunkMiddleware, createLogger(),FindAllUsers, register);
-
-let store = createStore(reducer,Middleware);
+let store = createStore(reducer, Middleware);
 
 ReactDom.render(
     <Provider store={store}>
         <Router history={hashHistory}>
-            <Route path="/" components={ShowLoginRegister}>
-                <IndexRoute components={ShowLoginRegister}/>
-            </Route>
+            <Route path="/" components={ShowLoginRegister}/>
+            {/*<IndexRoute components={ShowLoginRegister}/>*/}
+            <Route path="/employees" components={AllEmployees}/>
         </Router>
     </Provider>
     ,
