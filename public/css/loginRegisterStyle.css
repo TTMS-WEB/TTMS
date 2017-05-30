@@ -1,0 +1,78 @@
+*{
+    margin:0;
+    padding:0;
+}
+body {
+    background: url(../images/timg.jpg) no-repeat center center fixed;
+    background-size: cover;
+
+}
+
+.content{
+    margin-top: -280px;
+}
+
+#carousel1{
+    border-radius: 25px;
+    background: rgba(0,0,0,0.5);
+    width: 320px;
+    height: 320px;
+    margin-top: 200px;
+}
+
+#ul{
+    border-bottom: solid 1px white;
+    padding-top:7%;
+    padding-bottom: 5%;
+}
+.li{
+    font-size: large;
+    display:inline;
+    text-decoration: none;
+    color: white;
+}
+#li1{
+    margin-left: 23%;
+}
+#li2{
+    margin-left: 30%;
+}
+
+
+#inputGroup{
+    margin-top: 95%;
+    margin-left: 8%;
+}
+
+input{
+    text-indent: 17px;
+}
+input:focus {
+    color: white;
+}
+#img1
+{
+    background: url(../images/user.png) no-repeat;
+    background-position: 5%;
+    border-radius:15px;
+}
+#img2
+{
+    background: url(../images/password.png) no-repeat;
+    border-radius:15px;
+    background-position: 5%;
+}
+#img3
+{
+    background: url(../images/password.png) no-repeat;
+    border-radius:15px;
+    background-position: 5%;
+}
+
+.input{
+    margin-top: 6%;
+}
+#tip,#tip1,#usernameTip,#passwordTip,#repeatTip {
+    color: red;
+}
+

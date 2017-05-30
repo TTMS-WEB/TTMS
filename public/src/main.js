@@ -1,16 +1,23 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import {Provider} from 'react-redux';
-import Login from './containers/Login';
 import reducer from './reducers/index.js';
-import {createStore} from 'redux';
+import {Router, Route, hashHistory, IndexRoute} from 'react-router';
+import {createStore, applyMiddleware} from 'redux';
+import ShowLoginRegister from './containers/ShowLoginRegister'
 
 let store = createStore(reducer);
 
 ReactDom.render(
     <Provider store={store}>
-        <Login/>
+        <Router history={hashHistory}>
+            <Route path="/" components={ShowLoginRegister}>
+                <IndexRoute components={ShowLoginRegister}/>
+            </Route>
+        </Router>
     </Provider>
-    , document.getElementById('root')
-);
+    ,
+    document.getElementById('root')
+)
+;
 

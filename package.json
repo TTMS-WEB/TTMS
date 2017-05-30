@@ -14,6 +14,7 @@
     "extract-text-webpack-plugin": "^2.1.0",
     "mongoose": "^4.10.3",
     "nodemon": "^1.11.0",
+    "react-router": "^3.0.5",
     "superagent": "^3.5.2",
     "webpack": "^2.6.1"
   },

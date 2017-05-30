@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux'
-import counter from './counter'
+import FindUsers from './FindUsers'
+import Login from './Login';
+import ShowLogin from'./ShowLogin'
 
-//使用redux的combineReducers方法将所有reducer打包起来
-const rootReducer = combineReducers({
-    counter
+export default combineReducers({
+    FindUsers,
+    Login,
+    ShowLogin
 });
-
-export default rootReducer;
