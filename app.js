@@ -13,8 +13,8 @@ app.use('*', function (req, res) {
     res.sendFile(path.resolve('./public/index.html'));
 });
 
-app.listen(8080, function () {
-    console.log('server started at http://localhost:8080'); // eslint-disable-line no-console
+app.listen(3001, function () {
+    console.log('server started at http://localhost:3001'); // eslint-disable-line no-console
 });
 
 module.exports = app;
