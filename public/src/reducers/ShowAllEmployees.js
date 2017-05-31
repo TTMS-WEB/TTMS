@@ -1,7 +1,8 @@
-const ShowAllEmployees = (state = [], action) => {
+const ShowAllEmployees = (state= [], action) => {
     switch(action.type) {
         case 'SHOW_ALL_EMPLOYEES':
-            return action.content
+            return action.content;
+        break;
     }
     return state;
 };

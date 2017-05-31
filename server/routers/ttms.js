@@ -76,12 +76,11 @@ router.post('/exitUser', (req, res)=> {
     })
 });
 
-router.get('/allEmployees',(req,res)=>{
+router.get('/allEmployees',(req,res,next)=>{
     UserInfo.find({},(err,data)=>{
         if(err){
             return next(err);
         }
-        console.log(data);
         res.send(data);
     })
 });

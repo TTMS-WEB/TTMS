@@ -20,7 +20,8 @@ export default store=>next=>action=> {
                 .send({"username": action.content})
                 .end((err, res)=> {
                     next({type: 'USER_EXIT', content: res.text});
-                })
+                });
+            break;
     }
     next(action);
 }
