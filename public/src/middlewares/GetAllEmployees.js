@@ -6,6 +6,8 @@ export default store=>next=>action=>{
             request.get(`/ttms/allEmployees`)
                 .end((err,res) =>{
                     next({type:'SHOW_ALL_EMPLOYEES',content:res.body})
-                })
+                });
+            break;
     }
+    next(action);
 }

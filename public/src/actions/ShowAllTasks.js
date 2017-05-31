@@ -6,17 +6,17 @@ const stopRedirect = ()=> {
         type: 'STOP_REDIRECT'
     }
 };
-const loadUsername = ()=> {
-    return {
-        type: 'USERNAME_LOADED'
-    }
-};
+// const loadUsername = ()=> {
+//     return {
+//         type: 'USERNAME_LOADED'
+//     }
+// };
 const showTaskSub = (index)=> {
     return {type: 'SHOW_TASK_SUB',index}
 };
 module.exports = {
     showTaskAdd,
     stopRedirect,
-    loadUsername,
+    // loadUsername,
     showTaskSub
 };
