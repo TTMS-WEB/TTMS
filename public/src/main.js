@@ -13,10 +13,10 @@ import register from './middlewares/Register';
 import GetAllEmployees from './middlewares/GetAllEmployees';
 
 import App from './components/App';
-import Play from './components/Play'
 
 import ShowLoginRegister from './containers/ShowLoginRegister'
 import AllEmployees from './containers/AllEmployees';
+import Play from './containers/Play'
 
 const Middleware = applyMiddleware(thunkMiddleware, createLogger(), FindAllUsers, register, GetAllEmployees);
 
