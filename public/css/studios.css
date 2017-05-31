@@ -1,0 +1,22 @@
+.table-style {
+    color:white;
+}
+
+input:focus{
+    color:black;
+}
+
+.studios {
+    color: white;
+    font-size: medium;
+}
+
+.Studio{
+    background: rgba(0,0,0,0.5);
+}
+
+th {
+    text-align: center;
+    width: 25%;
+}
+
