@@ -7,6 +7,9 @@ class Employee extends Component {
 
     render() {
        console.log(this.props.ShowAllEmployees);
+        return <div>
+            123
+        </div>
     }
 }
 

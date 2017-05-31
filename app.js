@@ -2,11 +2,16 @@ import express from 'express';
 import path from 'path';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
 var app = express();
 
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(cookieParser());
 
 app.use(require('./server/routers'));
 

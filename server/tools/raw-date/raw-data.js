@@ -1,19 +1,28 @@
 export default {
     UserInfo: [
         {
+<<<<<<< HEAD
             _id: 1,
+=======
+>>>>>>> 1c3f29d234646e2a25afb6678970c9a57f3a2764
             username: 'li',
             password: '123456',
             phone: 123456789
         },
         {
+<<<<<<< HEAD
             _id: 2,
+=======
+>>>>>>> 1c3f29d234646e2a25afb6678970c9a57f3a2764
             username: 'huang',
             password: '123456',
             phone: 123456789
         },
         {
+<<<<<<< HEAD
             _id: 3,
+=======
+>>>>>>> 1c3f29d234646e2a25afb6678970c9a57f3a2764
             username: 'han',
             password: '123456',
             phone: 123456789
@@ -21,6 +30,7 @@ export default {
     ],
     PlayInfo: [
         {
+<<<<<<< HEAD
             playName: "致青春",
             playTime: "2hours",
             playType: "qingchu",
@@ -50,6 +60,21 @@ export default {
             _id: 3,
             cul: 10,
             row: 10
+=======
+            id:1,
+            col:10,
+            row:10
+        },
+        {
+            id:2,
+            col:10,
+            row:10
+        },
+        {
+            id:3,
+            col:10,
+            row:10
+>>>>>>> 1c3f29d234646e2a25afb6678970c9a57f3a2764
         }
     ]
 }

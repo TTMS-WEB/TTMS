@@ -5,6 +5,7 @@ export default store=>next=>action=>{
         case 'GET_STUDIOS':
             request.get(`/studios`)
                 .end((err,res) =>{
+                    console.log(res.body);
                     next({type:'ALL_STUDIOS',content:res.body})
                 });
             break;
