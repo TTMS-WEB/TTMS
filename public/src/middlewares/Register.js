@@ -3,7 +3,7 @@ import request from 'superagent';
 export default store=>next=>action=> {
     switch (action.type) {
         case 'REGISTER':
-            request.post('/ttms/register')
+            request.post('/register')
                 .send({
                     "username": action.content.username,
                     "password": action.content.password,
@@ -16,7 +16,7 @@ export default store=>next=>action=> {
                 });
             break;
         case 'IS_EXIT':
-            request.post('/ttms/exitUser')
+            request.post('/exitUser')
                 .send({"username": action.content})
                 .end((err, res)=> {
                     next({type: 'USER_EXIT', content: res.text});

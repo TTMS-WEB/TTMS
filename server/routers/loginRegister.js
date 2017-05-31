@@ -76,13 +76,4 @@ router.post('/exitUser', (req, res)=> {
     })
 });
 
-router.get('/allEmployees',(req,res,next)=>{
-    UserInfo.find({},(err,data)=>{
-        if(err){
-            return next(err);
-        }
-        res.send(data);
-    })
-});
-
 module.exports = router;
