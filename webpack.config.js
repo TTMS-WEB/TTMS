@@ -1,6 +1,3 @@
-/**
- * Created by lipeishang on 17-5-29.
- */
 var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
