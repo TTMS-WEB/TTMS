@@ -6,7 +6,7 @@ import cookieParser from 'cookie-parser';
 
 const router = express.Router();
 router.use(bodyParser.json());
-router.use(bodyParser.urlencoded({extended: false}));
+router.use(bodyParser.urlencoded({extended: true}));
 router.use(cookieParser());
 
 router.post('/register', (req, res,next)=> {
@@ -85,3 +85,5 @@ router.get('/allEmployees',(req,res)=>{
         res.send(data);
     })
 });
+
+module.exports = router;
