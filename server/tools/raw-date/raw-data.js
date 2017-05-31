@@ -35,5 +35,19 @@ export default {
             cul:10,
             row:10
         }
+    ],
+    Seat:[
+        {
+            _id:1,
+            locationX:2,
+            locationY:2,
+            status:-1
+        },
+        {
+            _id:2,
+            locationX:4,
+            locationY:4,
+            status:0
+        }
     ]
 }
