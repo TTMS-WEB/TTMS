@@ -8,5 +8,8 @@ export default class Studios extends Component {
     render() {
         const studios = this.props.GetStudios;
         console.log(studios);
+        return <div>
+            123
+        </div>
     }
 }
