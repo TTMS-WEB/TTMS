@@ -3,7 +3,7 @@ import request from 'superagent';
 export default store=>next=>action=> {
     switch (action.type) {
         case 'FIND_USERS':
-            request.get(`/ttms/users/${action.content}`)
+            request.get(`/users/${action.content}`)
                 .end((err, res)=> {
                     if (res.text) {
                         next({type: 'NOT_EXIT', content: res.text});
@@ -14,7 +14,7 @@ export default store=>next=>action=> {
                 });
             break;
         case 'IS_LEGAL':
-            request.post(`/ttms/isLegal/`)
+            request.post(`/isLegal/`)
                 .send(action.content)
                 .type('json')
                 .end((err, res) => {
