@@ -16,35 +16,30 @@ export default {
             phone: 123456789
         },
     ],
-    Studios:[
+    Studios: [
         {
-            id:1,
-            col:10,
-            row:10
+            id: 1,
+            col: 10,
+            row: 10
         },
         {
-            id:2,
-            col:10,
-            row:10
+            id: 2,
+            col: 10,
+            row: 10
         },
         {
-            id:3,
-            col:10,
-            row:10
+            id: 3,
+            col: 10,
+            row: 10
         }
     ],
-    Seat:[
+    Seat: [
         {
-            _id:1,
-            locationX:2,
-            locationY:2,
-            status:-1
-        },
-        {
-            _id:2,
-            locationX:4,
-            locationY:4,
-            status:0
+            studioId: 4,
+            seatArray: [{
+                key: {},
+                status: 0
+            }]
         }
     ]
 }

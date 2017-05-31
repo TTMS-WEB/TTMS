@@ -5,6 +5,7 @@ import ShowLogin from'./ShowLogin';
 import ShowAllEmployees from './ShowAllEmployees';
 import Seat from './Seat';
 import GetStudios from './GetStudios';
+import SeatInfo from './SeatInfo';
 
 export default combineReducers({
     FindUsers,
@@ -12,5 +13,6 @@ export default combineReducers({
     ShowLogin,
     ShowAllEmployees,
     Seat,
-    GetStudios
+    GetStudios,
+    SeatInfo
 });

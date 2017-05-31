@@ -3,13 +3,19 @@ import Seat from '../components/Seat';
 import actions from '../actions/Seat';
 
 const mapStateToProps = (state)=>{
-    return state;
+    return state
 };
 
 const mapDispatchToProps = (dispatch)=>{
     return{
-        onRowCol:(studioId)=>{
-            dispatch(actions.Seat(studioId));
+        getStudioInfo:()=>{
+          dispatch(actions.StudioInfo());
+        },
+        generateSeat:(studioId,seatArray)=>{
+            dispatch(actions.generateSeat(studioId,seatArray));
+        },
+        changeSeatStatus:(i,j)=>{
+            dispatch(actions.location(i,j))
         }
     }
 };

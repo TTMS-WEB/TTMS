@@ -1,9 +1,8 @@
-const Seat = (state=[],action)=>{
-    switch (action.type){
-        case 'GET_STUDIO_SEATS':
+const Seat = (state = [], action)=> {
+    switch (action.type) {
+        case 'SHOW_STUDIO_INFO':
             return action.content;
     }
-    console.log(state);
     return state;
 };
 
