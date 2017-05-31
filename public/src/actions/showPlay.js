@@ -1,5 +1,5 @@
 const showPlay = ()=>{
-    return {type:"SHOWPLAY"}
+    return {type:"FINDPLAY"}
 };
 
 module.exports = showPlay;

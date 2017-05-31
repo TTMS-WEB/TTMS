@@ -1,11 +1,15 @@
 import mongoose from 'mongoose';
 import rawData from './raw-date/raw-data';
 import UserInfo from '../models/UserInfo';
+import PlayInfo from '../models/playInfo';
+import Studios from '../models/Studios';
 
 mongoose.Promise = require('bluebird');
 
 const modelsMap = {
-    UserInfo
+    UserInfo,
+    Studios,
+    PlayInfo,
 };
 
 let docs = Object.keys(rawData);

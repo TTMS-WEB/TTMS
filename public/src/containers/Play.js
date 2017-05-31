@@ -1,17 +1,17 @@
 import {connect} from "react-redux";
 import Play from "../components/Play";
-import showPlay from '../actions/showPlay';
+import showPlay from "../actions/showPlay";
 
- const mapStateToProps = (state)=> {
-    return {playInfo: state.showPlay};
+const mapStateToProps = (state)=> {
+    return {playInfo: state.ShowPlay};
 };
 
-const dispatchToProps = (dispatch)=>{
+const dispatchToProps = (dispatch)=> {
     return {
-        showPlay:()=>{
+        showPlay: ()=> {
             dispatch(showPlay());
         }
     }
 }
 
-export default connect(mapStateToProps,dispatchToProps)(Play);
+export default connect(mapStateToProps, dispatchToProps)(Play);

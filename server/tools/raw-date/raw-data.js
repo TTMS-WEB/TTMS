@@ -19,7 +19,7 @@ export default {
             phone: 123456789
         },
     ],
-    playInfo: [
+    PlayInfo: [
         {
             playName: "致青春",
             playTime: "2hours",

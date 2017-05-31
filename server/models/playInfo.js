@@ -1,8 +1,7 @@
 import mongoose from 'mongoose';
 mongoose.Promise = require('bluebird');
 
-const UserInfo = mongoose.model('UserInfo',{
-    _id:Number,
+const PlayInfo = mongoose.model('PlayInfo',{
     playName:String,
     playTime:String,
     playType:String,
@@ -10,4 +9,4 @@ const UserInfo = mongoose.model('UserInfo',{
     playPrice:String
 });
 
-export default UserInfo;
+export default PlayInfo;
