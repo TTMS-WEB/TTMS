@@ -1,13 +1,7 @@
 import express from 'express';
 import UserInfo from '../models/UserInfo';
-import bodyParser from 'body-parser';
-import cookieParser from 'cookie-parser';
-
 
 const router = express.Router();
-router.use(bodyParser.json());
-router.use(bodyParser.urlencoded({extended: true}));
-router.use(cookieParser());
 
 router.post('/register', (req, res,next)=> {
     let userInfo = new UserInfo(req.body);
