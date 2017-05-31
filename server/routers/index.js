@@ -1,8 +1,9 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 router.use('/',require('./loginRegister'));
 router.use('/',require('./studios'));
 router.use('/',require('./employees'));
+router.use('/',require('./showPlay'));
 
 module.exports = router;
