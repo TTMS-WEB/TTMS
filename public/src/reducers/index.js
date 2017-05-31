@@ -4,11 +4,15 @@ import Login from './Login';
 import ShowLogin from'./ShowLogin';
 import ShowAllEmployees from './ShowAllEmployees';
 import showPlay from './showPlay';
+import Seat from './Seat';
+import GetStudios from './GetStudios';
 
 export default combineReducers({
     FindUsers,
     Login,
     ShowLogin,
     ShowAllEmployees,
-    showPlay
+    showPlay,
+    Seat,
+    GetStudios
 });

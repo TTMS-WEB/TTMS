@@ -6,19 +6,23 @@ import {createStore, applyMiddleware} from 'redux';
 import {createLogger} from 'redux-logger';
 import  thunkMiddleware from 'redux-thunk';
 
-import reducer from './reducers/index.js';
-
-import FindAllUsers from './middlewares/FindUsers';
-import register from './middlewares/Register';
-import GetAllEmployees from './middlewares/GetAllEmployees';
-
 import App from './components/App';
 
 import ShowLoginRegister from './containers/ShowLoginRegister'
 import AllEmployees from './containers/AllEmployees';
 import Play from './containers/Play'
+import Seat from './containers/Seat';
+import GetStudios from './containers/Studios';
 
-const Middleware = applyMiddleware(thunkMiddleware, createLogger(), FindAllUsers, register, GetAllEmployees);
+import reducer from './reducers/index.js';
+
+import login from './middlewares/FindUsers';
+import register from './middlewares/Register';
+import allEmployees from './middlewares/GetAllEmployees';
+import seat from './middlewares/Seat';
+import getStudios from './middlewares/GetStudios';
+
+const Middleware = applyMiddleware(thunkMiddleware, createLogger(), login, register, allEmployees,seat,getStudios);
 
 let store = createStore(reducer, Middleware);
 
@@ -29,6 +33,8 @@ ReactDom.render(
                 <IndexRoute component={ShowLoginRegister}/>
                 <Route path="/employees" component={AllEmployees}/>
                 <Route path="play" component={Play}/>
+                <Route path="/seat" component={Seat}/>
+                <Route path="/studios" component={GetStudios}/>
             </Route>
         </Router>
     </Provider>

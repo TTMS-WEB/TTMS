@@ -1,11 +1,11 @@
 import request from 'superagent';
 
 export default store=>next=>action=>{
-    switch(action.type){
-        case 'GET_ALL_EMPLOYEES':
-            request.get(`/allEmployees`)
+    switch(action.type) {
+        case 'GET_STUDIOS':
+            request.get(`/studios`)
                 .end((err,res) =>{
-                    next({type:'SHOW_ALL_EMPLOYEES',content:res.body})
+                    next({type:'ALL_STUDIOS',content:res.body})
                 });
             break;
     }

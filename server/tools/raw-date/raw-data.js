@@ -34,6 +34,23 @@ export default {
             playActor: "刘涛",
             playPrice: 30
         }
+    ],
+    Studios: [
+        {
+            _id: 1,
+            cul: 10,
+            row: 10
+        },
+        {
+            _id: 2,
+            cul: 10,
+            row: 10
+        },
+        {
+            _id: 3,
+            cul: 10,
+            row: 10
+        }
     ]
 }
 

@@ -1,7 +1,6 @@
 import express from 'express';
 import path from 'path';
 import mongoose from 'mongoose';
-import regRouter from './server/routers/regRouter';
 import bodyParser from 'body-parser';
 var app = express();
 
@@ -9,7 +8,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-regRouter(app);
+app.use(require('./server/routers'));
 
 mongoose.connect('mongodb://localhost:27017/ttms');
 
