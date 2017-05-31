@@ -2,11 +2,12 @@ import mongoose from 'mongoose';
 import rawData from './raw-date/raw-data';
 import UserInfo from '../models/UserInfo';
 import Seat from '../models/Seat';
+import Studios from '../models/Studios';
 
 mongoose.Promise = require('bluebird');
 
 const modelsMap = {
-    UserInfo,Seat
+    UserInfo,Seat,Studios
 };
 
 let docs = Object.keys(rawData);

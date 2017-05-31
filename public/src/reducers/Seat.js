@@ -1,8 +1,9 @@
 const Seat = (state=[],action)=>{
     switch (action.type){
-        case '':
+        case 'GET_STUDIO_SEATS':
             return action.content;
     }
+    console.log(state);
     return state;
 };
 

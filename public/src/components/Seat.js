@@ -5,7 +5,9 @@ export default class Seat extends Component{
         const studioId = $("#studioId").val();
         this.props.onRowCol(studioId);
     }
+
     render(){
+        console.log(this.props.Seat);
 
         return<div>
             <div className="col-lg-3">

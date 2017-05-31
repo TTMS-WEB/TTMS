@@ -4,4 +4,6 @@ const getStudios = () =>{
     }
 };
 
-export default getStudios;
+module.exports = {
+    getStudios
+};
