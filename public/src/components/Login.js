@@ -38,12 +38,12 @@ class Login extends Component {
     }
 
     /*登录成功跳转到首页*/
-    componentWillUpdate(nextProps) {
-        if (nextProps.Login.isLogged != "密码错误，请重新登陆！"){
-            this.props.router.push('/');
-            // this.props.loadUsername();
-        }
-    }
+    // componentWillUpdate(nextProps) {
+    //     if (nextProps.Login.isLogged != "密码错误，请重新登陆！"){
+    //         this.props.router.push('/');
+    //         // this.props.loadUsername();
+    //     }
+    // }
 
     render() {
         return (
