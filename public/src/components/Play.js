@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 
 export default class Play extends Component {
-    // componentWillMount(){
-    //    this.props.showPlay();
-    // }
+    componentWillMount(){
+       this.props.showPlay();
+    }
     render() {
         const playInfo = this.props.playInfo;
         const playlist = playInfo.map((val,index)=>{
