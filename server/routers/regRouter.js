@@ -1,5 +1,5 @@
 const regRouter = (app)=> {
-    app.use('/ttms', require('./ttms'));
+    app.use('/ttms', require('./index'));
 };
 
 export default regRouter;
