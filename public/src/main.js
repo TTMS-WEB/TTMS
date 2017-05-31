@@ -19,14 +19,13 @@ let store = createStore(reducer, Middleware);
 ReactDom.render(
     <Provider store={store}>
         <Router history={hashHistory}>
-            <Route path="/" components={App}>
-                <IndexRoute components={ShowLoginRegister}/>
-                <Route path="/employees" components={AllEmployees}/>
+            <Route path="/" component={App}>
+                <IndexRoute component={ShowLoginRegister}/>
+                <Route path="/employees" component={AllEmployees}/>
             </Route>
         </Router>
     </Provider>
     ,
     document.getElementById('root')
-)
-;
+);
 

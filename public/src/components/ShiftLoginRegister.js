@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Register from '../containers/Register';
-import Login from '../containers/FindUsers';
+import Login from '../containers/Login';
 
 export default class LoginRegisterStyle extends Component {
     componentWillMount(){
