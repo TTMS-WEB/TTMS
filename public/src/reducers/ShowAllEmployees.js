@@ -8,4 +8,4 @@ const ShowAllEmployees = (state= [], action) => {
     return state;
 };
 
-export default ShowAllEmployees
+export default ShowAllEmployees;
