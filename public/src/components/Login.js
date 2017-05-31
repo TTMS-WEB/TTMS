@@ -41,7 +41,7 @@ class Login extends Component {
     componentWillUpdate(nextProps) {
         if (nextProps.Login.isLogged != "密码错误，请重新登陆！"){
             this.props.router.push('/');
-            this.props.loadUsername();
+            // this.props.loadUsername();
         }
     }
 

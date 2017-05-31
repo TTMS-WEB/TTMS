@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import Login from '../components/Login';
-import actions from '../actions/FindUsers';
+import actions from '../actions/Login';
 import {withRouter} from 'react-router';
 import ShowAllTasks from '../actions/ShowAllTasks';
 
