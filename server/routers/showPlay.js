@@ -15,7 +15,10 @@ router.get('/showPlay', (req, res, next)=> {
 router.post('/addPlay', (req, res, next)=> {
     const playInfo = new PlayInfo(req.body);
     PlayInfo.findOne({playName: playInfo.playName}, (err, result)=> {
-        if (!result) {
+        if (err) {
+            return next(err);
+        }
+        else if (!result) {
             playInfo.save((err, addPlayInfo)=> {
                 if (!err) {
                     res.send({addResult: true, addPlayInfo});
@@ -32,9 +35,23 @@ router.post('/addPlay', (req, res, next)=> {
 });
 
 router.post('/searchPlay', (req, res, next)=> {
-    PlayInfo.find({playName:req.body.searchPlayName},(err,resultPlay)=>{
-        res.send(resultPlay);
-    });
+    if (req.body.searchPlayName === '') {
+        PlayInfo.find({}, (err, result)=> {
+            res.send(result);
+        })
+    }
+    else {
+        PlayInfo.find({playName: req.body.searchPlayName}, (err, resultPlay)=> {
+            if (err) {
+                return next(err);
+            }
+            else {
+                res.send(resultPlay);
+            }
+
+        })
+    }
+    ;
 });
 
 
