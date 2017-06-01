@@ -10,8 +10,28 @@ const addPlay = (newPlay)=> {
         playPrice: newPlay.playPrice,
         playType: newPlay.playType
     }
-}
+};
 
+const searchPlay = (searchPlayName)=>{
+    return {
+        type:"SEARCHPLAY",
+        searchPlayName,
+    }
+};
+
+const removePlay = (deletePlayName)=>{
+    return{
+        type:'REMOVEPLAY',
+        deletePlayName
+    }
+};
+
+const modifyPlay = (newPlay) =>{
+    return {
+        type:"MODIFYPLAY",
+        newPlay
+    }
+}
 module.exports = {
-    showPlay, addPlay
+    showPlay, addPlay,searchPlay,removePlay,modifyPlay
 };

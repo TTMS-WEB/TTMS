@@ -13,6 +13,15 @@ const dispatchToProps = (dispatch)=> {
         },
         addPlay: (newPlay)=> {
             dispatch(play.addPlay(newPlay))
+        },
+        searchPlay:(searchPlayName)=>{
+            dispatch(play.searchPlay(searchPlayName))
+        },
+        removePlay:(deletePlayName)=>{
+            dispatch(play.removePlay(deletePlayName))
+        },
+        modifyPlay:(newPlay)=>{
+            dispatch(play.modifyPlay(newPlay))
         }
     }
 };

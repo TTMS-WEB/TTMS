@@ -1,4 +1,4 @@
-const SeatInfo = (state = {}, action)=> {
+const SeatInfo = (state = {studioId:'',seatArray:[]}, action)=> {
     switch (action.type) {
         case 'GET_STUDIO_SEATS':
             return action.content;
