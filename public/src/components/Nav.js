@@ -27,17 +27,16 @@ export default class Nav extends Component {
                         <ul id="main-nav" className="nav nav-tabs nav-stacked">
                             <li className="">
                                 <Link to="/studios">
-                                    <span className="studiomanage"> </span>
                                     演出厅管理
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/seat" className="nav-header collapsed" data-toggle="collapse">
+                                <Link to="/seat">
                                     座位管理
                                 </Link>
                             </li>
                             <li>
-                                <a href="#" className="nav-header collapsed" data-toggle="collapse">
+                                <a href="#">
                                     票务管理
                                 </a>
                             </li>
@@ -52,14 +51,9 @@ export default class Nav extends Component {
                                 </Link>
                             </li>
                             <li>
-                                <a href="./charts.html">
-                                    公告管理
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
+                                <Link to="/">
                                     退出系统
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>

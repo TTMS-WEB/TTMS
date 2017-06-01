@@ -6,7 +6,7 @@ import Nav from '../containers/Nav';
 export default class App extends Component {
     render() {
         return <div>
-            <div>
+            <div className="nav-left">
                 <Nav/>
             </div>
             <div className="col-md-10 content">
