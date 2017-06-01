@@ -14,6 +14,9 @@ const mapDispatchToProps = (dispatch) =>{
         deleteStudio:(id)=>{
             dispatch(actions.deleteStudio(id))
         },
+        modifyStudio:(id,studioName,studioInfo,row,col)=>{
+            dispatch(actions.modifyStudio(id,studioName,studioInfo,row,col));
+        },
     }
 };
 

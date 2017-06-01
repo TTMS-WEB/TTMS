@@ -28,6 +28,16 @@ export default store=>next=>action=>{
                     store.dispatch({type:'GET_STUDIOS'})
                 });
             break;
+        case 'MODIFY_STUDIO':
+            request.post(`/modifyStudio`)
+                .send({
+                    "id":action.id,
+                    "studioName":action.studioName,
+                    "studioInfo":action.studioInfo,"row":action.row,"col":action.col})
+                .end((err,res)=>{
+                    store.dispatch({type:'GET_STUDIOS'})
+                });
+            break;
     }
     next(action);
 }

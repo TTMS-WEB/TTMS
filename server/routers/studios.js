@@ -40,5 +40,23 @@ router.delete('/delete/studio/:id', (req, res)=> {
         res.send("succeed");
     });
 });
+router.post('/modifyStudio',(req,res,next)=>{
+    let studio = req.body;
+    console.log(studio);
+    let id = Number(studio.id);
+    Studios.update({id:id},
+        {
+            'studioName':studio.studioName ,
+            'studioInfo': studio.studioInfo,
+            'col': studio.col,
+            'row': studio.row
+        },
+        (err)=>{
+        if(err){
+            return next(err);
+        }
+        res.status(201).end();
+    })
+});
 
 module.exports = router;
