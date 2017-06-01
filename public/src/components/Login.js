@@ -44,10 +44,11 @@ class Login extends Component {
         $("#tip1").text('');
     }
 
-    shouldComponentUpdate(nextProps) {
+    shouldComponentUpdate() {
         if (this.refs.input.value) {
-            return false;
+            return true;
         }
+        return false;
     }
 
     /*登录成功跳转到首页*/

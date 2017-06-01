@@ -2,18 +2,24 @@ export default {
     UserInfo: [
         {
             username: 'li',
+            sex:'女',
             password: '123456',
-            phone: 123456789
+            phone: 123456789,
+            address:'北京'
         },
         {
             username: 'huang',
+            sex:'女',
             password: '123456',
-            phone: 123456789
+            phone: 123456789,
+            address:'北京'
         },
         {
             username: 'han',
+            sex:'女',
             password: '123456',
-            phone: 123456789
+            phone: 123456789,
+            address:'北京'
         },
     ],
     PlayInfo: [
