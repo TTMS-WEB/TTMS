@@ -37,6 +37,11 @@ export default class Nav extends Component {
                                 </Link>
                             </li>
                             <li>
+                                <a href="#" className="nav-header collapsed" data-toggle="collapse">
+                                    票务管理
+                                </a>
+                            </li>
+                            <li>
                                 <Link to="/employees">
                                     员工管理
                                 </Link>
