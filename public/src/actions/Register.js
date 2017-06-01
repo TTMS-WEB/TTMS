@@ -9,6 +9,11 @@ const register = (content)=> {
         type: "REGISTER",
         content: content
     }
-
 };
-module.exports = {isExit, register};
+
+const getId = ()=>{
+    return {
+        type:"GET_ID",
+    }
+};
+module.exports = {isExit, register,getId};

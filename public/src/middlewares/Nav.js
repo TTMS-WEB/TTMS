@@ -5,7 +5,6 @@ export default store=>next=>action=> {
             request.get('/legal-username')
                 .end((err,res)=>{
                     if(!err&&res.text){
-                        console.log(res.text);
                         next({type: 'USERNAME_GOT', data: res.text})
                     }
                 });

@@ -7,7 +7,9 @@ export default store=>next=>action=> {
                 .send({
                     "username": action.content.username,
                     "password": action.content.password,
-                    "regtime": moment().format('YYYY-MM-DD HH:mm:ss')
+                    "sex": action.content.sex,
+                    "phone": action.content.phone,
+                    "address": action.content.address,
                 })
                 .end((err, res)=> {
                     if (res.statusCode == 201) {
@@ -22,6 +24,11 @@ export default store=>next=>action=> {
                     next({type: 'USER_EXIT', content: res.text});
                 });
             break;
+        case 'GET_ID':
+            request.get('/getId')
+                .end((err,res)=>{
+                    next({type:"THE_ID",content:res.text})
+                })
     }
     next(action);
 }

@@ -3,8 +3,10 @@ mongoose.Promise = require('bluebird');
 
 const UserInfo = mongoose.model('UserInfo',{
     username:String,
+    sex:String,
     password:String,
-    phone:Number
-})
+    phone:Number,
+    address:String
+});
 
 export default UserInfo;

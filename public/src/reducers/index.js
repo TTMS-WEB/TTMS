@@ -8,6 +8,8 @@ import Seat from './Seat';
 import GetStudios from './GetStudios';
 import Nav from './Nav';
 import SeatInfo from './SeatInfo';
+import Register from './Register';
+import GetRegisterId from './GetRegisterId';
 import SeatStatus from './SeatStatus';
 
 export default combineReducers({
@@ -19,5 +21,7 @@ export default combineReducers({
     Seat,
     GetStudios,
     SeatInfo,
+    Register,
+    GetRegisterId,
     Nav,
 });

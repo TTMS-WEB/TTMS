@@ -20,6 +20,11 @@ th {
     width: 25%;
 }
 
+.th {
+    text-align: center;
+    width: 17%;
+}
+
 .footer-style{
     position: fixed;
     bottom: 3%;

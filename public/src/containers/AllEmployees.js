@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import Employee from '../components/Employee';
+import AddEmployee from '../components/AddEmployee';
 import actions from '../actions/GetAllEmployees';
 
 const mapStateToProps = (state) =>{
@@ -10,8 +10,11 @@ const mapDispatchToProps = (dispatch) =>{
     return {
         getAllEmployees:()=>{
             dispatch(actions.getAllEmployees())
+        },
+        deleteEmployee:(name)=>{
+            dispatch(actions.deleteEmployee(name));
         }
     }
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(Employee);
+export default connect(mapStateToProps,mapDispatchToProps)(AddEmployee);
