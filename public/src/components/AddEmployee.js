@@ -1,9 +1,13 @@
-import Employees from '../components/Employee';
+import Employees from '../containers/SearchEmployee';
 import React,{Component} from 'react';
 
 export default class AddEmployees extends Component{
     componentWillMount() {
         this.props.getAllEmployees();
+    }
+
+    deleteEmployee(name) {
+        this.props.deleteEmployee(name);
     }
 
     render() {
@@ -23,7 +27,7 @@ export default class AddEmployees extends Component{
                             <th className="th">{phone}</th>
                             <th className="th">{address}</th>
                             <th className="th">
-                                <button className="btn btn-danger">删除</button>
+                                <button className="btn btn-danger" onClick={this.deleteEmployee.bind(this,name)}>删除</button>
                             </th>
                         </tr>
                         </thead>

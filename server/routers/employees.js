@@ -20,4 +20,24 @@ router.get('/legal-username', (req, res, next)=> {
     }
 });
 
+router.get('/searchEmployee/:employeeName',(req,res,next)=>{
+    let employeeName = req.params.employeeName;
+    UserInfo.find({username:employeeName},(err,data)=>{
+        if(err){
+            next(err)
+        }
+        res.send(data);
+    })
+});
+
+router.delete('/deleteEmployee/:name', (req, res)=> {
+    UserInfo.findOneAndRemove({username: req.params.name}, (err, data)=> {
+        if (err) {
+            console.log(err.message);
+        }
+        res.send("succeed");
+    });
+});
+
+
 module.exports = router;

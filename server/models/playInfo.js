@@ -3,10 +3,10 @@ mongoose.Promise = require('bluebird');
 
 const PlayInfo = mongoose.model('PlayInfo',{
     playName:String,
-    playTime:String,
+    playTime:Number,
     playType:String,
     playActor:String,
-    playPrice:String
+    playPrice:Number
 });
 
 export default PlayInfo;

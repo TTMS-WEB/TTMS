@@ -25,24 +25,24 @@ export default {
     PlayInfo: [
         {
             playName: "致青春",
-            playTime: "120 minitues",
+            playTime: 120,
             playType: "爱情片",
             playActor: "赵薇",
-            playPrice: '30 元'
+            playPrice: 30
         },
         {
             playName: "欢乐颂",
-            playTime: '120 minitues',
+            playTime: 120,
             playType: "爱情片",
             playActor: "刘涛",
-            playPrice: '38 元'
+            playPrice: 38
         },
         {
             playName: "白鹿原",
-            playTime: '120 minitues',
+            playTime: 120,
             playType: "历史片",
             playActor: "张嘉译",
-            playPrice: '50 元'
+            playPrice: 50
         }
     ],
     Studios: [
