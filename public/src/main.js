@@ -31,13 +31,13 @@ let store = createStore(reducer, Middleware);
 ReactDom.render(
     <Provider store={store}>
         <Router history={hashHistory}>
-            <Route path="/" component={App}>
-                <IndexRoute component={GetStudios}/>
+            <Route path="/app" component={App}>
                 <Route path="/employees" component={AllEmployees}/>
-                <Route path="play" component={Play}/>
+                <Route path="/studios" component={GetStudios}/>
+                <Route path="/play" component={Play}/>
                 <Route path="/seat" component={Seat}/>
             </Route>
-            <Route path="/login" component={ShowLoginRegister}/>
+            <Route path="/" component={ShowLoginRegister}/>
         </Router>
     </Provider>
     ,

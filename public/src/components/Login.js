@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
 class Login extends Component {
+    constructor() {
+        super();
+        this.state = {
+           isLogged: "密码错误，请重新登陆！"
+        }
+    }
+
     verifyUser() {
         $("#tip").text("");
         const username = this.refs.input.value;
@@ -37,10 +44,16 @@ class Login extends Component {
         $("#tip1").text('');
     }
 
+    shouldComponentUpdate(nextProps) {
+        if (this.refs.input.value) {
+            return false;
+        }
+    }
+
     /*登录成功跳转到首页*/
     componentWillUpdate(nextProps) {
         if (nextProps.Login.isLogged != "密码错误，请重新登陆！"){
-            this.props.router.push('/');
+            this.props.router.push('/studios');
         }
     }
 

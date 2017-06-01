@@ -18,7 +18,6 @@ export default class Nav extends Component {
                     </div>
                     <span className="token">
                         <Link to="/userCenter" className={username?'':'hidden'}>{username}</Link>
-                        <Link to="/login"  className={username===''?'':'hidden'}>登陆|注册</Link>
                         </span>
                 </div>
             </div>
@@ -61,7 +60,7 @@ export default class Nav extends Component {
                             </li>
                             <li>
                                 <a href="#">
-                                    关于系统
+                                    退出系统
                                 </a>
                             </li>
                         </ul>

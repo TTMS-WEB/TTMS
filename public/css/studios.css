@@ -21,9 +21,10 @@ th {
 }
 
 .footer-style{
-    float: right;
+    position: fixed;
+    bottom: 3%;
+    left:40%;
     color:white;
-    margin-right: 35%;
 }
 
 .content {

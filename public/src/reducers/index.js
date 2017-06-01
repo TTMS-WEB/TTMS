@@ -18,5 +18,5 @@ export default combineReducers({
     Seat,
     GetStudios,
     Nav,
-    SeatInfo
+    SeatInfo,
 });
