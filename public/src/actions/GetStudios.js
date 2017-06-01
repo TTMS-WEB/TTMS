@@ -19,15 +19,17 @@ const searchStudio = (id) =>{
     }
 };
 
+
 const deleteStudio = (id) =>{
     return {
         type:'DELETE_STUDIO',
         id
     }
 };
+
 module.exports = {
     getStudios,
     addStudio,
     searchStudio,
-    deleteStudio
+    deleteStudio,
 };

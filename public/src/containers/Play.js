@@ -1,17 +1,29 @@
 import {connect} from "react-redux";
 import Play from "../components/Play";
-import showPlay from "../actions/showPlay";
+import play from "../actions/play";
 
 const mapStateToProps = (state)=> {
-    return {playInfo: state.ShowPlay};
+    return {play: state.ShowPlay};
 };
 
 const dispatchToProps = (dispatch)=> {
     return {
         showPlay: ()=> {
-            dispatch(showPlay());
+            dispatch(play.showPlay());
+        },
+        addPlay: (newPlay)=> {
+            dispatch(play.addPlay(newPlay))
+        },
+        searchPlay:(searchPlayName)=>{
+            dispatch(play.searchPlay(searchPlayName))
+        },
+        removePlay:(deletePlayName)=>{
+            dispatch(play.removePlay(deletePlayName))
+        },
+        modifyPlay:(newPlay)=>{
+            dispatch(play.modifyPlay(newPlay))
         }
     }
-}
+};
 
 export default connect(mapStateToProps, dispatchToProps)(Play);

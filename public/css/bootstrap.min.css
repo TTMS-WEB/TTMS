@@ -1370,7 +1370,7 @@ a {
 }
 
 a:focus, a:hover {
-    color:crimson;
+    color:#fc8c84;
     cursor: pointer;
     /*text-decoration: underline*/
 }
@@ -1849,8 +1849,8 @@ pre code {
 }
 
 .container-fluid {
-    padding-right: 15px;
-    padding-left: 15px;
+    /*padding-right: 15px;*/
+    /*padding-left: 15px;*/
     margin-right: auto;
     margin-left: auto
 }
@@ -1863,8 +1863,8 @@ pre code {
 .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
     position: relative;
     min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px
+    /*padding-right: 15px;*/
+    /*padding-left: 15px*/
 }
 
 .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
@@ -3693,28 +3693,28 @@ a.btn.disabled, fieldset[disabled] a.btn {
 
 .btn-link {
     font-weight: 400;
-    color: #337ab7;
+    color: #2B2922;
     border-radius: 0
 }
 
 .btn-link, .btn-link.active, .btn-link:active, .btn-link[disabled], fieldset[disabled] .btn-link {
-    background-color: transparent;
+    background-color: #1b6d85;
     -webkit-box-shadow: none;
     box-shadow: none
 }
 
 .btn-link, .btn-link:active, .btn-link:focus, .btn-link:hover {
-    border-color: transparent
+    border-color: #1b6d85
 }
 
 .btn-link:focus, .btn-link:hover {
-    color: #23527c;
+    color: #2B2922;
     text-decoration: underline;
-    background-color: transparent
+    background-color: #1b6d85
 }
 
 .btn-link[disabled]:focus, .btn-link[disabled]:hover, fieldset[disabled] .btn-link:focus, fieldset[disabled] .btn-link:hover {
-    color: #777;
+    color: #1b6d85;
     text-decoration: none
 }
 
@@ -4287,7 +4287,7 @@ select[multiple].input-group-sm > .form-control, select[multiple].input-group-sm
 
 .nav > li > a:focus, .nav > li > a:hover {
     text-decoration: none;
-    background-color: #eee
+    background-color: #f9f2f4;
 }
 
 .nav > li.disabled > a {
@@ -4318,7 +4318,7 @@ select[multiple].input-group-sm > .form-control, select[multiple].input-group-sm
 }
 
 .nav-tabs {
-    border-bottom: 1px solid #ddd
+    /*border-bottom: 1px solid #ddd*/
 }
 
 .nav-tabs > li {

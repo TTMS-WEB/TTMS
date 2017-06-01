@@ -59,7 +59,7 @@ export default class Register extends Component {
 
     render() {
         return <div>
-            <div className="row content">
+            <div className="row content1">
                 <div className="col-md-10 col-md-offset-7" id="inputGroup">
                     <input type="text" ref="username" className="form-control" id="img1" placeholder="用户名"
                            onFocus={this.focusUsername.bind(this)} onBlur={this.verifyUsername.bind(this)}/>

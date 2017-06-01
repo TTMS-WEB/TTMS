@@ -1,0 +1,8 @@
+.playInfo table{
+    color: #7896b4;
+}
+
+.playInfo table tr th,td{
+    text-align: left;
+    width: 10%;
+}

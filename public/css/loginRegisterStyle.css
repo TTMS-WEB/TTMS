@@ -12,6 +12,10 @@ body {
     margin-top: -280px;
 }
 
+.content1{
+    margin-top: -280px;
+}
+
 #carousel1{
     border-radius: 25px;
     background: rgba(0,0,0,0.5);
@@ -48,8 +52,9 @@ input{
     text-indent: 17px;
 }
 input:focus {
-    color: white;
+    color: black;
 }
+
 #img1
 {
     background: url(../images/user.png) no-repeat;
@@ -75,4 +80,3 @@ input:focus {
 #tip,#tip1,#usernameTip,#passwordTip,#repeatTip {
     color: red;
 }
-

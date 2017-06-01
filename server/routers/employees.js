@@ -12,4 +12,12 @@ router.get('/allEmployees',(req,res,next)=>{
     })
 });
 
+router.get('/legal-username', (req, res, next)=> {
+    if (req.cookies.username) {
+        res.send(req.cookies.username);
+    } else {
+        res.status(403).send('');
+    }
+});
+
 module.exports = router;

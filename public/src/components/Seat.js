@@ -30,11 +30,9 @@ export default class Seat extends Component {
         this.props.changeSeatStatus(studioId, i);
         let backgroundColor = document.getElementById(`seat${i}`).style.backgroundColor;
         if (backgroundColor == "rosybrown"){
-            console.log(1);
             $("#seat" + i).css("background-color", "forestgreen");
         }
         else{
-            console.log(2);
             $("#seat" + i).css("background-color", "rosybrown");
         }
     }

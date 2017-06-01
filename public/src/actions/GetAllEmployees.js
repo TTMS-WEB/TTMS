@@ -4,6 +4,13 @@ const getAllEmployees = () =>{
     }
 };
 
+const loadUsername = ()=> {
+    return {
+        type: 'USERNAME_LOADED'
+    }
+};
+
 module.exports = {
-    getAllEmployees
+    getAllEmployees,
+    loadUsername
 };

@@ -14,7 +14,7 @@ export default store=>next=>action=> {
                 });
             break;
         case 'IS_LEGAL':
-            request.post(`/isLegal/`)
+            request.post(`/isLegal`)
                 .send(action.content)
                 .type('json')
                 .end((err, res) => {
