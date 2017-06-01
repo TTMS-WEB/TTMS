@@ -165,7 +165,7 @@ input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-se
 fieldset {
     padding: .35em .625em .75em;
     margin: 0 2px;
-    border: 1px solid silver
+    /*border: 1px solid silver*/
 }
 
 legend {
@@ -217,7 +217,7 @@ td, th {
     }
 
     blockquote, pre {
-        border: 1px solid #999;
+        /*border: 1px solid #999;*/
         page-break-inside: avoid
     }
 
@@ -251,7 +251,7 @@ td, th {
     }
 
     .label {
-        border: 1px solid #000
+        /*border: 1px solid #000*/
     }
 
     .table {
@@ -263,7 +263,7 @@ td, th {
     }
 
     .table-bordered td, .table-bordered th {
-        border: 1px solid #ddd !important
+        /*border: 1px solid #ddd !important*/
     }
 }
 
@@ -2730,7 +2730,7 @@ th {
     padding: 8px;
     line-height: 1.42857143;
     vertical-align: top;
-    border-top: 1px solid #ddd
+    /*border-top: 1px solid #ddd*/
 }
 
 .table > thead > tr > th {
@@ -2755,11 +2755,11 @@ th {
 }
 
 .table-bordered {
-    border: 1px solid #ddd
+    /*border: 1px solid #ddd*/
 }
 
 .table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
-    border: 1px solid #ddd
+    /*border: 1px solid #ddd*/
 }
 
 .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
@@ -5849,15 +5849,16 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:focus, a.list-g
 
 .panel {
     margin-bottom: 20px;
-    background-color: #fff;
-    border: 1px solid transparent;
+    background: rgba(0,0,0,0);
+    /*border: 1px solid transparent;*/
     border-radius: 4px;
-    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, .05)
+    /*-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);*/
+    /*box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5)*/
 }
 
 .panel-body {
-    padding: 15px
+    padding: 15px;
+    padding-bottom: 0px;
 }
 
 .panel-heading {

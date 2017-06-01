@@ -1,10 +1,25 @@
-const Seat = (studioId)=> {
+const StudioInfo = ()=> {
     return {
-        type:'GET_ROW_COL',
-        studioId
+        type: 'GET_STUDIO_INFO'
+    }
+};
+
+const generateSeat = (studioId,seatArray)=> {
+    return {
+        type: 'GENERATE_SEAT',
+        studioId,seatArray
+    }
+};
+const location = (i, j)=> {
+    return {
+        type: 'CHANGE_SEAT_STATUS',
+        i,
+        j
     }
 };
 
 module.exports = {
-    Seat
+    StudioInfo,
+    generateSeat,
+    location
 };
