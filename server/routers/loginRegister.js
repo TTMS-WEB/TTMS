@@ -70,4 +70,24 @@ router.post('/exitUser', (req, res)=> {
     })
 });
 
+router.post('/isLegal', (req, res) => {
+    const username = req.body.username;
+    const psw = req.body.psw;
+    UserInfo.findOne({username: username}, (err, data)=> {
+        if (err) {
+            return next(err);
+        }
+        if (data) {
+            if (psw !== data.password) {
+                res.send("密码错误，请重新登陆！");
+            }
+            else {
+                res.cookie('username', username, {path: '/'});
+
+                res.send("");
+            }
+        }
+    });
+});
+
 module.exports = router;

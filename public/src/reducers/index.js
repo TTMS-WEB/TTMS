@@ -6,6 +6,7 @@ import ShowAllEmployees from './ShowAllEmployees';
 import ShowPlay from './showPlay';
 import Seat from './Seat';
 import GetStudios from './GetStudios';
+import Nav from './Nav';
 
 export default combineReducers({
     FindUsers,
@@ -14,5 +15,6 @@ export default combineReducers({
     ShowAllEmployees,
     ShowPlay,
     Seat,
-    GetStudios
+    GetStudios,
+    Nav
 });

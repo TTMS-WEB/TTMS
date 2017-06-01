@@ -22,8 +22,9 @@ import allEmployees from './middlewares/GetAllEmployees';
 import seat from './middlewares/Seat';
 import getStudios from './middlewares/GetStudios';
 import showPlay from './middlewares/showPlay';
+import nav from './middlewares/Nav';
 
-const Middleware = applyMiddleware(thunkMiddleware, createLogger(), login, register, allEmployees,seat,getStudios,showPlay);
+const Middleware = applyMiddleware(thunkMiddleware, createLogger(), login, register, allEmployees,seat,getStudios,showPlay,nav);
 
 let store = createStore(reducer, Middleware);
 
@@ -31,11 +32,11 @@ ReactDom.render(
     <Provider store={store}>
         <Router history={hashHistory}>
             <Route path="/" component={App}>
-                <IndexRoute component={ShowLoginRegister}/>
+                <IndexRoute component={GetStudios}/>
                 <Route path="/employees" component={AllEmployees}/>
                 <Route path="play" component={Play}/>
                 <Route path="/seat" component={Seat}/>
-                <Route path="/studios" component={GetStudios}/>
+                {/*<Route path="/login" component={ShowLoginRegister}/>*/}
             </Route>
         </Router>
     </Provider>
