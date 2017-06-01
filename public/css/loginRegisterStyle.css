@@ -48,8 +48,9 @@ input{
     text-indent: 17px;
 }
 input:focus {
-    color: white;
+    color: black;
 }
+
 #img1
 {
     background: url(../images/user.png) no-repeat;
@@ -76,3 +77,6 @@ input:focus {
     color: red;
 }
 
+table{
+    color: #d18916;
+}
