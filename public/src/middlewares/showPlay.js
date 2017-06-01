@@ -23,8 +23,14 @@ export default store=>next=>action=> {
         request.post('/searchPlay')
             .send({searchPlayName: action.searchPlayName})
             .end((err, res)=> {
-                console.log(res.body);
-                next({type: action.type, resultPlay: res.body});
+                next({type: 'CHANGEPLAY', resultPlay: res.body});
+            })
+    }
+    else if(action.type === 'REMOVEPLAY'){
+        request.post('/removePlay')
+            .send({playName:action.deletePlayName})
+            .end((err,res)=>{
+                next({type: 'CHANGEPLAY', resultPlay: res.body});
             })
     }
     else {

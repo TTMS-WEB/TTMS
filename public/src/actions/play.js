@@ -17,7 +17,14 @@ const searchPlay = (searchPlayName)=>{
         type:"SEARCHPLAY",
         searchPlayName,
     }
+};
+
+const removePlay = (deletePlayName)=>{
+    return{
+        type:'REMOVEPLAY',
+        deletePlayName
+    }
 }
 module.exports = {
-    showPlay, addPlay,searchPlay
+    showPlay, addPlay,searchPlay,removePlay
 };

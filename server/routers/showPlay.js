@@ -51,7 +51,23 @@ router.post('/searchPlay', (req, res, next)=> {
 
         })
     }
-    ;
+});
+
+router.post('/removePlay',(req,res,next)=>{
+    const deletePlayName = req.body.playName;
+    PlayInfo.remove({playName:deletePlayName},(err)=>{
+        if(err){
+            return next(err);
+        }
+        else{
+            PlayInfo.find({},(err,result)=>{
+                if(err){
+                    return next(err);
+                }
+                res.send(result);
+            })
+        }
+    })
 });
 
 

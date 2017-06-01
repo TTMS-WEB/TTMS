@@ -28,6 +28,10 @@ export default class Play extends Component {
         const searchPlayName = this.refs.search.value;
         this.props.searchPlay(searchPlayName);
     }
+
+    deletePlay(deletePlayName){
+      this.props.removePlay(deletePlayName);
+    }
     render() {
         const play = this.props.play;
         const playlist = play.playInfo.map((val, index)=> {
@@ -40,7 +44,7 @@ export default class Play extends Component {
                 <td>{val.playPrice}</td>
                 <td>
                     <button>修改</button>
-                    <button>删除</button>
+                    <button onClick={this.deletePlay.bind(this,val.playName)}>删除</button>
                 </td>
             </tr>
         });
