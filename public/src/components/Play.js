@@ -7,49 +7,61 @@ export default class Play extends Component {
 
     addPlay() {
         const playName = this.refs.playName.value;
-        const playTime = this.refs.playTime.value+" minitues";
+        const playTime = this.refs.playTime.value;
         const playActor = this.refs.playActor.value;
-        const playPrice = this.refs.playPrice.value+" 元";
+        const playPrice = this.refs.playPrice.value;
         const playType = this.refs.playType.value;
-        this.props.addPlay({playName, playTime, playActor, playPrice, playType})
+        if (playName && playTime && playActor && playPrice && playType) {
+            this.props.addPlay({playName, playTime, playActor, playPrice, playType})
+        }
+        else {
+            this.refs.tag1.innerHTML = '请输入完整的信息';
+        }
     }
 
     setTip(addResult) {
         if (addResult === true) {
-            this.refs.tag.innerHTML = '添加成功';
+            this.refs.tag1.innerHTML = '添加成功';
         }
         else if (addResult === false) {
-            this.refs.tag.innerHTML = '添加失败';
+            this.refs.tag1.innerHTML = '添加失败';
         }
     }
 
-    search(){
+    search() {
         const searchPlayName = this.refs.search.value;
         this.props.searchPlay(searchPlayName);
     }
 
-    deletePlay(deletePlayName){
-      this.props.removePlay(deletePlayName);
+    deletePlay(deletePlayName) {
+        this.props.removePlay(deletePlayName);
     }
 
-    modifyModel(val){
-        this.refs.mdplayName.value= val.playName;
-        this.refs.mdplayTime.value= val.playTime;
-        this.refs.mdplayActor.value= val.playActor;
-        this.refs.mdplayPrice.value= val.playPrice;
-        this.refs.mdplayType.value= val.playType;
+    modifyModel(val) {
+        this.refs.mdplayName.value = val.playName;
+        this.refs.mdplayTime.value = val.playTime;
+        this.refs.mdplayActor.value = val.playActor;
+        this.refs.mdplayPrice.value = val.playPrice;
+        this.refs.mdplayType.value = val.playType;
 
         $('#modifyModal').modal('show');
     }
 
-    modifyPlay(){
+    modifyPlay() {
         const newPlayName = this.refs.mdplayName.value;
         const newPlayTime = this.refs.mdplayTime.value;
         const newPlayActor = this.refs.mdplayActor.value;
         const newPlayPrice = this.refs.mdplayPrice.value;
         const newPlayType = this.refs.mdplayType.value;
-        this.props.modifyPlay({newPlayName,newPlayTime,newPlayActor,newPlayPrice,newPlayType})
+        if (newPlayName && newPlayTime && newPlayActor && newPlayPrice && newPlayType) {
+            this.refs.tag.innerHTML = '修改成功';
+            this.props.modifyPlay({newPlayName, newPlayTime, newPlayActor, newPlayPrice, newPlayType})
+        }
+        else {
+            this.refs.tag.innerHTML = '请输入完整的信息';
+        }
     }
+
     render() {
         const play = this.props.play;
         const playlist = play.playInfo.map((val, index)=> {
@@ -61,15 +73,15 @@ export default class Play extends Component {
                 <td>{val.playActor}</td>
                 <td>{val.playPrice}</td>
                 <td>
-                    <button  className="btn" data-toggle="modal" onClick={this.modifyModel.bind(this,val)}>修改</button>
-                    <button  className="btn" onClick={this.deletePlay.bind(this,val.playName)}>删除</button>
+                    <img src="../../images/modify.png" className="btn" data-toggle="modal" onClick={this.modifyModel.bind(this, val)}></img>
+                    <img src="../../images/delete.png" className="btn" onClick={this.deletePlay.bind(this, val.playName)}></img>
                 </td>
             </tr>
         });
 
-        return <div>
+        return <div className="play">
             <div className="operate">
-                <div>影片:<input className="input-medium search-query"  ref='search' type="text" placeholder="输入影片名称查询"/>
+                <div>影片:<input className="btn" ref='search' type="text" placeholder="输入影片名称查询"/>
                     <button className="btn" onClick={this.search.bind(this)}>查询</button>
                     <button type="button" className="btn" data-toggle="modal" data-target="#myModal">
                         添加
@@ -83,9 +95,10 @@ export default class Play extends Component {
                                 </div>
                                 <div className="input-group">
                                     <input type="text" ref="playName" className="form-control" placeholder="电影名称"/>
-                                    <input type="text" ref="playTime" className="form-control" placeholder="时长 xx minitues"/>
+                                    <input type="number" ref="playTime" className="form-control"
+                                           placeholder="时长 xx minitues"/>
                                     <input type="text" ref="playActor" className="form-control" placeholder="主演用;分隔"/>
-                                    <input type="text" ref="playPrice" className="form-control" placeholder="价格 xx 元"/>
+                                    <input type="number" ref="playPrice" className="form-control" placeholder="价格 xx 元"/>
 
                                     <select className="btn" ref="playType">
                                         <option value='' hidden>电影类型</option>
@@ -99,7 +112,7 @@ export default class Play extends Component {
                                     </select>
                                 </div>
                                 <div className="modal-footer">
-                                    <div className="tag" ref="tag"></div>
+                                    <div className="tag" ref="tag1"></div>
                                     <button type="button" className="btn btn-primary"
                                             onClick={this.addPlay.bind(this)}>
                                         提交
@@ -110,17 +123,18 @@ export default class Play extends Component {
                         </div>
                     </div>
 
-                    <div className="modal fade bs-example-modal-lg" id="modifyModal" ref="modifyModal" role="dialog" aria-hidden="true">
+                    <div className="modal fade bs-example-modal-lg" id="modifyModal" ref="modifyModal" role="dialog"
+                         aria-hidden="true">
                         <div className="modal-dialog" role="document">
                             <div className="modal-content">
                                 <div className="modal-header">
                                     <h4 className="modal-title" id="myModalLabel">添加一个剧目</h4>
                                 </div>
                                 <div className="input-group">
-                                    <input type="text" ref="mdplayName" readOnly="readOnly" className="form-control" />
-                                    <input type="text" ref="mdplayTime" className="form-control" />
+                                    <input type="text" ref="mdplayName" readOnly="readOnly" className="form-control"/>
+                                    <input type="number" ref="mdplayTime" className="form-control"/>
                                     <input type="text" ref="mdplayActor" className="form-control"/>
-                                    <input type="text" ref="mdplayPrice" className="form-control" />
+                                    <input type="number" ref="mdplayPrice" className="form-control"/>
 
                                     <select className="btn" ref="mdplayType">
                                         <option value='' hidden>电影类型</option>
@@ -153,10 +167,10 @@ export default class Play extends Component {
                     <tr>
                         <th>序号</th>
                         <th>影片名称</th>
-                        <th>时长</th>
+                        <th>时长(minitues)</th>
                         <th>类型</th>
                         <th>主演</th>
-                        <th>价格</th>
+                        <th>价格(元)</th>
                         <th>操作</th>
                     </tr>
                     {playlist}
