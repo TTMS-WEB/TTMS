@@ -57,10 +57,7 @@ export default {
     Seat: [
         {
             studioId: 4,
-            seatArray: [{
-                key: {},
-                status: 0
-            }]
+            seatArray:[{status:0},{status:-1}]
         }
     ],
 }

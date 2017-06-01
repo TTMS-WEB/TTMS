@@ -14,8 +14,8 @@ const mapDispatchToProps = (dispatch)=>{
         generateSeat:(studioId,seatArray)=>{
             dispatch(actions.generateSeat(studioId,seatArray));
         },
-        changeSeatStatus:(i,j)=>{
-            dispatch(actions.location(i,j))
+        changeSeatStatus:(studioId,i)=>{
+            dispatch(actions.location(studioId,i))
         }
     }
 };

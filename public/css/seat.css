@@ -11,6 +11,7 @@ input[type=checkbox]{
     background-color: rosybrown;
     margin-left: 10px;
 }
+
 #seatBorder{
     background: rgba(0,0,0,0.5);
 }

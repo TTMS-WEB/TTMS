@@ -7,6 +7,7 @@ import ShowPlay from './showPlay';
 import Seat from './Seat';
 import GetStudios from './GetStudios';
 import SeatInfo from './SeatInfo';
+import SeatStatus from './SeatStatus';
 
 export default combineReducers({
     FindUsers,
@@ -16,5 +17,6 @@ export default combineReducers({
     ShowPlay,
     Seat,
     GetStudios,
-    SeatInfo
+    SeatInfo,
+    SeatStatus
 });

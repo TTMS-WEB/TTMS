@@ -16,9 +16,10 @@ export default store=>next=>action=> {
                 });
             break;
         case 'CHANGE_SEAT_STATUS':
-            request.get(`/changeSeatStatus/${action.i},${action.j}`)
+            request.post('/changeSeatStatus')
+                .send({"studioId":action.studioId,"i":action.i})
                 .end((err, res)=> {
-                    next({})
+                    next({type:'SEAT_STATUS',content:res.text})
                 });
             break;
     }
