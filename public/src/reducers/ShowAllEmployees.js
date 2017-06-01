@@ -3,6 +3,8 @@ const ShowAllEmployees = (state= [], action) => {
         case 'SHOW_ALL_EMPLOYEES':
             return action.content;
         break;
+        case 'SHOW_ONE_EMPLOYEE':
+            return action.content
     }
     return state;
 };

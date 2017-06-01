@@ -10,6 +10,9 @@ const mapDispatchToProps = (dispatch) =>{
     return {
         getAllEmployees:()=>{
             dispatch(actions.getAllEmployees())
+        },
+        deleteEmployee:(name)=>{
+            dispatch(actions.deleteEmployee(name));
         }
     }
 };
