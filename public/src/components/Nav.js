@@ -17,7 +17,7 @@ export default class Nav extends Component {
 
                     </div>
                     <span className="token">
-                        <Link to="/userCenter" className={username?'':'hidden'}>{username}</Link>
+                        <Link to="/userCenter" className={username ? '' : 'hidden'}>{username}</Link>
                         </span>
                 </div>
             </div>
@@ -42,6 +42,11 @@ export default class Nav extends Component {
                                 {/*<li><a href="#"><i className="glyphicon glyphicon-edit"></i>修改密码</a></li>*/}
                                 {/*<li><a href="#"><i className="glyphicon glyphicon-eye-open"></i>日志查看</a></li>*/}
                                 {/*</ul>*/}
+                            </li>
+                            <li>
+                                <a href="#" className="nav-header collapsed" data-toggle="collapse">
+                                    票务管理
+                                </a>
                             </li>
                             <li>
                                 <a href="./plans.html">

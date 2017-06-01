@@ -13,6 +13,7 @@ import AllEmployees from './containers/AllEmployees';
 import Play from './containers/Play';
 import Seat from './containers/Seat';
 import GetStudios from './containers/Studios';
+import Ticket from './containers/Ticket';
 
 import reducer from './reducers/index.js';
 
@@ -23,8 +24,9 @@ import seat from './middlewares/Seat';
 import getStudios from './middlewares/GetStudios';
 import showPlay from './middlewares/showPlay';
 import nav from './middlewares/Nav';
+import ticket from './middlewares/Ticket';
 
-const Middleware = applyMiddleware(thunkMiddleware, createLogger(), login, register, allEmployees,seat,getStudios,showPlay,nav);
+const Middleware = applyMiddleware(thunkMiddleware, createLogger(), login, register, allEmployees,seat,getStudios,showPlay,nav,ticket);
 
 let store = createStore(reducer, Middleware);
 
@@ -36,6 +38,7 @@ ReactDom.render(
                 <Route path="/studios" component={GetStudios}/>
                 <Route path="/play" component={Play}/>
                 <Route path="/seat" component={Seat}/>
+                <Route path="/ticket" component={Ticket}/>
             </Route>
             <Route path="/" component={ShowLoginRegister}/>
         </Router>
