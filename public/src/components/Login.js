@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
 class Login extends Component {
+    constructor() {
+        super();
+        this.state = {
+           isLogged: "密码错误，请重新登陆！"
+        }
+    }
+
     verifyUser() {
         $("#tip").text("");
         const username = this.refs.input.value;
@@ -37,18 +44,23 @@ class Login extends Component {
         $("#tip1").text('');
     }
 
+    shouldComponentUpdate(nextProps) {
+        if (this.refs.input.value) {
+            return false;
+        }
+    }
+
     /*登录成功跳转到首页*/
-    // componentWillUpdate(nextProps) {
-    //     if (nextProps.Login.isLogged != "密码错误，请重新登陆！"){
-    //         this.props.router.push('/');
-    //         // this.props.loadUsername();
-    //     }
-    // }
+    componentWillUpdate(nextProps) {
+        if (nextProps.Login.isLogged != "密码错误，请重新登陆！"){
+            this.props.router.push('/studios');
+        }
+    }
 
     render() {
         return (
             <div>
-                <div className="row content">
+                <div className="row content1">
                     <div className="col-md-10 col-md-offset-7" id="inputGroup">
                         <input type="text" className="form-control input" id="img1" ref="input" placeholder="用户名"
                                onBlur={this.verifyUser.bind(this)} onFocus={this.clear.bind(this)}/>

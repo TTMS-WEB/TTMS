@@ -6,6 +6,7 @@ import ShowAllEmployees from './ShowAllEmployees';
 import ShowPlay from './showPlay';
 import Seat from './Seat';
 import GetStudios from './GetStudios';
+import Nav from './Nav';
 import SeatInfo from './SeatInfo';
 
 export default combineReducers({
@@ -16,5 +17,6 @@ export default combineReducers({
     ShowPlay,
     Seat,
     GetStudios,
-    SeatInfo
+    Nav,
+    SeatInfo,
 });

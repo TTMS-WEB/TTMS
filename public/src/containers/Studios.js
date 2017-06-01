@@ -13,7 +13,7 @@ const mapDispatchToProps = (dispatch) =>{
         },
         deleteStudio:(id)=>{
             dispatch(actions.deleteStudio(id))
-        }
+        },
     }
 };
 
