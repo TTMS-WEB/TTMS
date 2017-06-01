@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {Link} from 'react-router';
 
 export default class Play extends Component {
     componentWillMount() {
@@ -7,9 +8,9 @@ export default class Play extends Component {
 
     addPlay() {
         const playName = this.refs.playName.value;
-        const playTime = this.refs.playTime.value;
+        const playTime = this.refs.playTime.value+" minitues";
         const playActor = this.refs.playActor.value;
-        const playPrice = this.refs.playPrice.value;
+        const playPrice = this.refs.playPrice.value+" 元";
         const playType = this.refs.playType.value;
         this.props.addPlay({playName, playTime, playActor, playPrice, playType})
     }
@@ -23,6 +24,10 @@ export default class Play extends Component {
         }
     }
 
+    search(){
+        const searchPlayName = this.refs.search.value;
+        this.props.searchPlay(searchPlayName);
+    }
     render() {
         const play = this.props.play;
         const playlist = play.playInfo.map((val, index)=> {
@@ -42,8 +47,8 @@ export default class Play extends Component {
 
         return <div>
             <div className="operate">
-                <div>影片:<input className="input-medium search-query" type="text" placeholder="输入影片名称查询"/>
-                    <button className="btn">查询</button>
+                <div>影片:<input className="input-medium search-query"  ref='search' type="text" placeholder="输入影片名称查询"/>
+                    <button className="btn" onClick={this.search.bind(this)}>查询</button>
                     <button type="button" className="btn" data-toggle="modal" data-target="#myModal">
                         添加
                     </button>
@@ -56,9 +61,9 @@ export default class Play extends Component {
                                 </div>
                                 <div className="input-group">
                                     <input type="text" ref="playName" className="form-control" placeholder="影片名称"/>
-                                    <input type="text" ref="playTime" className="form-control" placeholder="时长"/>
-                                    <input type="text" ref="playActor" className="form-control" placeholder="主演"/>
-                                    <input type="text" ref="playPrice" className="form-control" placeholder="价格"/>
+                                    <input type="text" ref="playTime" className="form-control" placeholder="时长 xx minitues"/>
+                                    <input type="text" ref="playActor" className="form-control" placeholder="主演用;分隔"/>
+                                    <input type="text" ref="playPrice" className="form-control" placeholder="价格 xx 元"/>
 
                                     <select className="btn" ref="playType">
                                         <option value='' hidden>电影类型</option>

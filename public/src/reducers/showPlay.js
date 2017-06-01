@@ -9,5 +9,8 @@ export default (state = {playInfo: [], addResult: '0'}, action)=> {
     else if (action.type === 'ERRTIP') {
         return {playInfo:state.playInfo,addResult:action.addResult}
     }
+    else if(action.type === 'SEARCHPLAY'){
+        return{playInfo:action.resultPlay}
+    }
     return state;
 }

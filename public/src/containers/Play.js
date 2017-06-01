@@ -13,6 +13,9 @@ const dispatchToProps = (dispatch)=> {
         },
         addPlay: (newPlay)=> {
             dispatch(play.addPlay(newPlay))
+        },
+        searchPlay:(searchPlayName)=>{
+            dispatch(play.searchPlay(searchPlayName))
         }
     }
 };
