@@ -1,8 +1,63 @@
-.playInfo table{
-    color: #7896b4;
+.play {
+    margin-top: 30px;
+    margin-left: 30px;
+}
+ .play input{
+    outline:none;
 }
 
-.playInfo table tr th,td{
+.playInfo table {
+    margin-top: 50px;
+    background-color: #2B2E33;
+    opacity: 0.5;
+    color: #b99423;
+}
+
+.playInfo table tr th, td {
+    font-size: larger;
+    font-weight: bolder;
+    opacity: 1;
     text-align: left;
-    width: 10%;
+    width: 15%;
+}
+
+.play .operate {
+    font-size: x-large;
+    color: #3f4431;
+    font-weight: bolder;
+}
+
+.play .operate input {
+    margin-left: 10px;
+    width: 20%;
+    font-size: small;
+}
+
+.play button {
+    color: white;
+    margin-left: 5px;
+    margin-top: 5px;
+    width: 60px;
+    background-color: #8A6343;
+}
+
+#myModal .modal-content, #modifyModal.modal-content {
+    /*background-color: rgba(133, 129, 127, 0.83);*/
+    color: #b4aeab;
+    width: 100%;
+    left: 15%;
+}
+
+#myModal .input-group input, select, #modifyModal .input-group input, select {
+    font-weight: bolder;
+    background-color: #d5cecc;
+    color: #86817f;
+    margin-left: 10%;
+    margin-top: 10px;
+    width: 70%;
+}
+
+.play .tag {
+    color: darkred;
+    font-size: small;
 }
