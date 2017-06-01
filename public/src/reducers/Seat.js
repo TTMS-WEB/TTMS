@@ -1,6 +1,6 @@
-const Seat = (state=[],action)=>{
-    switch (action.type){
-        case '':
+const Seat = (state = [], action)=> {
+    switch (action.type) {
+        case 'SHOW_STUDIO_INFO':
             return action.content;
     }
     return state;

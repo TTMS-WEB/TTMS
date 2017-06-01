@@ -1,0 +1,16 @@
+input[type=checkbox]{
+    -webkit-appearance: none;
+}
+
+.studioId{
+    font-size: xx-large;
+}
+.img-rounded{
+    width: 25px;
+    height: 25px;
+    background-color: rosybrown;
+    margin-left: 10px;
+}
+#seatBorder{
+    background: rgba(0,0,0,0.5);
+}
