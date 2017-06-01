@@ -5,6 +5,9 @@ input[type=checkbox]{
 .studioId{
     font-size: xx-large;
 }
+.seatInfo{
+    color: white;
+}
 .img-rounded{
     width: 25px;
     height: 25px;
@@ -14,4 +17,5 @@ input[type=checkbox]{
 
 #seatBorder{
     background: rgba(0,0,0,0.5);
+    text-align: center;
 }

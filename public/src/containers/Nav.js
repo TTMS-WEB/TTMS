@@ -1,5 +1,6 @@
 import {connect} from 'react-redux';
 import Nav from '../components/Nav';
+import {withRouter} from 'react-router';
 import GetAllEmployees from '../actions/GetAllEmployees';
 
 const mapStateToProps = (state)=> {
@@ -14,4 +15,4 @@ const mapDispatchToProps = (dispatch)=> {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Nav);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Nav));

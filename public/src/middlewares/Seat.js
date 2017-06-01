@@ -19,7 +19,7 @@ export default store=>next=>action=> {
             request.post('/changeSeatStatus')
                 .send({"studioId":action.studioId,"i":action.i})
                 .end((err, res)=> {
-                    next({type:'SEAT_STATUS',content:res.text})
+                    next({type:'GET_STUDIO_SEATS',content:res.body})
                 });
             break;
     }

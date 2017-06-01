@@ -64,24 +64,24 @@ export default class Register extends Component {
         return <div>
             <div className="row content1">
                 <div className="col-md-10 col-md-offset-7" id="inputGroup">
-                    <input type="text" ref="username" className="form-control" id="img1" placeholder="用户名"
+                    <input type="text" ref="username" className="form-control input" id="img1" placeholder="用户名"
                            onFocus={this.focusUsername.bind(this)} onBlur={this.verifyUsername.bind(this)}/>
                     <span id="usernameTip"> </span><br/>
-                    <input type="password" id="img2" placeholder="请将密码设置为6-16位字母数字" className="form-control"
+                    <input type="password" id="img2" className="form-control input" placeholder="请将密码设置为6-16位字母数字"
                            ref="password" onBlur={this.verifyPassword.bind(this)}
                            onFocus={this.focusPassword.bind(this)}/>
                     <span id="passwordTip"> </span><br/>
-                    <input type="password" id="img3" placeholder="请重复输入密码" className="form-control"
+                    <input type="password" id="img3" placeholder="请重复输入密码" className="form-control input"
                            ref="confirmPassword" onBlur={this.repeatPassword.bind(this)}
                            onFocus={this.focusRepeatPassword.bind(this)}/>
                     <span id="repeatTip"> </span><br/>
-                    <input type="text" id="img3" placeholder="性别" className="form-control"
+                    <input type="text" id="img3" placeholder="性别" className="form-control input"
                            ref="sex" />
                     <span id="repeatTip"> </span><br/>
-                    <input type="text" id="img3" placeholder="电话" className="form-control"
+                    <input type="text" id="img3" placeholder="电话" className="form-control input"
                            ref="phone"/>
                     <span id="repeatTip"> </span><br/>
-                    <input type="text" id="img3" placeholder="地址" className="form-control"
+                    <input type="text" id="img3" placeholder="地址" className="form-control input"
                            ref="address"/>
                     <span id="repeatTip"> </span><br/>
                     <button onClick={this.register.bind(this)} className="btn btn-default form-control">注册</button>
