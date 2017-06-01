@@ -52,7 +52,10 @@ export default class Register extends Component {
         else{
             let username = this.refs.username.value;
             let password = this.refs.password.value;
-            let content = {username, password};
+            let sex = this.refs.sex.value;
+            let phone = this.refs.phone.value;
+            let address = this.refs.sex.value;
+            let content = {id,username, password,sex,phone,address};
             this.props.onRegister(content);
         }
     }
@@ -71,6 +74,15 @@ export default class Register extends Component {
                     <input type="password" id="img3" placeholder="请重复输入密码" className="form-control"
                            ref="confirmPassword" onBlur={this.repeatPassword.bind(this)}
                            onFocus={this.focusRepeatPassword.bind(this)}/>
+                    <span id="repeatTip"> </span><br/>
+                    <input type="text" id="img3" placeholder="性别" className="form-control"
+                           ref="sex" />
+                    <span id="repeatTip"> </span><br/>
+                    <input type="text" id="img3" placeholder="电话" className="form-control"
+                           ref="phone"/>
+                    <span id="repeatTip"> </span><br/>
+                    <input type="text" id="img3" placeholder="地址" className="form-control"
+                           ref="address"/>
                     <span id="repeatTip"> </span><br/>
                     <button onClick={this.register.bind(this)} className="btn btn-default form-control">注册</button>
                 </div>

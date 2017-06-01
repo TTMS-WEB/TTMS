@@ -10,11 +10,11 @@ const generateSeat = (studioId,seatArray)=> {
         studioId,seatArray
     }
 };
-const location = (i, j)=> {
+const location = (studioId,i)=> {
     return {
         type: 'CHANGE_SEAT_STATUS',
-        i,
-        j
+        studioId,
+        i
     }
 };
 

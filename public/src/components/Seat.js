@@ -11,24 +11,30 @@ export default class Seat extends Component {
         let seatArray = [];
         let row;
         let col;
-        for(let i = 0;i<array.length;i++){
-            if(array[i].id == studioId){
+        for (let i = 0; i < array.length; i++) {
+            if (array[i].id == studioId) {
                 row = array[i].row;
                 col = array[i].col;
             }
         }
         for (let i = 1; i <= row; i++) {
             for (let j = 1; j <= col; j++) {
-                seatArray.push({key:<input type='checkbox'/>,status:0});
+                seatArray.push({status:0});
             }
         }
-        this.props.generateSeat(studioId,seatArray);
+        this.props.generateSeat(studioId, seatArray);
     }
 
-    seatStatus(i, j) {
-        let n = '' + i + j;
-        $("#seat" + n).css("background-color", "forestgreen");
-        this.props.changeSeatStatus(i, j);
+    seatStatus(studioId,index) {
+        let i = '' + index;
+        this.props.changeSeatStatus(studioId, i);
+        let backgroundColor = document.getElementById(`seat${i}`).style.backgroundColor;
+        if (backgroundColor == "rosybrown"){
+            $("#seat" + i).css("background-color", "forestgreen");
+        }
+        else{
+            $("#seat" + i).css("background-color", "rosybrown");
+        }
     }
 
     showSeatRowCol() {
@@ -38,37 +44,50 @@ export default class Seat extends Component {
     }
 
     render() {
-        const studioId = this.props.SeatInfo.studioId;
+        const studioId = $("#studioId").val();
+        let seat = this.props.SeatInfo.seatArray;
         const array = this.props.Seat;
+        let seatArray = [];
         let row;
         let col;
-        for(let i = 0;i<array.length;i++){
-            if(array[i].id == studioId){
+        for (let i = 0; i < array.length; i++) {
+            if (array[i].id == studioId) {
                 row = array[i].row;
                 col = array[i].col;
             }
-
         }
-        let seatArray = [];
-        seatArray.push(<br/>);
-        for (let i = 1; i <= row; i++) {
-            seatArray.push(<br/>);
-            for (let j = 1; j <= col; j++) {
-                seatArray.push(
-                    <input type='checkbox' id={`seat${i}${j}`} className='img-rounded'
-                           title={`${i}排${j}列`} data-toggle='tooltip' data-placement='right'
-                           onClick={this.seatStatus.bind(this, i, j)}
-                           onMouseOver={this.showSeatRowCol.bind(this)}/>);
+        seatArray.push(<br />);
+        for (let i = 0; i < seat.length; i++) {
+            let y=i%row+1;
+            let x = parseInt(i/row)+1;
+            if (i % row==0) {
+                seatArray.push(<br />);
+            }
+            if (seat[i].status == 0) {
+                seatArray.push(<input type="checkbox" id={`seat${i}`} className='img-rounded' style={{backgroundColor:"rosybrown"}}
+                                      title={`${x}排${y}列`} data-toggle='tooltip' data-placement='right'
+                                      onClick={this.seatStatus.bind(this, studioId,i)}
+                                      onMouseOver={this.showSeatRowCol.bind(this)}/>);
+
+            }
+            if(seat[i].status == -1) {
+                seatArray.push(<input type='checkbox' id={`seat${i}`} className='img-rounded' style={{backgroundColor:"forestgreen"}}
+                                      title={`${x}排${y}列`} data-toggle='tooltip' data-placement='right'
+                                      onClick={this.seatStatus.bind(this,studioId,i)}
+                                      onMouseOver={this.showSeatRowCol.bind(this)}/>);
+
             }
         }
+
         return <div>
             <div className="col-lg-3">
                 <div className="form-group">
-                    <select id="studioId" className="selectpicker form-control" data-style="btn-info"
+                    <select id="studioId" className="selectpicker form-control"
+                            data-style="btn-info"
                             onChange={this.chooseStudioId.bind(this)}>
                         <option>请选择演出厅...</option>
                         {this.props.Seat.map((ele)=> {
-                            return<option value={`${ele.id}`}>{ele.id}号演出厅</option>
+                            return <option value={`${ele.id}`}>{ele.id}号演出厅</option>
                         })}
                     </select>
                 </div>
@@ -81,7 +100,7 @@ export default class Seat extends Component {
                     <span className="">删除</span>
                 </button>
             </div>
-            <label className="studioId">{this.props.Seat.id}</label>
+            <label className="studioId">{this.props.Seat.studioId}</label>
             <div id="seatBorder">
                 {seatArray}
             </div>
