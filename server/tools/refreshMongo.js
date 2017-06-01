@@ -4,6 +4,7 @@ import UserInfo from '../models/UserInfo';
 import Seat from '../models/Seat';
 import PlayInfo from '../models/playInfo';
 import Studios from '../models/Studios';
+import Ticket from '../models/Ticket';
 
 mongoose.Promise = require('bluebird');
 
@@ -11,7 +12,8 @@ const modelsMap = {
     UserInfo,
     Studios,
     PlayInfo,
-    Seat
+    Seat,
+    Ticket
 };
 
 let docs = Object.keys(rawData);

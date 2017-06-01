@@ -36,9 +36,9 @@ export default class Nav extends Component {
                                 </Link>
                             </li>
                             <li>
-                                <a href="#">
+                                <Link to="/ticket">
                                     票务管理
-                                </a>
+                                </Link>
                             </li>
                             <li>
                                 <Link to="/employees">

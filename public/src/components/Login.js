@@ -66,7 +66,7 @@ class Login extends Component {
                         <input type="text" className="form-control input" id="img1" ref="input" placeholder="用户名"
                                onBlur={this.verifyUser.bind(this)} onFocus={this.clear.bind(this)}/>
                         <span id="tip">{this.props.FindUsers}</span><br/>
-                        <input type="password" className="form-control input2" id="img2" ref="psw" placeholder="密码"
+                        <input type="password" className="form-control input" id="img2" ref="psw" placeholder="密码"
                                onBlur={this.isNull.bind(this)} onFocus={this.clearPsw.bind(this)}/>
                         <span id="tip">{this.props.Login.isLogged}</span><br/>
                         <button className="btn btn-default form-control" onClick={this.isLegal.bind(this)}>登 陆</button>

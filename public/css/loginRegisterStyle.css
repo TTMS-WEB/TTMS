@@ -51,8 +51,8 @@ body {
 input{
     text-indent: 17px;
 }
-input:focus {
-    color: black;
+.input:focus {
+    color: white;
 }
 
 #img1

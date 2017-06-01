@@ -48,7 +48,7 @@ router.post('/changeSeatStatus', (req, res, next)=> {
                 if (err) {
                     return next(err);
                 }
-                res.send("座位不可用");
+                res.send(doc);
             });
         }
         if (t == -1) {
@@ -57,7 +57,7 @@ router.post('/changeSeatStatus', (req, res, next)=> {
                 if (err) {
                     return next(err);
                 }
-                res.send("座位可用");
+                res.send(doc);
             });
         }
     })

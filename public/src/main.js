@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import {Provider} from 'react-redux';
-import {Router, Route, hashHistory, IndexRoute} from 'react-router';
+import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 import {createStore, applyMiddleware} from 'redux';
 import {createLogger} from 'redux-logger';
 import  thunkMiddleware from 'redux-thunk';
@@ -32,7 +32,7 @@ let store = createStore(reducer, Middleware);
 
 ReactDom.render(
     <Provider store={store}>
-        <Router history={hashHistory}>
+        <Router history={browserHistory}>
             <Route path="/app" component={App}>
                 <Route path="/employees" component={AllEmployees}/>
                 <Route path="/studios" component={GetStudios}/>

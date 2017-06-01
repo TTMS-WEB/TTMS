@@ -10,7 +10,6 @@ import Nav from './Nav';
 import SeatInfo from './SeatInfo';
 import Register from './Register';
 import GetRegisterId from './GetRegisterId';
-import SeatStatus from './SeatStatus';
 
 export default combineReducers({
     FindUsers,
