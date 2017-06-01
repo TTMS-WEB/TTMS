@@ -47,7 +47,7 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <div className="row content">
+                <div className="row content1">
                     <div className="col-md-10 col-md-offset-7" id="inputGroup">
                         <input type="text" className="form-control input" id="img1" ref="input" placeholder="用户名"
                                onBlur={this.verifyUser.bind(this)} onFocus={this.clear.bind(this)}/>

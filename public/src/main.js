@@ -8,9 +8,9 @@ import  thunkMiddleware from 'redux-thunk';
 
 import App from './components/App';
 
-import ShowLoginRegister from './containers/ShowLoginRegister'
+import ShowLoginRegister from './containers/ShowLoginRegister';
 import AllEmployees from './containers/AllEmployees';
-import Play from './containers/Play'
+import Play from './containers/Play';
 import Seat from './containers/Seat';
 import GetStudios from './containers/Studios';
 
@@ -36,8 +36,8 @@ ReactDom.render(
                 <Route path="/employees" component={AllEmployees}/>
                 <Route path="play" component={Play}/>
                 <Route path="/seat" component={Seat}/>
-                {/*<Route path="/login" component={ShowLoginRegister}/>*/}
             </Route>
+            <Route path="/login" component={ShowLoginRegister}/>
         </Router>
     </Provider>
     ,

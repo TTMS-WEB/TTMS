@@ -14,6 +14,8 @@ export default class Studios extends Component{
         this.props.deleteStudio(id);
     }
 
+
+
     render() {
         const studio = this.props.GetStudios.map((ele, index)=> {
             const id = ele.id;
