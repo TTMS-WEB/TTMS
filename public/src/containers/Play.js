@@ -19,6 +19,9 @@ const dispatchToProps = (dispatch)=> {
         },
         removePlay:(deletePlayName)=>{
             dispatch(play.removePlay(deletePlayName))
+        },
+        modifyPlay:(newPlay)=>{
+            dispatch(play.modifyPlay(newPlay))
         }
     }
 };

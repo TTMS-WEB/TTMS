@@ -33,6 +33,13 @@ export default store=>next=>action=> {
                 next({type: 'CHANGEPLAY', resultPlay: res.body});
             })
     }
+    else if(action.type === 'MODIFYPLAY'){
+        request.post('/modifyPlay')
+            .send({newPlay:action.newPlay})
+            .end((err,res)=>{
+                next({type: 'CHANGEPLAY', resultPlay: res.body});
+            })
+    }
     else {
         next(action);
     }

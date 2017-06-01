@@ -24,7 +24,14 @@ const removePlay = (deletePlayName)=>{
         type:'REMOVEPLAY',
         deletePlayName
     }
+};
+
+const modifyPlay = (newPlay) =>{
+    return {
+        type:"MODIFYPLAY",
+        newPlay
+    }
 }
 module.exports = {
-    showPlay, addPlay,searchPlay,removePlay
+    showPlay, addPlay,searchPlay,removePlay,modifyPlay
 };

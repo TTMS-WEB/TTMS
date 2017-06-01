@@ -53,15 +53,15 @@ router.post('/searchPlay', (req, res, next)=> {
     }
 });
 
-router.post('/removePlay',(req,res,next)=>{
+router.post('/removePlay', (req, res, next)=> {
     const deletePlayName = req.body.playName;
-    PlayInfo.remove({playName:deletePlayName},(err)=>{
-        if(err){
+    PlayInfo.remove({playName: deletePlayName}, (err)=> {
+        if (err) {
             return next(err);
         }
-        else{
-            PlayInfo.find({},(err,result)=>{
-                if(err){
+        else {
+            PlayInfo.find({}, (err, result)=> {
+                if (err) {
                     return next(err);
                 }
                 res.send(result);
@@ -70,5 +70,25 @@ router.post('/removePlay',(req,res,next)=>{
     })
 });
 
-
+router.post('/modifyPlay', (req, res, next)=> {
+    const newPlay = req.body.newPlay;
+    PlayInfo.update({'playName': newPlay.newPlayName}, {
+        'playTime': newPlay.newPlayTime,
+        'playActor': newPlay.newPlayActor,
+        'playPrice': newPlay.newPlayPrice,
+        'playType': newPlay.newPlayType
+    }, (err)=> {
+        if (err) {
+            return next(err);
+        }
+        else {
+            PlayInfo.find({}, (err, result)=> {
+                if (err) {
+                    return next(err);
+                }
+                res.send(result);
+            })
+        }
+    })
+});
 module.exports = router;
