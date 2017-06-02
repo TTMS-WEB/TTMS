@@ -9,6 +9,10 @@ input:focus{
 .studios {
     color: white;
     font-size: medium;
+    margin-top: -1%;
+}
+.studioBody{
+    border-bottom:solid 1px #7F7676 ;
 }
 
 .Studio{
@@ -43,5 +47,3 @@ th {
     margin-top: 1%;
     margin-right: 1%;
 }
-
-

@@ -41,17 +41,14 @@ export default class Studios extends Component {
 
 
     render() {
-
-
-
         const studio = this.props.GetStudios.map((ele, index)=> {
             const id = ele.id;
             const studioName = ele.studioName;
             const studioInfo = ele.studioInfo;
             return (
-                <div className="studios">
-                    <table className="table table-style" width="200">
-                        <thead>
+                <div className="studios" key={index}>
+                    <table className="table table-bordered" width="200">
+                        <tbody className="studioBody">
                         <tr>
                             <th>{id}</th>
                             <th>{studioName}</th>
@@ -64,7 +61,7 @@ export default class Studios extends Component {
                                 </button>
                             </th>
                         </tr>
-                        </thead>
+                        </tbody>
                     </table>
                 </div>
 

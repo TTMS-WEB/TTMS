@@ -15,8 +15,10 @@
     border-radius: 4px;
 }
 #chooseSeat{
-    border: solid 1px rosybrown;
+    background-color:rosybrown;
     border-radius: 4px;
+    padding: 1%;
+    font-size: medium;
 }
 .label{
     color: #9d9d9d;
