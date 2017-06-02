@@ -44,7 +44,7 @@ export default class Seat extends Component {
     }
 
     render() {
-        const studioId = $("#studioId").val()||1;
+        const studioId = $("#studioId").val()||this.props.SeatInfo.studioId;
         const array = this.props.Seat;
         let row;
         for (let i = 0; i < array.length; i++) {
@@ -52,6 +52,8 @@ export default class Seat extends Component {
                 row = array[i].row;
             }
         }
+
+        console.log(studioId);
 
         let seatArray = [];
         let seat = this.props.SeatInfo.seatArray;
@@ -62,7 +64,7 @@ export default class Seat extends Component {
                 seatArray.push(<br />);
             }
             if (seat[i].status == 0) {
-                seatArray.push(<input type="checkbox" id={`seat${i}`} className='img-rounded'
+                seatArray.push(<input  key={i} type="checkbox" id={`seat${i}`} className='img-rounded'
                                       style={{backgroundColor: "rosybrown"}}
                                       title={`${x}排${y}列`} data-toggle='tooltip' data-placement='right'
                                       onClick={this.seatStatus.bind(this, studioId, i)}
@@ -70,7 +72,7 @@ export default class Seat extends Component {
 
             }
             if (seat[i].status == -1) {
-                seatArray.push(<input type='checkbox' id={`seat${i}`} className='img-rounded'
+                seatArray.push(<input key={i} type='checkbox' id={`seat${i}`} className='img-rounded'
                                       style={{backgroundColor: "forestgreen"}}
                                       title={`${x}排${y}列`} data-toggle='tooltip' data-placement='right'
                                       onClick={this.seatStatus.bind(this, studioId, i)}
@@ -81,11 +83,11 @@ export default class Seat extends Component {
 
         return <div id="seatBorder" className="center-block">
             <div className="form-group">
-                <select id="studioId" className="selectpicker form-control"
+                <select  id="studioId" className="selectpicker form-control"
                         data-style="btn-info" onChange={this.chooseStudioId.bind(this)}>
                     <option value='' hidden>请输入演出厅..</option>
-                    {this.props.Seat.map((ele)=> {
-                        return <option value={`${ele.id}`}>{ele.id}号演出厅</option>
+                    {this.props.Seat.map((ele,index)=> {
+                        return <option  key={index} value={`${ele.id}`}>{ele.id}号演出厅</option>
                     })}
                 </select>
             </div>
