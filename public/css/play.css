@@ -48,7 +48,7 @@
     left: 15%;
 }
 
-#myModal .input-group input, select, #modifyModal .input-group input, select {
+.play input, select{
     font-weight: bolder;
     background-color: #d5cecc;
     color: #86817f;
