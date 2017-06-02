@@ -11,6 +11,7 @@ import SeatInfo from './SeatInfo';
 import Register from './Register';
 import GetRegisterId from './GetRegisterId';
 import Sale from './Sale';
+import playPlan from './playPlan'
 
 export default combineReducers({
     FindUsers,
@@ -24,5 +25,6 @@ export default combineReducers({
     Register,
     GetRegisterId,
     Nav,
-    Sale
+    Sale,
+    playPlan
 });

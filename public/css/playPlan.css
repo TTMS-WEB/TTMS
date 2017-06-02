@@ -1,0 +1,8 @@
+.playPlan table{
+    width: 100%;
+}
+
+.playPlan table th,.playPlan table td{
+    width: 14%;
+    text-align: left;
+}
