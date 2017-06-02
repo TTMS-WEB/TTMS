@@ -1,6 +1,6 @@
-export default (state = {playInfo: [], addResult: '0',page:1,maxsize:0}, action)=> {
+export default (state = {playInfo: [], addResult: '0',page:1,maxsize:0,size:0}, action)=> {
     if (action.type === "SHOWPLAY") {
-        return Object.assign({},state,{playInfo:action.playInfo,maxsize:action.maxsize});
+        return Object.assign({},state,{playInfo:action.playInfo,maxsize:action.maxsize,size:action.size});
     }
     else if (action.type === 'ERRTIP') {
         return Object.assign({},state,{addResult:action.addResult});

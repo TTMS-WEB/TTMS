@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-
 export default class Play extends Component {
     componentWillMount() {
         const page = this.props.play.page;
@@ -64,7 +63,7 @@ export default class Play extends Component {
         }
     }
 
-    paging(page, maxsize, value) {
+    paging(page, maxsize, size, value) {
         switch (value) {
             case 'reduce':
                 page = page - 1;
@@ -73,13 +72,13 @@ export default class Play extends Component {
                 page = page + 1;
                 break;
             case 'searchPage':
-                page = this.refs.searchPage.page;
+                page = this.refs.searchPage.value;
                 break;
             default:
                 page = page;
         }
-        console.log(maxsize);
-        if (0 < page && (page-1) * 8 < maxsize) {
+
+        if (0 < page && (page - 1) * size < maxsize) {
             this.props.changePage(page);
         }
 
@@ -89,8 +88,8 @@ export default class Play extends Component {
         const play = this.props.play;
         const page = play.page;
         const maxsize = play.maxsize;
+        const size = play.size;
         const playlist = play.playInfo.map((val, index)=> {
-            console.log(page);
             return <tr key={index}>
                 <td>{(page - 1) * 8 + index + 1}</td>
                 <td>{val.playName}</td>
@@ -210,17 +209,19 @@ export default class Play extends Component {
                             <button value='add' onClick={this.paging.bind(this, page, "first")}>首页</button>
                         </td>
                         <td>
-                            <button onClick={this.paging.bind(this, page, maxsize, "reduce")}>上一页</button>
+                            <button onClick={this.paging.bind(this, page, maxsize, size, "reduce")}>上一页</button>
+                            第{page}页
                         </td>
-                        <td><input ref="searchPage" type="text" placeholder="第i页"/></td>
+                        <td><input ref="searchPage" type="text" placeholder="输入想前往的页码"/></td>
                         <td>
-                            <button onClick={this.paging.bind(this, page, maxsize, "search")}>查询</button>
+                            <button onClick={this.paging.bind(this, page, maxsize, size, "searchPage")}>查询</button>
+                            共{Math.ceil(maxsize / size)}页
                         </td>
                         <td>
-                            <button onClick={this.paging.bind(this, page, maxsize, "add")}>下一页</button>
+                            <button onClick={this.paging.bind(this, page, maxsize, size, "add")}>下一页</button>
                         </td>
                         <td>
-                            <button onClick={this.paging.bind(this, page, maxsize, "last")}>末页</button>
+                            <button onClick={this.paging.bind(this, page, maxsize, size, "last")}>末页</button>
                         </td>
                     </tr>
 

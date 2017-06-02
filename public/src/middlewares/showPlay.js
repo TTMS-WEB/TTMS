@@ -6,7 +6,7 @@ export default store=>next=>action=> {
         request.post('/showPlay')
             .send({page: action.page})
             .end((err, res)=> {
-                next({type: "SHOWPLAY", playInfo: res.body.data,maxsize:res.body.maxsize});
+                next({type: "SHOWPLAY", playInfo: res.body.data,maxsize:res.body.maxsize,size:res.body.size});
             })
     }
     else if (action.type === 'ADDPLAY') {
