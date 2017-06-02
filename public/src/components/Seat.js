@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import GenerateSeat from '../containers/GenerateSeat';
 
 export default class Seat extends Component {
     componentWillMount() {
@@ -25,62 +26,7 @@ export default class Seat extends Component {
         this.props.generateSeat(studioId, seatArray);
     }
 
-    seatStatus(studioId, index) {
-        let i = '' + index;
-        this.props.changeSeatStatus(studioId, i);
-       /* let backgroundColor = document.getElementById(`seat${i}`).style.backgroundColor;
-        if (backgroundColor == "rosybrown") {
-            $("#seat" + i).css("background-color", "forestgreen");
-        }
-        else {
-            $("#seat" + i).css("background-color", "rosybrown");
-        }*/
-    }
-
-    showSeatRowCol() {
-        $(function () {
-            $("[data-toggle='tooltip']").tooltip();
-        });
-    }
-
     render() {
-        const studioId = $("#studioId").val()||this.props.SeatInfo.studioId;
-        const array = this.props.Seat;
-        let row;
-        for (let i = 0; i < array.length; i++) {
-            if (array[i].id == studioId) {
-                row = array[i].row;
-            }
-        }
-
-        console.log(studioId);
-
-        let seatArray = [];
-        let seat = this.props.SeatInfo.seatArray;
-        for (let i = 0; i < seat.length; i++) {
-            let y = i % row + 1;
-            let x = parseInt(i / row) + 1;
-            if (i % row == 0) {
-                seatArray.push(<br />);
-            }
-            if (seat[i].status == 0) {
-                seatArray.push(<input  key={i} type="checkbox" id={`seat${i}`} className='img-rounded'
-                                      style={{backgroundColor: "rosybrown"}}
-                                      title={`${x}排${y}列`} data-toggle='tooltip' data-placement='right'
-                                      onClick={this.seatStatus.bind(this, studioId, i)}
-                                      onMouseOver={this.showSeatRowCol.bind(this)}/>);
-
-            }
-            if (seat[i].status == -1) {
-                seatArray.push(<input key={i} type='checkbox' id={`seat${i}`} className='img-rounded'
-                                      style={{backgroundColor: "forestgreen"}}
-                                      title={`${x}排${y}列`} data-toggle='tooltip' data-placement='right'
-                                      onClick={this.seatStatus.bind(this, studioId, i)}
-                                      onMouseOver={this.showSeatRowCol.bind(this)}/>);
-
-            }
-        }
-
         return <div id="seatBorder">
             <div className="form-group">
                 <select  id="studioId" className="selectpicker form-control"
@@ -92,13 +38,8 @@ export default class Seat extends Component {
                 </select>
             </div>
             <br />
-            <div className="seatInfo">
-                <label className="studioId">{studioId}号厅</label>
-                <input type="checkbox" className="img-rounded" style={{backgroundColor: "rosybrown"}}/>可用
-                <input type="checkbox" className="img-rounded" style={{backgroundColor: "forestgreen"}}/>不可用
-            </div>
             <div>
-                {seatArray}
+                <GenerateSeat />
             </div>
         </div>
     }
