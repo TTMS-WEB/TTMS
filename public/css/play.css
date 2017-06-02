@@ -1,16 +1,25 @@
-.play {
-    margin-top: 30px;
-    margin-left: 30px;
-}
+/*.play {*/
+    /*margin-top: 30px;*/
+    /*margin-left: 30px;*/
+/*}*/
  .play input{
     outline:none;
 }
 
 .playInfo table {
-    margin-top: 50px;
+    padding-top: 50px;
     background-color: #2B2E33;
     opacity: 0.5;
     color: #b99423;
+}
+
+.play .operate{
+    padding-top: 10px;
+    padding-bottom: 30px;
+    background-color: #2B2E33;
+    opacity: 0.5;
+    /*color: #b99423;*/
+    color: white;
 }
 
 .playInfo table tr th, td {
@@ -42,13 +51,12 @@
 }
 
 #myModal .modal-content, #modifyModal.modal-content {
-    /*background-color: rgba(133, 129, 127, 0.83);*/
     color: #b4aeab;
     width: 100%;
     left: 15%;
 }
 
-#myModal .input-group input, select, #modifyModal .input-group input, select {
+.play select,.play .input-group input{
     font-weight: bolder;
     background-color: #d5cecc;
     color: #86817f;
