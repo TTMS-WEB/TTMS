@@ -27,9 +27,19 @@ const deleteStudio = (id) =>{
     }
 };
 
+const modifyStudio = (id,studioName, studioInfo, row, col) =>{
+    return {
+        type:'MODIFY_STUDIO',
+        id,studioName, studioInfo, row, col
+    }
+};
+
+
+
 module.exports = {
     getStudios,
     addStudio,
     searchStudio,
     deleteStudio,
+    modifyStudio
 };
