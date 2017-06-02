@@ -14,6 +14,7 @@ import Play from './containers/Play';
 import Seat from './containers/Seat';
 import GetStudios from './containers/Studios';
 import Ticket from './containers/Ticket';
+import Sale from './containers/Sale';
 
 import reducer from './reducers/index.js';
 
@@ -39,6 +40,7 @@ ReactDom.render(
                 <Route path="/play" component={Play}/>
                 <Route path="/seat" component={Seat}/>
                 <Route path="/ticket" component={Ticket}/>
+                <Route path="/sale" component={Sale}/>
             </Route>
             <Route path="/" component={ShowLoginRegister}/>
         </Router>

@@ -12,7 +12,12 @@ export default class AddStudios extends Component {
         let studioInfo = this.refs.studioInfo.value;
         let row = this.refs.row.value;
         let col = this.refs.col.value;
-        this.props.addStudio(id, studioName, studioInfo, row, col);
+        if (id && studioName && studioInfo && row && col) {
+            this.props.addStudio(id, studioName, studioInfo, row, col);
+        }
+        else {
+            alert("请输入完整信息！");
+        }
     }
 
     searchStudio() {
@@ -63,7 +68,8 @@ export default class AddStudios extends Component {
                         </div>
                     </div>
                     <div className="col-lg-4">
-                        <button className="btn btn-warning" onClick={this.searchStudio.bind(this)}>查询</button><span>   </span>
+                        <button className="btn btn-warning" onClick={this.searchStudio.bind(this)}>查询</button>
+                        <span>   </span>
                     </div>
                 </div>
                 <br/>

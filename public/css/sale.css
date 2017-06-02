@@ -1,0 +1,16 @@
+.sale{
+    background: rgba(0,0,0,0.5);
+}
+#saleLeft{
+    border-right: solid 2px white;
+    background: rgba(0,0,0,0.5);
+}
+#saleRight{
+    padding-left: 3%;
+    color: white;
+    font-size: large;
+    background: rgba(0,0,0,0.5);
+    line-height: 3;
+    padding-bottom: 2%;
+    border-radius: 4px;
+}

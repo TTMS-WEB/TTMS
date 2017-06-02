@@ -81,86 +81,85 @@ export default class Play extends Component {
 
         return <div className="play">
             <div className="operate">
-                <div>影片:<input className="btn" ref='search' type="text" placeholder="输入影片名称查询"/>
+                <div><input className="btn" ref='search' type="text" placeholder="输入影片名称查询"/>
                     <button className="btn" onClick={this.search.bind(this)}>查询</button>
                     <button type="button" className="btn" data-toggle="modal" data-target="#myModal">
                         添加
                     </button>
-
-                    <div className="modal fade bs-example-modal-lg" id="myModal" role="dialog" aria-hidden="true">
-                        <div className="modal-dialog" role="document">
-                            <div className="modal-content">
-                                <div className="modal-header">
-                                    <h4 className="modal-title" id="myModalLabel">添加一个剧目</h4>
-                                </div>
-                                <div className="input-group">
-                                    <input type="text" ref="playName" className="form-control" placeholder="电影名称"/>
-                                    <input type="number" ref="playTime" className="form-control"
-                                           placeholder="时长 xx minitues"/>
-                                    <input type="text" ref="playActor" className="form-control" placeholder="主演用;分隔"/>
-                                    <input type="number" ref="playPrice" className="form-control" placeholder="价格 xx 元"/>
-
-                                    <select className="btn" ref="playType">
-                                        <option value='' hidden>电影类型</option>
-                                        <option value='爱情片'>爱情片</option>
-                                        <option value='战争片'>战争片</option>
-                                        <option value='历史片'>历史片</option>
-                                        <option value='科幻片'>科幻片</option>
-                                        <option value='动漫片'>动漫片</option>
-                                        <option value='动作片'>动作片</option>
-                                        <option value='喜剧片'>喜剧片</option>
-                                    </select>
-                                </div>
-                                <div className="modal-footer">
-                                    <div className="tag" ref="tag1"></div>
-                                    <button type="button" className="btn btn-primary"
-                                            onClick={this.addPlay.bind(this)}>
-                                        提交
-                                    </button>
-                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">关闭</button>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+            </div><div className="modal fade bs-example-modal-lg" id="myModal" role="dialog" aria-hidden="true">
+            <div className="modal-dialog" role="document">
+                <div className="modal-content">
+                    <div className="modal-header">
+                        <h4 className="modal-title" id="myModalLabel">添加一个剧目</h4>
                     </div>
+                    <div className="input-group">
+                        <input type="text" ref="playName" className="form-control" placeholder="电影名称"/>
+                        <input type="number" ref="playTime" className="form-control"
+                               placeholder="时长 xx minitues"/>
+                        <input type="text" ref="playActor" className="form-control" placeholder="主演用;分隔"/>
+                        <input type="number" ref="playPrice" className="form-control" placeholder="价格 xx 元"/>
 
-                    <div className="modal fade bs-example-modal-lg" id="modifyModal" ref="modifyModal" role="dialog"
-                         aria-hidden="true">
-                        <div className="modal-dialog" role="document">
-                            <div className="modal-content">
-                                <div className="modal-header">
-                                    <h4 className="modal-title" id="myModalLabel">添加一个剧目</h4>
-                                </div>
-                                <div className="input-group">
-                                    <input type="text" ref="mdplayName" readOnly="readOnly" className="form-control"/>
-                                    <input type="number" ref="mdplayTime" className="form-control"/>
-                                    <input type="text" ref="mdplayActor" className="form-control"/>
-                                    <input type="number" ref="mdplayPrice" className="form-control"/>
-
-                                    <select className="btn" ref="mdplayType">
-                                        <option value='' hidden>电影类型</option>
-                                        <option value='爱情片'>爱情片</option>
-                                        <option value='战争片'>战争片</option>
-                                        <option value='历史片'>历史片</option>
-                                        <option value='科幻片'>科幻片</option>
-                                        <option value='动漫片'>动漫片</option>
-                                        <option value='动作片'>动作片</option>
-                                        <option value='喜剧片'>喜剧片</option>
-                                    </select>
-                                </div>
-                                <div className="modal-footer">
-                                    <div className="tag" ref="tag"></div>
-                                    <button type="button" className="btn btn-primary"
-                                            onClick={this.modifyPlay.bind(this)}>
-                                        提交
-                                    </button>
-                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">关闭</button>
-                                </div>
-                            </div>
-                        </div>
+                        <select className="btn" ref="playType">
+                            <option value='' hidden>电影类型</option>
+                            <option value='爱情片'>爱情片</option>
+                            <option value='战争片'>战争片</option>
+                            <option value='历史片'>历史片</option>
+                            <option value='科幻片'>科幻片</option>
+                            <option value='动漫片'>动漫片</option>
+                            <option value='动作片'>动作片</option>
+                            <option value='喜剧片'>喜剧片</option>
+                        </select>
                     </div>
-
+                    <div className="modal-footer">
+                        <div className="tag" ref="tag1"></div>
+                        <button type="button" className="btn btn-primary"
+                                onClick={this.addPlay.bind(this)}>
+                            提交
+                        </button>
+                        <button type="button" className="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
                 </div>
             </div>
+        </div>
+
+            <div className="modal fade bs-example-modal-lg" id="modifyModal" ref="modifyModal" role="dialog"
+                 aria-hidden="true">
+                <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h4 className="modal-title" id="myModalLabel">添加一个剧目</h4>
+                        </div>
+                        <div className="input-group">
+                            <input type="text" ref="mdplayName" readOnly="readOnly" className="form-control"/>
+                            <input type="number" ref="mdplayTime" className="form-control"/>
+                            <input type="text" ref="mdplayActor" className="form-control"/>
+                            <input type="number" ref="mdplayPrice" className="form-control"/>
+
+                            <select className="btn" ref="mdplayType">
+                                <option value='' hidden>电影类型</option>
+                                <option value='爱情片'>爱情片</option>
+                                <option value='战争片'>战争片</option>
+                                <option value='历史片'>历史片</option>
+                                <option value='科幻片'>科幻片</option>
+                                <option value='动漫片'>动漫片</option>
+                                <option value='动作片'>动作片</option>
+                                <option value='喜剧片'>喜剧片</option>
+                            </select>
+                        </div>
+                        <div className="modal-footer">
+                            <div className="tag" ref="tag"></div>
+                            <button type="button" className="btn btn-primary"
+                                    onClick={this.modifyPlay.bind(this)}>
+                                提交
+                            </button>
+                            <button type="button" className="btn btn-secondary" data-dismiss="modal">关闭</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
             <div className="playInfo">
                 <table className="table table-hover">
                     <tbody>

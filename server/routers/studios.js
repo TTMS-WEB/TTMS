@@ -3,7 +3,7 @@ import Studios from '../models/Studios';
 
 const router = express.Router();
 
-router.get('/studios',(req,res,next)=>{
+router.get('/allStudios',(req,res,next)=>{
     Studios.find({},(err,data)=>{
         if(err){
             return next(err);
