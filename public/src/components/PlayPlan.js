@@ -1,7 +1,10 @@
 import React, {Component} from "react";
 
 export default class PlayPlan extends Component {
-
+    componentWillMount() {
+        const page = this.props.playPlan.page;
+        this.props.showPlan(page);
+    }
 
     render() {
         let d = new Date();
@@ -13,18 +16,26 @@ export default class PlayPlan extends Component {
         const date1 = year + '.' + month + '.' + day1;
         const date2 = year + '.' + month + '.' + day2;
         const date3 = year + '.' + month + '.' + day3;
+
         const playPlan = this.props.playPlan.planInfo;
-       const planList = playPlan.map((val,index)=>{
-           return <tr key={index}>
-               <td>{val.planName}</td>
-               <td>{val.planStudio}</td>
-               <td>{val.planTime}</td>
-               <td>{val.planPrice}</td>
-               <td>{val.planActor}</td>
-               <td>{val.planType}</td>
-               <td>{val.planLong}</td>
-           </tr>
-       })
+        const planList = playPlan.map((val, index)=> {
+            let startTime = val.planTimeStart.replace('T','日').replace('.000Z','');
+            let endTime = val.planTimeEnd.replace('T','日').replace('.000Z','');
+
+            return <tr key={index}>
+                <td>{index + 1}</td>
+                <td>{val.planName}</td>
+                <td>{val.planStudio}</td>
+                <td>{startTime}</td>
+                <td>{endTime}</td>
+                <td>{val.planPrice}</td>
+                <td>{val.planLong}</td>
+                <td>
+                    <button>修改</button>
+                    <button>删除</button>
+                </td>
+            </tr>
+        });
 
 
         return <div className="playPlan">
@@ -41,17 +52,17 @@ export default class PlayPlan extends Component {
                 <table className="table table-hover">
                     <tbody>
                     <tr>
+                        <th>序号</th>
                         <th>影片名称</th>
                         <th>放映影厅</th>
-                        <th>放映时间</th>
-                        <th>价格</th>
-                        <th>主演</th>
-                        <th>类型</th>
-                        <th>时长</th>
+                        <th>开始时间</th>
+                        <th>结束时间</th>
+                        <th>价格(元)</th>
+                        <th>时长(minites)</th>
+                        <th>操作</th>
                     </tr>
                     {planList}
                     </tbody>
-
                 </table>
             </div>
         </div>

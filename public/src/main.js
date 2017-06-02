@@ -29,8 +29,9 @@ import showPlay from './middlewares/showPlay';
 import nav from './middlewares/Nav';
 import ticket from './middlewares/Ticket';
 import sale from './middlewares/Sale';
+import playPlan from './middlewares/PlayPlan'
 
-const Middleware = applyMiddleware(thunkMiddleware, createLogger(), login, register, allEmployees,seat,getStudios,showPlay,nav,ticket,sale);
+const Middleware = applyMiddleware(thunkMiddleware, createLogger(), login, register, allEmployees,seat,getStudios,showPlay,nav,ticket,sale,playPlan);
 
 let store = createStore(reducer, Middleware);
 

@@ -1,8 +1,11 @@
 export default (state = {
-    planInfo: [
-        {planName: "haha", planStudio: "2号", planTime: "2:00-4:00", planPrice: 3, planActor: "dffd", planType: "dfdf", planLong: 3},
-        {planName: "dfdf", planStudio: "2号", planTime: "2:00-4:00", planPrice: 3, planActor: "dffd", planType: "dfdf", planLong: 3}
-    ]
-})=> {
+    planInfo: [],
+    page: 1,
+    size: 0,
+    maxsize: 0
+}, action)=> {
+    if (action.type === 'SHOWPLAN') {
+        return Object.assign({},state,{planInfo:action.planInfo});
+    }
     return state;
 }
