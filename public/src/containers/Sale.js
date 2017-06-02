@@ -8,7 +8,12 @@ const mapStateToProps = (state)=>{
 
 const mapDispatchToProps = (dispatch)=>{
     return{
-
+        getStudioInfo:()=>{
+            dispatch(actions.StudioInfo());
+        },
+        sale:(studioId)=>{
+            dispatch(actions.sale(studioId));
+        }
     }
 };
 

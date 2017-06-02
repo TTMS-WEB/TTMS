@@ -27,6 +27,7 @@ export default class Seat extends Component {
     }
 
     render() {
+        let studioId = this.props.SeatInfo.studioId;
         return <div id="seatBorder">
             <div className="form-group">
                 <select  id="studioId" className="selectpicker form-control"
@@ -38,6 +39,11 @@ export default class Seat extends Component {
                 </select>
             </div>
             <br />
+            <div className="seatInfo">
+                <label className="studioId">{studioId}号厅</label>
+                <input type="checkbox" className="img-rounded" style={{backgroundColor: "rosybrown"}}/>可用
+                <input type="checkbox" className="img-rounded" style={{backgroundColor: "forestgreen"}}/>不可用
+            </div>
             <div>
                 <GenerateSeat />
             </div>

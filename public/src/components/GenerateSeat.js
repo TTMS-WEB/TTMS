@@ -4,13 +4,6 @@ export default class GenerateSeat extends Component {
     seatStatus(studioId, index) {
         let i = '' + index;
         this.props.changeSeatStatus(studioId, i);
-        /* let backgroundColor = document.getElementById(`seat${i}`).style.backgroundColor;
-         if (backgroundColor == "rosybrown") {
-         $("#seat" + i).css("background-color", "forestgreen");
-         }
-         else {
-         $("#seat" + i).css("background-color", "rosybrown");
-         }*/
     }
 
     showSeatRowCol() {
@@ -56,11 +49,6 @@ export default class GenerateSeat extends Component {
         }
 
         return <div>
-            <div className="seatInfo">
-                <label className="studioId">{studioId}号厅</label>
-                <input type="checkbox" className="img-rounded" style={{backgroundColor: "rosybrown"}}/>可用
-                <input type="checkbox" className="img-rounded" style={{backgroundColor: "forestgreen"}}/>不可用
-            </div>
             {seatArray}
         </div>
     }
