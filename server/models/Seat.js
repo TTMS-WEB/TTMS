@@ -3,7 +3,7 @@ mongoose.Promise = require('bluebird');
 
 const Seat = mongoose.model('Seat', {
     studioId: Number,
-    seatArray: [{status: Number}]  //-1 已坏/已售,0 未售出
+    seatArray: [{status: Number}]  //-1 已坏,0 未售出,1 已售
 });
 
 export default Seat
