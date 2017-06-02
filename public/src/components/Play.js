@@ -65,6 +65,12 @@ export default class Play extends Component {
 
     paging(page, maxsize, size, value) {
         switch (value) {
+            case 'first':
+                page = 1;
+                break;
+            case 'last':
+                page = Math.ceil(maxsize / size);
+                break;
             case 'reduce':
                 page = page - 1;
                 break;
@@ -206,16 +212,16 @@ export default class Play extends Component {
                     <tr>
                         <td></td>
                         <td>
-                            <button value='add' onClick={this.paging.bind(this, page, "first")}>首页</button>
+                            <button value='add' onClick={this.paging.bind(this, page,maxsize,size, "first")}>首页</button>
                         </td>
                         <td>
                             <button onClick={this.paging.bind(this, page, maxsize, size, "reduce")}>上一页</button>
-                            第{page}页
+                            第{page}页 共{Math.ceil(maxsize / size)}页
+
                         </td>
                         <td><input ref="searchPage" type="text" placeholder="输入想前往的页码"/></td>
                         <td>
                             <button onClick={this.paging.bind(this, page, maxsize, size, "searchPage")}>查询</button>
-                            共{Math.ceil(maxsize / size)}页
                         </td>
                         <td>
                             <button onClick={this.paging.bind(this, page, maxsize, size, "add")}>下一页</button>
