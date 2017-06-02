@@ -140,9 +140,12 @@ export default class Play extends Component {
                                 <option value='战争片'>战争片</option>
                                 <option value='历史片'>历史片</option>
                                 <option value='科幻片'>科幻片</option>
-                                <option value='动漫片'>动漫片</option>
+                                <option value='动漫片'>动画片</option>
                                 <option value='动作片'>动作片</option>
-                                <option value='喜剧片'>喜剧片</option>
+                                <option value='情感片'>情感片</option>
+                                <option value='生活片'>生活片</option>
+                                <option value='校园片'>校园片</option>
+                                <option value='青春片'>青春片</option>
                             </select>
                         </div>
                         <div className="modal-footer">
@@ -171,14 +174,16 @@ export default class Play extends Component {
                             <input type="number" ref="mdplayPrice" className="form-control"/>
 
                             <select className="btn" ref="mdplayType">
-                                <option value='' hidden>电影类型</option>
                                 <option value='爱情片'>爱情片</option>
                                 <option value='战争片'>战争片</option>
                                 <option value='历史片'>历史片</option>
                                 <option value='科幻片'>科幻片</option>
-                                <option value='动漫片'>动漫片</option>
+                                <option value='动漫片'>动画片</option>
                                 <option value='动作片'>动作片</option>
-                                <option value='喜剧片'>喜剧片</option>
+                                <option value='情感片'>情感片</option>
+                                <option value='生活片'>生活片</option>
+                                <option value='校园片'>校园片</option>
+                                <option value='青春片'>青春片</option>
                             </select>
                         </div>
                         <div className="modal-footer">
