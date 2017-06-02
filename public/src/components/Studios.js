@@ -41,6 +41,9 @@ export default class Studios extends Component {
 
 
     render() {
+
+
+
         const studio = this.props.GetStudios.map((ele, index)=> {
             const id = ele.id;
             const studioName = ele.studioName;
