@@ -14,7 +14,7 @@ router.post('/showPlay', (req, res, next)=> {
             if (err) {
                 return next(err);
             }
-            res.send({data, maxsize,size});
+            res.send({data, maxsize, size});
         }).limit(size).skip(skip);
 
     });

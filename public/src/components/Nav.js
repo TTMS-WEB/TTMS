@@ -51,8 +51,8 @@ export default class Nav extends Component {
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/">
-                                    退出系统
+                                <Link to="/playPlan">
+                                    演出计划
                                 </Link>
                             </li>
                         </ul>
