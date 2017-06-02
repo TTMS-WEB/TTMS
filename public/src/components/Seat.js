@@ -79,7 +79,7 @@ export default class Seat extends Component {
             }
         }
 
-        return <div id="seatBorder" className="center-block">
+        return <div id="seatBorder">
             <div className="form-group">
                 <select id="studioId" className="selectpicker form-control"
                         data-style="btn-info" onChange={this.chooseStudioId.bind(this)}>
