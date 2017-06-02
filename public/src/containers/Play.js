@@ -8,20 +8,23 @@ const mapStateToProps = (state)=> {
 
 const dispatchToProps = (dispatch)=> {
     return {
-        showPlay: ()=> {
-            dispatch(play.showPlay());
+        showPlay: (page)=> {
+            dispatch(play.showPlay(page));
         },
         addPlay: (newPlay)=> {
             dispatch(play.addPlay(newPlay))
         },
-        searchPlay:(searchPlayName)=>{
-            dispatch(play.searchPlay(searchPlayName))
+        searchPlay:(searchPlay)=>{
+            dispatch(play.searchPlay(searchPlay))
         },
-        removePlay:(deletePlayName)=>{
-            dispatch(play.removePlay(deletePlayName))
+        removePlay:(deletePlay)=>{
+            dispatch(play.removePlay(deletePlay))
         },
         modifyPlay:(newPlay)=>{
             dispatch(play.modifyPlay(newPlay))
+        },
+        changePage:(page)=>{
+            dispatch(play.changePage(page));
         }
     }
 };

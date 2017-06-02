@@ -22,13 +22,23 @@
     color: white;
 }
 
-.playInfo table tr th, td {
+.playInfo table tbody tr th, .playInfo table tbody tr td{
     font-size: larger;
     font-weight: bolder;
     opacity: 1;
     text-align: left;
     width: 15%;
 }
+
+.playInfo table tfoot td {
+    font-size: small;
+    font-weight: bolder;
+    opacity: 1;
+    margin: 10px;
+    width: 5%;
+}
+
+
 
 .play .operate {
     font-size: x-large;
@@ -42,7 +52,7 @@
     font-size: small;
 }
 
-.play button {
+.play .operate button {
     color: white;
     margin-left: 5px;
     margin-top: 5px;

@@ -3,25 +3,35 @@ import PlayInfo from "../models/playInfo";
 
 const router = express.Router();
 
-router.get('/showPlay', (req, res, next)=> {
-    PlayInfo.find({}, (err, data)=> {
-        if (err) {
-            return next(err);
-        }
-        res.send(data);
-    })
+router.post('/showPlay', (req, res, next)=> {
+    PlayInfo.find({}, (err, result)=> {
+        const page = req.body.page;
+        const size = 8;
+        const skip = (page - 1) * size;
+        const maxsize = result.length;
+
+        PlayInfo.find({}, (err, data)=> {
+            if (err) {
+                return next(err);
+            }
+            res.send({data, maxsize});
+        }).limit(size).skip(skip);
+
+    });
+
+
 });
 
 router.post('/addPlay', (req, res, next)=> {
-    const playInfo = new PlayInfo(req.body);
+    const playInfo = new PlayInfo(req.body.newPlay);
     PlayInfo.findOne({playName: playInfo.playName}, (err, result)=> {
         if (err) {
             return next(err);
         }
         else if (!result) {
-            playInfo.save((err, addPlayInfo)=> {
+            playInfo.save((err)=> {
                 if (!err) {
-                    res.send({addResult: true, addPlayInfo});
+                    res.send({addResult: true});
                 }
                 else {
                     res.send({addResult: false});
@@ -35,22 +45,16 @@ router.post('/addPlay', (req, res, next)=> {
 });
 
 router.post('/searchPlay', (req, res, next)=> {
-    if (req.body.searchPlayName === '') {
-        PlayInfo.find({}, (err, result)=> {
-            res.send(result);
-        })
-    }
-    else {
-        PlayInfo.find({playName: req.body.searchPlayName}, (err, resultPlay)=> {
-            if (err) {
-                return next(err);
-            }
-            else {
-                res.send(resultPlay);
-            }
+    PlayInfo.find({playName: req.body.searchPlayName}, (err, resultPlay)=> {
+        if (err) {
+            return next(err);
+        }
+        else {
+            res.send(resultPlay);
+        }
 
-        })
-    }
+    })
+
 });
 
 router.post('/removePlay', (req, res, next)=> {
@@ -59,14 +63,7 @@ router.post('/removePlay', (req, res, next)=> {
         if (err) {
             return next(err);
         }
-        else {
-            PlayInfo.find({}, (err, result)=> {
-                if (err) {
-                    return next(err);
-                }
-                res.send(result);
-            })
-        }
+        res.end();
     })
 });
 
@@ -81,14 +78,7 @@ router.post('/modifyPlay', (req, res, next)=> {
         if (err) {
             return next(err);
         }
-        else {
-            PlayInfo.find({}, (err, result)=> {
-                if (err) {
-                    return next(err);
-                }
-                res.send(result);
-            })
-        }
+        res.end();
     })
 });
 module.exports = router;
