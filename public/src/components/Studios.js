@@ -95,6 +95,9 @@ export default class Studios extends Component {
                 <div className="Studio">
                     <AddStudio/>
                     {studio}
+                    <ul>
+
+                    </ul>
                 </div>
             </div>
         );

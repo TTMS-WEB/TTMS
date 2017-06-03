@@ -35,7 +35,7 @@ router.delete('/deleteEmployee/:name', (req, res)=> {
         if (err) {
             console.log(err.message);
         }
-        res.send("succeed");
+        res.send({"isDelete":true});
     });
 });
 

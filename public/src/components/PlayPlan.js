@@ -42,7 +42,7 @@ export default class PlayPlan extends Component {
             return <option value={studio} key={index}>{studio.id}</option>
         });
         const planList = playPlan.planInfo.map((val, index)=> {
-            console.log(val.date);
+            const date = val.date.replace("T00:00:00.000Z","");
             switch (val.time) {
                 case 1:
                     time = '第一场(8:00-10:00)';
@@ -75,7 +75,7 @@ export default class PlayPlan extends Component {
                 <td>{index + 1}</td>
                 <td>{val.planName}</td>
                 <td>{val.planStudio}</td>
-                <td>日期</td>
+                <td>{date}</td>
                 <td>{time}</td>
                 <td>{val.planPrice}</td>
                 <td>{val.planLong}</td>
