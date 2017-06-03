@@ -5,10 +5,7 @@ const PlayPlan = mongoose.model('PlayPlan',
     {
         planName: String,
         planStudio: Number,
-        planTimeStart: Date,
-        planTimeEnd: Date,
-        planPrice: Number,
-        planLong: Number
+        time: Number
     });
 
 export default PlayPlan;

@@ -78,26 +78,17 @@ export default {
         {
             planName: "白鹿原",
             planStudio: 1,
-            planTimeStart: new Date('2017-06-02T03:30:20'),
-            planTimeEnd:new Date('2017-06-02T05:30:20'),
-            planPrice: 30,
-            planLong: 120
+            time: 1,
         },
         {
             planName: "欢乐颂",
             planStudio: 2,
-            planTimeStart: new Date('2017-06-02T10:30:20'),
-            planTimeEnd:new Date('2017-06-02T12:30:20'),
-            planPrice: 30,
-            planLong: 120
+            time: 2,
         },
         {
             planName: "致青春",
             planStudio: 3,
-            planTimeStart: new Date('2017-06-02T05:30:20'),
-            planTimeEnd:new Date('2017-06-02T07:30:20'),
-            planPrice: 30,
-            planLong: 120
+            time: 3,
         }
     ]
 }

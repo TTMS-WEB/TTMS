@@ -1,11 +1,11 @@
-import request from 'superagent';
+import request from "superagent";
 
 export default store=>next=>action=> {
     if (action.type === 'FINDPLAN') {
         request.post('/showPlan')
             .send({page: action.page})
             .end((err, res)=> {
-               next({type:"SHOWPLAN",planInfo:res.body})
+                next({type: "SHOWPLAN", plan: res.body})
             })
     }
     else {
