@@ -5,6 +5,7 @@ export default class PlayPlan extends Component {
         this.props.showPlan(page);
     }
 
+
     addPlan() {
         const play = this.refs.play.value;
         const studio = this.refs.studio.value;

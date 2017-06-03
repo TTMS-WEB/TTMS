@@ -23,10 +23,10 @@ export default {
         },
         {
             username: 'root',
-            sex:'女',
+            sex: '女',
             password: '123456',
             phone: 123456789,
-            address:'北京'
+            address: '北京'
         },
     ],
     PlayInfo: [
@@ -80,7 +80,6 @@ export default {
             seatArray: [{status: 0}, {status: -1}]
         }
     ],
-
     PlayPlan: [
         {
             planName: "白鹿原",
@@ -99,6 +98,13 @@ export default {
             planStudio: 3,
             date:new Date('2017-06-03'),
             time: 3,
+        }
+    ],
+    Schedule: [
+        {
+            playPlanId: 1,
+            ticketArray: [{status: 0}, {status: -1}, {status: 0}, {status: -1}]
+
         }
     ]
 }
