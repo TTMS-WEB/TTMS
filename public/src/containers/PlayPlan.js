@@ -12,6 +12,10 @@ const mapDispatchToProps =(dispatch)=>{
     return {
         showPlan:(page)=>{
             dispatch(plan.showPlan(page));
+        },
+
+        onAddPlan:(planInfo)=>{
+            dispatch(plan.addPlan(planInfo));
         }
     }
 };

@@ -39,7 +39,8 @@ router.post('/showPlan', (req, res, next)=> {
                         };
                         planInfo.push(play);
                         if (planInfo.length === plans.length) {
-                            planInfo.sort(compare('date','time'));
+                            planInfo.sort(compare('date', 'time'));
+
                             res.send({planInfo, plays, studios});
                         }
                     });
@@ -49,13 +50,38 @@ router.post('/showPlan', (req, res, next)=> {
     })
 });
 
-function compare(property1,property2) {
+router.post('/addPlan', (req, res, next)=> {
+    const playPlan = new PlayPlan(req.body.planInfo);
+    PlayPlan.find({planStudio: playPlan.planStudio, date: new Date(playPlan.date), time: playPlan.time}, (err, data)=> {
+        if (err) {
+            next(err);
+        }
+        else {
+            if (data.length === 0) {
+                playPlan.save((err, result)=> {
+                    if (err) {
+                        next(err);
+                    }
+                    else {
+                        res.send({addResult: true})
+                    }
+                })
+            }
+            else {
+                res.send({addResult: false});
+            }
+        }
+    });
+
+});
+
+function compare(property1, property2) {
     return function (obj1, obj2) {
         var value1 = obj1[property1];
         var value2 = obj2[property1];
         var val1 = obj1[property2];
         var val2 = obj2[property2];
-        if(value1 - value2 === 0){
+        if (value1 - value2 === 0) {
             return val1 - val2;
         }
 

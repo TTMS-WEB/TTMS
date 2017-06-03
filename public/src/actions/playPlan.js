@@ -5,4 +5,10 @@ const showPlan = (page)=> {
     }
 };
 
-module.exports = {showPlan};
+const addPlan = (planInfo)=>{
+    return{
+        type:"ADDPLAN",
+        planInfo
+    }
+}
+module.exports = {showPlan,addPlan};

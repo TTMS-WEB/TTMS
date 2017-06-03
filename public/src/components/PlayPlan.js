@@ -5,44 +5,56 @@ export default class PlayPlan extends Component {
         this.props.showPlan(page);
     }
 
+    GetDateStr(AddDayCount) {
+        var dd = new Date();
+        dd.setDate(dd.getDate()+AddDayCount);
+        var y = dd.getFullYear();
+        var m = (dd.getMonth()+1)<10?"0"+(dd.getMonth()+1):(dd.getMonth()+1);
+        var d = dd.getDate()<10?"0"+dd.getDate():dd.getDate();
+        return y+"-"+m+"-"+d;
+    }
 
-    addPlan() {
-        const play = this.refs.play.value;
-        const studio = this.refs.studio.value;
+    addPlan(page) {
+        const planName = this.refs.play.value;
+        const planStudio = this.refs.studio.value;
         const date = this.refs.date.value;
         const time = this.refs.time.value;
+        this.props.onAddPlan({planName, planStudio, date, time, page});
+    }
+
+    setTip(addResult) {
+        if (addResult === true) {
+            this.refs.tag1.innerHTML = '添加成功';
+        }
+        else if (addResult === false) {
+            this.refs.tag1.innerHTML = '添加失败';
+        }
     }
 
     render() {
-        let d = new Date();
-        const year = d.getFullYear();
-        const month = d.getMonth() + 1;
-        const day0 = d.getDate();
-        const day1 = d.getDate() + 1;
-        const day2 = d.getDate() + 2;
-        const day3 = d.getDate() + 3;
-        const day4 = d.getDate() + 4;
 
-        const date0 = year + '.' + month + '.' + day0;
-        const date1 = year + '.' + month + '.' + day1;
-        const date2 = year + '.' + month + '.' + day2;
-        const date3 = year + '.' + month + '.' + day3;
-        const date4 = year + '.' + month + '.' + day4;
-
-        let time = "";
         const playPlan = this.props.playPlan;
         const plays = playPlan.plays;
         const studios = playPlan.studios;
+        const page = playPlan.page;
+        const addResult = playPlan.addResult;
+        let date = [];
+
+        for(let i = 0;i<5;i++){
+           date[i] = this.GetDateStr(i);
+        }
 
         const playList = plays.map((play, index)=> {
-            return <option value={play} key={index}>{play.playName}</option>
+            return <option value={play.playName} key={index}>{play.playName}</option>
         });
 
         const studioList = studios.map((studio, index)=> {
-            return <option value={studio} key={index}>{studio.id}</option>
+            return <option value={studio.id} key={index}>{studio.id}</option>
         });
         const planList = playPlan.planInfo.map((val, index)=> {
-            const date = val.date.replace("T00:00:00.000Z","");
+            let time;
+            let date;
+            date = val.date.replace("T00:00:00.000Z", "");
             switch (val.time) {
                 case 1:
                     time = '第一场(8:00-10:00)';
@@ -89,10 +101,10 @@ export default class PlayPlan extends Component {
         return <div className="playPlan">
             <div className="time">
                 <button>今天</button>
-                <button>{date1}</button>
-                <button>{date2}</button>
-                <button>{date3}</button>
-                <button>{date4}</button>
+                <button>{date[1]}</button>
+                <button>{date[2]}</button>
+                <button>{date[3]}</button>
+                <button>{date[4]}</button>
                 <button type="button" className="btn" data-toggle="modal" data-target="#myModal">
                     添加演出计划
                 </button>
@@ -115,10 +127,10 @@ export default class PlayPlan extends Component {
                             </select>
                             <select name="Date" ref="date" id="date">
                                 <option value="" hidden>放映日期</option>
-                                <option value={date1}>{date1}</option>
-                                <option value={date2}>{date2}</option>
-                                <option value={date3}>{date3}</option>
-                                <option value={date4}>{date4}</option>
+                                <option value={date[1]}>{date[1]}</option>
+                                <option value={date[2]}>{date[2]}</option>
+                                <option value={date[3]}>{date[3]}</option>
+                                <option value={date[4]}>{date[4]}</option>
                             </select>
                             <br/>
                             <select name="Time" ref="time" id="time">
@@ -135,7 +147,7 @@ export default class PlayPlan extends Component {
                         </div>
                         <div className="modal-footer">
                             <div className="tag" ref="tag1"></div>
-                            <button type="button" className="btn btn-primary" onClick={this.addPlan.bind(this)}>
+                            <button type="button" className="btn btn-primary" onClick={this.addPlan.bind(this, page)}>
                                 提交
                             </button>
                             <button type="button" className="btn btn-secondary" data-dismiss="modal">关闭</button>
@@ -160,6 +172,7 @@ export default class PlayPlan extends Component {
                     </tbody>
                 </table>
             </div>
+            {this.setTip(addResult)}
         </div>
     }
 }
