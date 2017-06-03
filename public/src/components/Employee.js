@@ -26,7 +26,7 @@ class Employee extends Component {
                     <tr>
                         <th className="th">员工序号</th>
                         <th className="th">员工姓名</th>
-                        <th className="th">性别</th>
+                        <th className="th">邮箱</th>
                         <th className="th">电话</th>
                         <th className="th">地址</th>
                         <th className="th">操作</th>

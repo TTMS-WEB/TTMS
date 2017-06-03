@@ -13,7 +13,7 @@ export default class AddEmployees extends Component{
     render() {
         const Employee = this.props.ShowAllEmployees.map((ele, index)=> {
             const name = ele.username;
-            const sex = ele.sex;
+            const email = ele.email;
             const phone = ele.phone;
             const address = ele.address;
             return (
@@ -23,7 +23,7 @@ export default class AddEmployees extends Component{
                         <tr>
                             <th className="th">{index}</th>
                             <th className="th">{name}</th>
-                            <th className="th">{sex}</th>
+                            <th className="th">{email}</th>
                             <th className="th">{phone}</th>
                             <th className="th">{address}</th>
                             <th className="th">

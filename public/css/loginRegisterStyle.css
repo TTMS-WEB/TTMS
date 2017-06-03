@@ -13,15 +13,15 @@ body {
 }
 
 .content1{
-    margin-top: -280px;
+    margin-top: -500px;
 }
 
 #carousel1{
     border-radius: 25px;
     background: rgba(0,0,0,0.5);
-    width: 320px;
-    height: 320px;
-    margin-top: 200px;
+    width: 400px;
+    height: 600px;
+    margin-top: 40px;
 }
 
 #ul{
@@ -44,8 +44,8 @@ body {
 
 
 #inputGroup{
-    margin-top: 95%;
-    margin-left: 8%;
+    margin-top: 130%;
+    margin-left: 18%;
 }
 
 input{
