@@ -2,33 +2,21 @@ export default {
     UserInfo: [
         {
             username: 'li',
-<<<<<<< HEAD
             email:'15829061748@163.com',
-=======
-            sex: '女',
->>>>>>> 316e063ef99a65c41389eb4e5830d928026fdd26
             password: '123456',
             phone: 123456789,
             address: '北京'
         },
         {
             username: 'huang',
-<<<<<<< HEAD
             email:'15829061748@163.com',
-=======
-            sex: '女',
->>>>>>> 316e063ef99a65c41389eb4e5830d928026fdd26
             password: '123456',
             phone: 123456789,
             address: '北京'
         },
         {
             username: 'han',
-<<<<<<< HEAD
-            email:'15829061748@163.com',
-=======
             sex: '女',
->>>>>>> 316e063ef99a65c41389eb4e5830d928026fdd26
             password: '123456',
             phone: 123456789,
             address: '北京'
