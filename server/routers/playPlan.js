@@ -32,6 +32,7 @@ router.post('/showPlan', (req, res, next)=> {
                         let play = {
                             planName: plan.planName,
                             planStudio: plan.planStudio,
+                            date:plan.date,
                             time: plan.time,
                             planLong: playdata.playTime,
                             planPrice: playdata.playPrice

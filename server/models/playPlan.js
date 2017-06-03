@@ -5,6 +5,7 @@ const PlayPlan = mongoose.model('PlayPlan',
     {
         planName: String,
         planStudio: Number,
+        date:Date,
         time: Number
     });
 

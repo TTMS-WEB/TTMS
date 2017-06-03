@@ -41,6 +41,7 @@ export default class PlayPlan extends Component {
             return <option value={studio} key={index}>{studio.id}</option>
         });
         const planList = playPlan.planInfo.map((val, index)=> {
+            console.log(val.date);
             switch (val.time) {
                 case 1:
                     time = '第一场(8:00-10:00)';
