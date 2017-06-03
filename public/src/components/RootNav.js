@@ -26,7 +26,7 @@ export default class RootNav extends Component {
                     <div className="col-md-2">
                         <ul id="main-nav" className="nav nav-tabs nav-stacked">
                             <li className="">
-                                <Link to="/playPlan">
+                                <Link to="/schedule">
                                     演出计划
                                 </Link>
                             </li>

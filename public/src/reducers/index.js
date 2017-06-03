@@ -12,6 +12,7 @@ import Register from './Register';
 import GetRegisterId from './GetRegisterId';
 import Sale from './Sale';
 import playPlan from './playPlan'
+import Schedule from './Schedule';
 
 export default combineReducers({
     FindUsers,
@@ -26,5 +27,6 @@ export default combineReducers({
     GetRegisterId,
     Nav,
     Sale,
-    playPlan
+    playPlan,
+    Schedule
 });
