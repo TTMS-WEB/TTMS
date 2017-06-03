@@ -31,6 +31,9 @@ export default class PlayPlan extends Component {
         }
     }
 
+    deletePlan(id,page){
+        this.props.onDeletePlan({id,page});
+    }
     render() {
 
         const playPlan = this.props.playPlan;
@@ -93,7 +96,7 @@ export default class PlayPlan extends Component {
                 <td>{val.planLong}</td>
                 <td>
                     <button>修改</button>
-                    <button>删除</button>
+                    <button onClick={this.deletePlan.bind(this,val.planId,page)}>删除</button>
                 </td>
             </tr>
         });

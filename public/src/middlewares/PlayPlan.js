@@ -13,8 +13,16 @@ export default store=>next=>action=> {
         request.post('/addPlan')
             .send({planInfo: action.planInfo})
             .end((err, res)=> {
-                next({type:"CHANGEADDRESULT",addResult:res.body.addResult});
+                next({type: "CHANGEADDRESULT", addResult: res.body.addResult});
                 store.dispatch(plan.showPlan(action.planInfo.page));
+            })
+    }
+    else if (action.type === 'DELETEPLAN') {
+        request.post('/deletePlan')
+            .send({deleteInfo:action.deleteInfo})
+            .end((err,res)=>{
+                console.log(action);
+                store.dispatch(plan.showPlan(action.deleteInfo.page))
             })
     }
     else {

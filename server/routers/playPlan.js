@@ -1,4 +1,6 @@
 import express from "express";
+const ObjectID = require('mongodb').ObjectID;
+
 import PlayPlan from "../models/playPlan";
 import PlayInfo from "../models/playInfo";
 import Studios from "../models/Studios";
@@ -30,6 +32,7 @@ router.post('/showPlan', (req, res, next)=> {
                             next(err);
                         }
                         let play = {
+                            planId:plan._id,
                             planName: plan.planName,
                             planStudio: plan.planStudio,
                             date: plan.date,
@@ -75,6 +78,16 @@ router.post('/addPlan', (req, res, next)=> {
 
 });
 
+router.post('/deletePlan',(req,res,next)=>{
+    const deleteId = req.body.deleteInfo.id;
+    console.log(deleteId);
+    PlayPlan.remove({_id:ObjectID(deleteId)},(err,result)=>{
+        if(err){
+            next(err);
+        }
+        res.end();
+    })
+});
 function compare(property1, property2) {
     return function (obj1, obj2) {
         var value1 = obj1[property1];

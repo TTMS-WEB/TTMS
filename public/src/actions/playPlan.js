@@ -10,5 +10,12 @@ const addPlan = (planInfo)=>{
         type:"ADDPLAN",
         planInfo
     }
+};
+
+const deletePlan = (deleteInfo)=>{
+    return{
+        type:'DELETEPLAN',
+        deleteInfo
+    }
 }
-module.exports = {showPlan,addPlan};
+module.exports = {showPlan,addPlan,deletePlan};

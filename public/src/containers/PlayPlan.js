@@ -16,6 +16,9 @@ const mapDispatchToProps =(dispatch)=>{
 
         onAddPlan:(planInfo)=>{
             dispatch(plan.addPlan(planInfo));
+        },
+        onDeletePlan:(deleteInfo)=>{
+            dispatch(plan.deletePlan(deleteInfo));
         }
     }
 };
