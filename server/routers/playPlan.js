@@ -32,13 +32,14 @@ router.post('/showPlan', (req, res, next)=> {
                         let play = {
                             planName: plan.planName,
                             planStudio: plan.planStudio,
-                            date:plan.date,
+                            date: plan.date,
                             time: plan.time,
                             planLong: playdata.playTime,
                             planPrice: playdata.playPrice
                         };
                         planInfo.push(play);
                         if (planInfo.length === plans.length) {
+                            planInfo.sort(compare('date','time'));
                             res.send({planInfo, plays, studios});
                         }
                     });
@@ -48,4 +49,17 @@ router.post('/showPlan', (req, res, next)=> {
     })
 });
 
+function compare(property1,property2) {
+    return function (obj1, obj2) {
+        var value1 = obj1[property1];
+        var value2 = obj2[property1];
+        var val1 = obj1[property2];
+        var val2 = obj2[property2];
+        if(value1 - value2 === 0){
+            return val1 - val2;
+        }
+
+        return value1 - value2;
+    }
+}
 module.exports = router;
