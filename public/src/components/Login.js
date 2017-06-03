@@ -32,6 +32,9 @@ class Login extends Component {
         const username = this.refs.input.value;
         const psw = this.refs.psw.value;
         this.props.isLegal({username: username, psw: psw});
+        if(username == 'root'&&psw=='123456'){
+            this.props.router.push('/playPlan');
+        }
     }
 
     clear() {

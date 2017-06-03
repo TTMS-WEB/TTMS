@@ -7,6 +7,7 @@ import {createLogger} from 'redux-logger';
 import  thunkMiddleware from 'redux-thunk';
 
 import App from './components/App';
+import Root from './components/Root';
 
 import ShowLoginRegister from './containers/ShowLoginRegister';
 import AllEmployees from './containers/AllEmployees';
@@ -15,6 +16,7 @@ import Seat from './containers/Seat';
 import GetStudios from './containers/Studios';
 import Ticket from './containers/Ticket';
 import Sale from './containers/Sale';
+import PlayPlan from './containers/PlayPlan';
 
 import reducer from './reducers/index.js';
 
@@ -28,7 +30,7 @@ import nav from './middlewares/Nav';
 import ticket from './middlewares/Ticket';
 import sale from './middlewares/Sale';
 
-const Middleware = applyMiddleware(thunkMiddleware, createLogger(), login, register, allEmployees,seat,getStudios,showPlay,nav,ticket,sale);
+const Middleware = applyMiddleware(thunkMiddleware, createLogger(), login, register, allEmployees, seat, getStudios, showPlay, nav, ticket, sale);
 
 let store = createStore(reducer, Middleware);
 
@@ -41,6 +43,9 @@ ReactDom.render(
                 <Route path="/play" component={Play}/>
                 <Route path="/seat" component={Seat}/>
                 <Route path="/ticket" component={Ticket}/>
+            </Route>
+            <Route path="/root" component={Root}>
+                <Route path='/playPlan' component={PlayPlan}/>
                 <Route path="/sale" component={Sale}/>
             </Route>
             <Route path="/" component={ShowLoginRegister}/>
