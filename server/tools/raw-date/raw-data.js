@@ -2,31 +2,31 @@ export default {
     UserInfo: [
         {
             username: 'li',
-            sex:'女',
+            sex: '女',
             password: '123456',
             phone: 123456789,
-            address:'北京'
+            address: '北京'
         },
         {
             username: 'huang',
-            sex:'女',
+            sex: '女',
             password: '123456',
             phone: 123456789,
-            address:'北京'
+            address: '北京'
         },
         {
             username: 'han',
-            sex:'女',
+            sex: '女',
             password: '123456',
             phone: 123456789,
-            address:'北京'
+            address: '北京'
         },
         {
             username: 'root',
-            sex:'女',
+            sex: '女',
             password: '123456',
             phone: 123456789,
-            address:'北京'
+            address: '北京'
         },
     ],
     PlayInfo: [
@@ -77,13 +77,31 @@ export default {
     Seat: [
         {
             studioId: 4,
-            seatArray:[{status:0},{status:-1}]
+            seatArray: [{status: 0}, {status: -1}]
         }
     ],
-    Schedule:[
+    PlayPlan: [
         {
-            playPlanId:1,
-            ticketArray:[{status:0},{status:-1},{status:0},{status:-1}]
+            planName: "白鹿原",
+            planStudio: 1,
+            time: 1,
+        },
+        {
+            planName: "欢乐颂",
+            planStudio: 2,
+            time: 2,
+        },
+        {
+            planName: "致青春",
+            planStudio: 3,
+            time: 3,
+        }
+    ],
+    Schedule: [
+        {
+            playPlanId: 1,
+            ticketArray: [{status: 0}, {status: -1}, {status: 0}, {status: -1}]
+
         }
     ]
 }

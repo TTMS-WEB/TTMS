@@ -7,7 +7,7 @@ import Studio from '../models/Studios';
 import Seat from '../models/Seat';
 import Schedule from '../models/Schedule';
 
-router.get('/schedule', (req, res, next)=> {
+/*router.get('/schedule', (req, res, next)=> {
     PlayPlan.find({}, (err, data)=> {
         if (err) {
             return next(err);
@@ -53,5 +53,5 @@ router.get('/schedule', (req, res, next)=> {
 
 
     })
-});
+});*/
 module.exports = {router};
