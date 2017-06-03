@@ -1,16 +1,16 @@
-export default (state = {playInfo: [], addResult: '0'}, action)=> {
+export default (state = {playInfo: [], addResult: '0',page:1,maxsize:0,size:0}, action)=> {
     if (action.type === "SHOWPLAY") {
-        return {playInfo: action.playInfo, addResult: state.addResult};
-    }
-    else if (action.type === 'ADDPLAY') {
-
-        return {playInfo: [...state.playInfo, action.newPlay.addPlayInfo], addResult: action.newPlay.addResult}
+        return Object.assign({},state,{playInfo:action.playInfo,maxsize:action.maxsize,size:action.size});
     }
     else if (action.type === 'ERRTIP') {
-        return {playInfo:state.playInfo,addResult:action.addResult}
+        return Object.assign({},state,{addResult:action.addResult});
     }
     else if(action.type === 'CHANGEPLAY'){
-        return{playInfo:action.resultPlay}
+        return Object.assign({},state,{playInfo:action.resultPlay})
     }
+    else if(action.type === 'CHANGESTATE'){
+        return Object.assign({},state,{page:action.page})
+    }
+
     return state;
 }

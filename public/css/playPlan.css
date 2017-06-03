@@ -1,0 +1,19 @@
+.playPlan table {
+    color: #b99423;
+    background-color: #2B2E33;
+    opacity: 0.5;
+    width: 100%;
+}
+Link:active{
+    color: #472b24;
+}
+.playPlan table th, .playPlan table td {
+    width: 8%;
+    text-align: left;
+    opacity: 1;
+}
+
+/*.playPlan table tr:hover {*/
+    /*background-color: #b97455;*/
+    /*opacity: 1;*/
+/*}*/

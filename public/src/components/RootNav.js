@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
 
-export default class Nav extends Component {
+export default class RootNav extends Component {
     componentWillMount() {
         this.props.loadUsername();
     }
@@ -26,33 +26,13 @@ export default class Nav extends Component {
                     <div className="col-md-2">
                         <ul id="main-nav" className="nav nav-tabs nav-stacked">
                             <li className="">
-                                <Link to="/studios">
-                                    演出厅管理
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/seat">
-                                    座位管理
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/ticket">
-                                    票务管理
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/employees">
-                                    员工管理
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/play">
-                                    剧目管理
-                                </Link>
-                            </li>
-                            <li>
                                 <Link to="/playPlan">
                                     演出计划
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/sale">
+                                    售票
                                 </Link>
                             </li>
                         </ul>

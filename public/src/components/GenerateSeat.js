@@ -4,13 +4,6 @@ export default class GenerateSeat extends Component {
     seatStatus(studioId, index) {
         let i = '' + index;
         this.props.changeSeatStatus(studioId, i);
-        /* let backgroundColor = document.getElementById(`seat${i}`).style.backgroundColor;
-         if (backgroundColor == "rosybrown") {
-         $("#seat" + i).css("background-color", "forestgreen");
-         }
-         else {
-         $("#seat" + i).css("background-color", "rosybrown");
-         }*/
     }
 
     showSeatRowCol() {
@@ -37,17 +30,15 @@ export default class GenerateSeat extends Component {
             if (i % row == 0) {
                 seatArray.push(<br />);
             }
-            if (seat[i].status == 0) {
-                seatArray.push(<input key={i} type="checkbox" id={`seat${i}`} className='img-rounded'
-                                      style={{backgroundColor: "rosybrown"}}
+            if (seat[i].status == 0||seat[i].status ==1) {
+                seatArray.push(<img src="../../images/goodSeat.png" key={i} type="checkbox" id={`seat${i}`} className='img-rounded'
                                       title={`${x}排${y}列`} data-toggle='tooltip' data-placement='right'
                                       onClick={this.seatStatus.bind(this, studioId, i)}
                                       onMouseOver={this.showSeatRowCol.bind(this)}/>);
 
             }
             if (seat[i].status == -1) {
-                seatArray.push(<input key={i} type='checkbox' id={`seat${i}`} className='img-rounded'
-                                      style={{backgroundColor: "forestgreen"}}
+                seatArray.push(<img src="../../images/badSeat.png" key={i} type='checkbox' id={`seat${i}`} className='img-rounded'
                                       title={`${x}排${y}列`} data-toggle='tooltip' data-placement='right'
                                       onClick={this.seatStatus.bind(this, studioId, i)}
                                       onMouseOver={this.showSeatRowCol.bind(this)}/>);
@@ -56,11 +47,6 @@ export default class GenerateSeat extends Component {
         }
 
         return <div>
-            <div className="seatInfo">
-                <label className="studioId">{studioId}号厅</label>
-                <input type="checkbox" className="img-rounded" style={{backgroundColor: "rosybrown"}}/>可用
-                <input type="checkbox" className="img-rounded" style={{backgroundColor: "forestgreen"}}/>不可用
-            </div>
             {seatArray}
         </div>
     }

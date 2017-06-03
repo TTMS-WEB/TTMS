@@ -2,24 +2,43 @@ export default {
     UserInfo: [
         {
             username: 'li',
+<<<<<<< HEAD
             email:'15829061748@163.com',
+=======
+            sex: '女',
+>>>>>>> 316e063ef99a65c41389eb4e5830d928026fdd26
             password: '123456',
             phone: 123456789,
-            address:'北京'
+            address: '北京'
         },
         {
             username: 'huang',
+<<<<<<< HEAD
             email:'15829061748@163.com',
+=======
+            sex: '女',
+>>>>>>> 316e063ef99a65c41389eb4e5830d928026fdd26
             password: '123456',
             phone: 123456789,
-            address:'北京'
+            address: '北京'
         },
         {
             username: 'han',
+<<<<<<< HEAD
             email:'15829061748@163.com',
+=======
+            sex: '女',
+>>>>>>> 316e063ef99a65c41389eb4e5830d928026fdd26
             password: '123456',
             phone: 123456789,
-            address:'北京'
+            address: '北京'
+        },
+        {
+            username: 'root',
+            sex: '女',
+            password: '123456',
+            phone: 123456789,
+            address: '北京'
         },
     ],
     PlayInfo: [
@@ -70,7 +89,34 @@ export default {
     Seat: [
         {
             studioId: 4,
-            seatArray:[{status:0},{status:-1}]
+            seatArray: [{status: 0}, {status: -1}]
         }
     ],
+    PlayPlan: [
+        {
+            planName: "白鹿原",
+            planStudio: 1,
+            date:new Date('2017-06-02'),
+            time: 1,
+        },
+        {
+            planName: "欢乐颂",
+            planStudio: 2,
+            date:new Date('2017-06-01'),
+            time: 2,
+        },
+        {
+            planName: "致青春",
+            planStudio: 3,
+            date:new Date('2017-06-03'),
+            time: 3,
+        }
+    ],
+    Schedule: [
+        {
+            playPlanId: 1,
+            ticketArray: [{status: 0}, {status: -1}, {status: 0}, {status: -1}]
+
+        }
+    ]
 }

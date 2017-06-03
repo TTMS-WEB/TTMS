@@ -1,37 +1,41 @@
-const showPlay = ()=> {
-    return {type: "FINDPLAY"}
+const showPlay = (page)=> {
+    return {type: "FINDPLAY", page};
 };
 
 const addPlay = (newPlay)=> {
-    return {type: 'ADDPLAY',
-        playName: newPlay.playName,
-        playTime: newPlay.playTime,
-        playActor: newPlay.playActor,
-        playPrice: newPlay.playPrice,
-        playType: newPlay.playType
-    }
-};
-
-const searchPlay = (searchPlayName)=>{
     return {
-        type:"SEARCHPLAY",
-        searchPlayName,
-    }
-};
-
-const removePlay = (deletePlayName)=>{
-    return{
-        type:'REMOVEPLAY',
-        deletePlayName
-    }
-};
-
-const modifyPlay = (newPlay) =>{
-    return {
-        type:"MODIFYPLAY",
+        type: 'ADDPLAY',
         newPlay
+    }
+};
+
+const searchPlay = (searchPlay)=> {
+    return {
+        type: "SEARCHPLAY",
+        searchPlay,
+    }
+};
+
+const removePlay = (deletePlay)=> {
+    return {
+        type: 'REMOVEPLAY',
+        deletePlay
+    }
+};
+
+const modifyPlay = (newPlay) => {
+    return {
+        type: "MODIFYPLAY",
+        newPlay
+    }
+};
+
+const changePage = (page)=>{
+    return {
+        type:"CHANGEPAGE",
+        page
     }
 }
 module.exports = {
-    showPlay, addPlay,searchPlay,removePlay,modifyPlay
+    showPlay, addPlay, searchPlay, removePlay, modifyPlay,changePage
 };

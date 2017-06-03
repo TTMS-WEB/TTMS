@@ -1,9 +1,9 @@
 /*.play {*/
-    /*margin-top: 30px;*/
-    /*margin-left: 30px;*/
+/*margin-top: 30px;*/
+/*margin-left: 30px;*/
 /*}*/
- .play input{
-    outline:none;
+.play input, .play button {
+    outline: hidden;
 }
 
 .playInfo table {
@@ -13,7 +13,7 @@
     color: #b99423;
 }
 
-.play .operate{
+.play .operate {
     padding-top: 10px;
     padding-bottom: 30px;
     background-color: #2B2E33;
@@ -22,12 +22,27 @@
     color: white;
 }
 
-.playInfo table tr th, td {
+.playInfo table tbody tr th, .playInfo table tbody tr td {
     font-size: larger;
     font-weight: bolder;
     opacity: 1;
     text-align: left;
     width: 15%;
+}
+
+.playInfo table tfoot tr td {
+    color: white;
+width: 5px;
+}
+
+.playInfo table tfoot tr td input, .playInfo table tfoot tr td button {
+    border-radius:2px;
+    outline-color: white;
+    font-size: small;
+    opacity: 1;
+    color: #363636;
+    background-color: white;
+    border: hidden;
 }
 
 .play .operate {
@@ -42,7 +57,7 @@
     font-size: small;
 }
 
-.play button {
+.play .operate button {
     color: white;
     margin-left: 5px;
     margin-top: 5px;
@@ -56,7 +71,7 @@
     left: 15%;
 }
 
-.play select,.play .input-group input{
+.play select, .play .input-group input {
     font-weight: bolder;
     background-color: #d5cecc;
     color: #86817f;

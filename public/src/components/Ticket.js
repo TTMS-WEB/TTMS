@@ -19,6 +19,12 @@ export default class Ticket extends Component{
                     <th>1</th>
                     <th>1</th>
                 </tr>
+                <tr>
+                    <th>1</th>
+                    <th>1</th>
+                    <th>1</th>
+                    <th>1</th>
+                </tr>
 
                 </tbody>
             </table>
