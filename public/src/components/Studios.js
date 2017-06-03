@@ -42,6 +42,15 @@ export default class Studios extends Component {
 
     render() {
 
+        // const studios = this.props.GetStudios;
+        //
+        // if(studios.length > 5){
+        //     if(studios.length%5!=0){
+        //         let pages = studios.length/5+1;
+        //     }
+        //     else let pages = studios.length/5;
+        // }
+        // else let pages = 1;
 
 
         const studio = this.props.GetStudios.map((ele, index)=> {
@@ -49,7 +58,7 @@ export default class Studios extends Component {
             const studioName = ele.studioName;
             const studioInfo = ele.studioInfo;
             return (
-                <div className="studios">
+                <div className="studios" key={index}>
                     <table className="table table-style" width="200">
                         <thead>
                         <tr>
@@ -98,6 +107,9 @@ export default class Studios extends Component {
                 <div className="Studio">
                     <AddStudio/>
                     {studio}
+                    <ul>
+
+                    </ul>
                 </div>
             </div>
         );

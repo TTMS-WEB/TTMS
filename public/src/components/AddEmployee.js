@@ -17,7 +17,7 @@ export default class AddEmployees extends Component{
             const phone = ele.phone;
             const address = ele.address;
             return (
-                <div className="studios">
+                <div className="studios" key={index}>
                     <table className="table table-style" width="200">
                         <thead>
                         <tr>

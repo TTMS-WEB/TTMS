@@ -13,9 +13,6 @@ const mapDispatchToProps = (dispatch)=> {
         onRegister: (content)=> {
             dispatch(actions.register(content));
         },
-        getId:()=>{
-            dispatch(actions.getId());
-        }
     }
 };
 
