@@ -4,10 +4,10 @@ const StudioInfo = ()=> {
     }
 };
 
-const generateSeat = (studioId,seatArray)=> {
+const generateSeat = (studioId)=> {
     return {
         type: 'GENERATE_SEAT',
-        studioId,seatArray
+        studioId
     }
 };
 const location = (studioId,i)=> {

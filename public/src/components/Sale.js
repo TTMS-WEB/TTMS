@@ -59,7 +59,6 @@ export default class Sale extends Component {
             y = Number(a[i + 1]);
             z.push((x - 1) * row + y - 1);
             i++;
-            console.log(z);
         }
         this.props.buyTicket(ScheduleId, z);
     }
@@ -67,7 +66,6 @@ export default class Sale extends Component {
     render() {
         let studioId = this.props.Sale.ScheduleStudio;
         let seat = this.props.Sale.TicketArray;
-        console.log(seat);
         const array = this.props.Seat;
         let row;
         for (let i = 0; i < array.length; i++) {
@@ -106,6 +104,36 @@ export default class Sale extends Component {
 
             }
         }
+        let time = this.props.Sale.ScheduleTime;
+        switch (time) {
+            case 1:
+                time = '第一场(8:00-10:00)';
+                break;
+            case 2:
+                time = '第二场(10:00-12:00)';
+                break;
+            case 3:
+                time = '第三场(12:00-14:00)';
+                break;
+            case 4:
+                time = '第四场(14:00-16:00)';
+                break;
+            case 5:
+                time = '第五场(16:00-18:00)';
+                break;
+            case 6:
+                time = '第六场(18:00-20:00)';
+                break;
+            case 7:
+                time = '第七场(20:00-22:00)';
+                break;
+            case 8:
+                time = '第八场(22:00-24:00)';
+                break;
+            default:
+                time = '';
+        }
+
 
         return <div className="sale">
             <div className="col-md-8" id="saleLeft">
@@ -122,9 +150,11 @@ export default class Sale extends Component {
             <div className="col-md-4" id="saleRight">
                 <div><span className="label">影厅：</span><span>{studioId}号厅</span></div>
                 <div><span className="label">剧目：</span><span>{this.props.Sale.ScheduleName}</span></div>
-                <div><span className="label">场次：</span><span>{this.props.Sale.ScheduleDate}</span></div>
                 <div><span className="label">主演：</span><span>{this.props.Sale.ScheduleActor}</span></div>
-                <div><span className="label">时长：</span><span>{this.props.Sale.ScheduleTime}</span></div>
+                <div><span
+                    className="label">场次：</span><span>{this.props.Sale.ScheduleDate.replace("T00:00:00.000Z", "")}</span>
+                </div>
+                <div><span className="label">时长：</span><span>{time}</span></div>
                 <div><span className="label">座位：</span><span id="chooseSeat"></span></div>
                 <div><span className="label">总计：</span><span id="price"></span></div>
                 <button className="btn btn-info col-md-4" onClick={this.BuyTicket.bind(this)}>购票</button>

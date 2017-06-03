@@ -9,10 +9,8 @@ const Sale = (state = {
 }, action)=> {
     switch (action.type) {
         case 'GET_SEAT_BY_SCHEDULE':
-            console.log(action.content);
             return action.content;
     }
-    console.log(state);
     return state;
 };
 
