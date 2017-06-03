@@ -2,14 +2,14 @@ export default {
     UserInfo: [
         {
             username: 'li',
-            sex: '女',
+            email:'15829061748@163.com',
             password: '123456',
             phone: 123456789,
             address: '北京'
         },
         {
             username: 'huang',
-            sex: '女',
+            email:'15829061748@163.com',
             password: '123456',
             phone: 123456789,
             address: '北京'

@@ -7,7 +7,7 @@ export default store=>next=>action=> {
                 .send({
                     "username": action.content.username,
                     "password": action.content.password,
-                    "sex": action.content.sex,
+                    "email": action.content.email,
                     "phone": action.content.phone,
                     "address": action.content.address,
                 })
@@ -24,11 +24,6 @@ export default store=>next=>action=> {
                     next({type: 'USER_EXIT', content: res.text});
                 });
             break;
-        case 'GET_ID':
-            request.get('/getId')
-                .end((err,res)=>{
-                    next({type:"THE_ID",content:res.text})
-                })
     }
     next(action);
 }
