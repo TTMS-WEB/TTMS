@@ -20,9 +20,15 @@ export default store=>next=>action=> {
     else if (action.type === 'DELETEPLAN') {
         request.post('/deletePlan')
             .send({deleteInfo:action.deleteInfo})
-            .end((err,res)=>{
-                console.log(action);
+            .end(()=>{
                 store.dispatch(plan.showPlan(action.deleteInfo.page))
+            })
+    }
+    else if(action.type === 'FINDDAY'){
+        request.post('/find')
+            .send({findInfo:action.findInfo})
+            .end((err,res)=>{
+                next({type:'CHANGEPLANINFO',findResult:res.body.findResult});
             })
     }
     else {

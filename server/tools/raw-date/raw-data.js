@@ -84,19 +84,19 @@ export default {
         {
             planName: "白鹿原",
             planStudio: 1,
-            date:new Date('2017-06-01'),
+            date:new Date('2017-06-03'),
             time: 3,
         },
         {
             planName: "欢乐颂",
             planStudio: 2,
-            date:new Date('2017-06-02'),
+            date:new Date('2017-06-04'),
             time: 1,
         },
         {
             planName: "致青春",
             planStudio: 3,
-            date:new Date('2017-06-02'),
+            date:new Date('2017-06-05'),
             time: 2,
         }
     ],

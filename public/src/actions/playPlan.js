@@ -17,5 +17,13 @@ const deletePlan = (deleteInfo)=>{
         type:'DELETEPLAN',
         deleteInfo
     }
+};
+
+const findDay = (findInfo)=>{
+    return {
+        type:'FINDDAY',
+        findInfo
+    }
+
 }
-module.exports = {showPlan,addPlan,deletePlan};
+module.exports = {showPlan,addPlan,deletePlan,findDay};

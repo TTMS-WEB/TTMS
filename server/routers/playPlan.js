@@ -88,6 +88,14 @@ router.post('/deletePlan',(req,res,next)=>{
         res.end();
     })
 });
+
+router.post('/find',(req,res,next)=>{
+    const date = new Date(req.body.findInfo.day);
+   PlayPlan.find({date:date},(err,result)=>{
+       res.send({findResult:result});
+   })
+});
+
 function compare(property1, property2) {
     return function (obj1, obj2) {
         var value1 = obj1[property1];

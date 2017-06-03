@@ -17,5 +17,8 @@ export default (state = {
     else if(action.type === 'CHANGEADDRESULT'){
         return Object.assign({},state,{addResult:action.addResult});
     }
+    else if(action.type === 'CHANGEPLANINFO'){
+        return Object.assign({},state,{planInfo:action.findResult});
+    }
     return state;
 }

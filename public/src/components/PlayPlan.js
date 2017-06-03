@@ -7,11 +7,11 @@ export default class PlayPlan extends Component {
 
     GetDateStr(AddDayCount) {
         var dd = new Date();
-        dd.setDate(dd.getDate()+AddDayCount);
+        dd.setDate(dd.getDate() + AddDayCount);
         var y = dd.getFullYear();
-        var m = (dd.getMonth()+1)<10?"0"+(dd.getMonth()+1):(dd.getMonth()+1);
-        var d = dd.getDate()<10?"0"+dd.getDate():dd.getDate();
-        return y+"-"+m+"-"+d;
+        var m = (dd.getMonth() + 1) < 10 ? "0" + (dd.getMonth() + 1) : (dd.getMonth() + 1);
+        var d = dd.getDate() < 10 ? "0" + dd.getDate() : dd.getDate();
+        return y + "-" + m + "-" + d;
     }
 
     addPlan(page) {
@@ -31,9 +31,23 @@ export default class PlayPlan extends Component {
         }
     }
 
-    deletePlan(id,page){
-        this.props.onDeletePlan({id,page});
+    deletePlan(id, page) {
+        this.props.onDeletePlan({id, page});
     }
+
+    turnDay(date,page){
+        let day;
+        switch (date){
+            case 'date0': day = this.refs.date0.value;break;
+            case 'date1': day = this.refs.date1.value;break;
+            case 'date2': day = this.refs.date2.value;break;
+            case 'date3': day = this.refs.date3.value;break;
+            case 'date4': day = this.refs.date4.value;break;
+            default: day = this.refs.date0.value;break;
+        }
+        this.props.onFindPlan({day,page});
+    }
+
     render() {
 
         const playPlan = this.props.playPlan;
@@ -43,8 +57,8 @@ export default class PlayPlan extends Component {
         const addResult = playPlan.addResult;
         let date = [];
 
-        for(let i = 0;i<5;i++){
-           date[i] = this.GetDateStr(i);
+        for (let i = 0; i < 5; i++) {
+            date[i] = this.GetDateStr(i);
         }
 
         const playList = plays.map((play, index)=> {
@@ -96,18 +110,18 @@ export default class PlayPlan extends Component {
                 <td>{val.planLong}</td>
                 <td>
                     <button>修改</button>
-                    <button onClick={this.deletePlan.bind(this,val.planId,page)}>删除</button>
+                    <button onClick={this.deletePlan.bind(this, val.planId, page)}>删除</button>
                 </td>
             </tr>
         });
 
         return <div className="playPlan">
             <div className="time">
-                <button>今天</button>
-                <button>{date[1]}</button>
-                <button>{date[2]}</button>
-                <button>{date[3]}</button>
-                <button>{date[4]}</button>
+                <button ref='date0' value={date[0]} onClick={this.turnDay.bind(this,'date0',page)}>今天</button>
+                <button ref='date1' value={date[1]} onClick={this.turnDay.bind(this,'date1',page)}>{date[1]}</button>
+                <button ref='date2' value={date[2]} onClick={this.turnDay.bind(this,'date2',page)}>{date[2]}</button>
+                <button ref='date3' value={date[3]} onClick={this.turnDay.bind(this,'date3',page)}>{date[3]}</button>
+                <button ref='date4' value={date[4]} onClick={this.turnDay.bind(this,'date4',page)}>{date[4]}</button>
                 <button type="button" className="btn" data-toggle="modal" data-target="#myModal">
                     添加演出计划
                 </button>

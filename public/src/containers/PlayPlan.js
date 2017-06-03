@@ -19,6 +19,9 @@ const mapDispatchToProps =(dispatch)=>{
         },
         onDeletePlan:(deleteInfo)=>{
             dispatch(plan.deletePlan(deleteInfo));
+        },
+        onFindPlan:(findInfo)=>{
+            dispatch(plan.findDay(findInfo))
         }
     }
 };
