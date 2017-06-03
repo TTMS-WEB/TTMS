@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 export default class PlayPlan extends Component{
     componentWillMount(){
-       // this.props.getPlayInfo();
+       this.props.getPlayScheduleInfo();
     }
     render(){
         return (

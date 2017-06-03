@@ -80,4 +80,10 @@ export default {
             seatArray:[{status:0},{status:-1}]
         }
     ],
+    Schedule:[
+        {
+            playPlanId:1,
+            ticketArray:[{status:0},{status:-1},{status:0},{status:-1}]
+        }
+    ]
 }
