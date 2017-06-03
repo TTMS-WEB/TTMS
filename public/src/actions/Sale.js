@@ -4,7 +4,15 @@ const sale = (studioId)=>{
       studioId
   }
 };
+const buyTicket=(studioId,location)=>{
+    return{
+        type:'BUY_TICKET',
+        studioId,
+        location
+    }
+};
 
 module.exports={
-    sale
+    sale,
+    buyTicket
 };

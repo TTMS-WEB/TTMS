@@ -30,7 +30,7 @@ export default class AddStudios extends Component {
         return <div className="panel panel-default">
             <div className="panel-body">
                 <div className="row">
-                    <div className="col-lg-4">
+                    <div className="col-lg-3">
                         <div className="input-group">
                             <span className="input-group-addon">演出厅名称</span>
                             <input type="text" className="form-control" name="studio" ref="studioName"/>
@@ -42,26 +42,39 @@ export default class AddStudios extends Component {
                             <input type="text" className="form-control" name="studio" ref="studioInfo"/>
                         </div>
                     </div>
-                </div>
-                <br/>
-                <div className="row">
-                    <div className="col-lg-4">
+                    <div className="col-lg-2">
                         <div className="input-group">
                             <span className="input-group-addon">座位行数</span>
-                            <input type="text" className="form-control" name="seat" ref="row"/>
+                            <select className="selectpicker form-control" data-style="btn-info" name="seat" ref="row">
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                            </select>
                         </div>
                     </div>
-                    <div className="col-lg-4">
+                    <div className="col-lg-2">
                         <div className="input-group">
                             <span className="input-group-addon">座位列数</span>
-                            <input type="text" className="form-control" name="seat" ref="col"/>
+                            <select className="selectpicker form-control" data-style="btn-info" name="seat" ref="col">
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                            </select>
                         </div>
                     </div>
                     <button className="btn btn-success" onClick={this.addStudio.bind(this)}>添加</button>
                 </div>
                 <br/>
                 <div className="row">
-                    <div className="col-lg-4">
+                    <div className="col-lg-3">
                         <div className="input-group">
                             <span className="input-group-addon">查询演出厅</span>
                             <input type="text" className="form-control" placeholder="请输入演出厅ID" ref="searchStudio"/>

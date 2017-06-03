@@ -1,9 +1,9 @@
 .sale{
-    background: rgba(0,0,0,0.5);
 }
 #saleLeft{
     border-right: solid 2px white;
     background: rgba(0,0,0,0.5);
+    text-align: center;
 }
 #saleRight{
     padding-left: 3%;
@@ -13,4 +13,14 @@
     line-height: 3;
     padding-bottom: 2%;
     border-radius: 4px;
+}
+#chooseSeat{
+    background-color:rosybrown;
+    border-radius: 4px;
+    padding: 1%;
+    font-size: medium;
+}
+.label{
+    color: #9d9d9d;
+    font-size: large;
 }

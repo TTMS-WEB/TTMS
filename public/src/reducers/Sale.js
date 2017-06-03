@@ -1,7 +1,6 @@
-const Sale = (state = {}, action)=> {
+const Sale = (state = {studioId:'',seatArray:[]}, action)=> {
     switch (action.type) {
         case 'GET_SEAT_BY_STUDIO':
-            console.log(action.content);
             return action.content;
     }
     return state;
