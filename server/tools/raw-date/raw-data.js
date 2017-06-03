@@ -76,17 +76,9 @@ export default {
         }],
     Seat: [
         {
-            studioId: 1,
+            studioId: 4,
             seatArray: [{status: -1},{status: 0},{status: 0},{status: 0},{status: 0}, {status: -1}]
         },
-        {
-            studioId: 2,
-            seatArray: [{status:0 },{status: -1},{status: 0},{status: 0},{status: 0}, {status: -1}]
-        },
-        {
-            studioId: 3,
-            seatArray: [{status: 0},{status: 0},{status: -1},{status: 0},{status: 0}, {status: -1}]
-        }
     ],
     PlayPlan: [
         {
@@ -116,7 +108,9 @@ export default {
             ScheduleTime: 1,
             ScheduleActor:"赵薇",
             SchedulePrice:30,
-            TicketArray:[]
+            TicketArray:[{status: -1},{status: -1},{status: 0},{status: 0},
+                {status: 0}, {status: 0},{status: 0},{status: 0},
+                {status: 0},{status: 0},{status: 0}]
         }
     ]
 }

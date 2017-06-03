@@ -69,8 +69,10 @@ router.get('/getSchedule', (req, res, next)=> {
                                         return next(err);
                                     }
                                     length++;
+                                    console.log(length);
                                     if (data.length == length) {
                                         Schedule.find((err,doc5)=>{
+                                            console.log(1111111);
                                             res.send(doc5);
                                         });
                                     }
@@ -78,8 +80,10 @@ router.get('/getSchedule', (req, res, next)=> {
                             }
                             else {
                                 length++;
+                                console.log(length);
                                 if (data.length == length) {
                                     Schedule.find((err,doc5)=>{
+                                        console.log(2222222);
                                         res.send(doc5);
                                     });
                                 }

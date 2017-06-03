@@ -3,7 +3,7 @@ import GenerateSeat from '../containers/GenerateSeat';
 
 export default class Sale extends Component {
     componentWillMount() {
-        let playPlanId = 2;
+        let playPlanId = this.props.params._id;
         this.props.sale(playPlanId);
         this.props.getStudioInfo();
     }
@@ -14,8 +14,9 @@ export default class Sale extends Component {
         });
     }
 
+
     onChecked(x, y) {
-        let studioId = this.props.Sale.studioId;
+        let studioId = this.props.Sale.ScheduleStudio;
         const array = this.props.Seat;
         let row;
         for (let i = 0; i < array.length; i++) {
@@ -42,7 +43,8 @@ export default class Sale extends Component {
         let a = location.split(/[\u4e00-\u9fa5]/);
         a.pop();
 
-        let studioId = this.props.Sale.studioId;
+        let ScheduleId = this.props.Sale._id;
+        let studioId = this.props.Sale.ScheduleStudio;
         const array = this.props.Seat;
         let row;
         for (let i = 0; i < array.length; i++) {
@@ -59,13 +61,13 @@ export default class Sale extends Component {
             i++;
             console.log(z);
         }
-        this.props.buyTicket(studioId, z);
+        this.props.buyTicket(ScheduleId, z);
     }
 
     render() {
-        console.log(this.props.Sale);
-        let studioId = this.props.Sale.studioId;
-        let seat = this.props.Sale.seatArray;
+        let studioId = this.props.Sale.ScheduleStudio;
+        let seat = this.props.Sale.TicketArray;
+        console.log(seat);
         const array = this.props.Seat;
         let row;
         for (let i = 0; i < array.length; i++) {
@@ -105,7 +107,6 @@ export default class Sale extends Component {
             }
         }
 
-
         return <div className="sale">
             <div className="col-md-8" id="saleLeft">
                 <GenerateSeat />
@@ -119,9 +120,11 @@ export default class Sale extends Component {
                 {seatArray}
             </div>
             <div className="col-md-4" id="saleRight">
-                <div><span className="label">影厅：</span><span>1号厅</span></div>
-                <div><span className="label">剧目：</span><span>白鹿原</span></div>
-                <div><span className="label">场次：</span><span>today</span></div>
+                <div><span className="label">影厅：</span><span>{studioId}号厅</span></div>
+                <div><span className="label">剧目：</span><span>{this.props.Sale.ScheduleName}</span></div>
+                <div><span className="label">场次：</span><span>{this.props.Sale.ScheduleDate}</span></div>
+                <div><span className="label">主演：</span><span>{this.props.Sale.ScheduleActor}</span></div>
+                <div><span className="label">时长：</span><span>{this.props.Sale.ScheduleTime}</span></div>
                 <div><span className="label">座位：</span><span id="chooseSeat"></span></div>
                 <div><span className="label">总计：</span><span id="price"></span></div>
                 <button className="btn btn-info col-md-4" onClick={this.BuyTicket.bind(this)}>购票</button>

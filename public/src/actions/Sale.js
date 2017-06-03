@@ -1,13 +1,13 @@
-const sale = (studioId)=>{
+const sale = (ScheduleId)=>{
   return{
       type:'GET_SEAT',
-      studioId
+      ScheduleId
   }
 };
-const buyTicket=(studioId,location)=>{
+const buyTicket=(ScheduleId,location)=>{
     return{
         type:'BUY_TICKET',
-        studioId,
+        ScheduleId,
         location
     }
 };

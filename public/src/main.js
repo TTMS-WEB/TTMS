@@ -54,7 +54,7 @@ ReactDom.render(
             </Route>
             <Route path="/root" component={Root}>
                 <Route path='/schedule' component={Schedule}/>
-                <Route path="/sale/:id" component={Sale}/>
+                <Route path="/sale/:_id" component={Sale}/>
             </Route>
             <Route path="/" component={ShowLoginRegister}/>
         </Router>

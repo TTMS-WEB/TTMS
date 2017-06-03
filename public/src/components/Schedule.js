@@ -5,7 +5,7 @@ export default class Schedule extends Component {
         this.props.getPlayScheduleInfo();
     }
     linkToSale(id){
-        this.props.router.push('/sale/:id');
+        this.props.router.push(`/sale/`+id);
     }
     render() {
         let Schedule = this.props.Schedule.map((data, index)=> {
