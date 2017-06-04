@@ -3,7 +3,7 @@ import GenerateSeat from '../containers/GenerateSeat';
 
 export default class Sale extends Component {
     componentWillMount() {
-        let playPlanId = this.props.params._id;
+        let playPlanId = this.props.params.id;
         this.props.sale(playPlanId);
         this.props.getStudioInfo();
     }

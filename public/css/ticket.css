@@ -1,3 +1,9 @@
 .ticketBorder{
     background: rgba(0,0,0,0.5);
+    text-align: center;
+    border-radius: 4px;
+}
+.TicketTableBody{
+    border-bottom: solid 1px #9d9d9d;
+    /*border-top:solid 1px #7F7676;*/
 }

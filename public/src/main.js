@@ -7,7 +7,6 @@ import {createLogger} from 'redux-logger';
 import  thunkMiddleware from 'redux-thunk';
 
 import App from './components/App';
-import Root from './components/Root';
 
 import ShowLoginRegister from './containers/ShowLoginRegister';
 import AllEmployees from './containers/AllEmployees';
@@ -36,7 +35,7 @@ import playPlan from './middlewares/PlayPlan'
 
 const Middleware = applyMiddleware(thunkMiddleware, createLogger(),
     login, register, allEmployees, seat, getStudios, showPlay, nav, ticket,
-    sale,schedule,playPlan);
+    sale, schedule, playPlan);
 
 
 let store = createStore(reducer, Middleware);
@@ -52,14 +51,15 @@ ReactDom.render(
                 <Route path="/ticket" component={Ticket}/>
                 <Route path='/playPlan' component={PlayPlan}/>
             </Route>
-            <Route path="/root" component={Root}>
-                <Route path='/schedule' component={Schedule}/>
-                <Route path="/sale/:_id" component={Sale}/>
+            <Route path='/schedule' component={Schedule}>
+
             </Route>
-            <Route path="/" component={ShowLoginRegister}/>
-        </Router>
-    </Provider>
+            <Route path="/sale/:id" component={Sale}/>
+            < Route path="/" component={ShowLoginRegister}/>
+        </ Router >
+    </ Provider >
     ,
     document.getElementById('root')
-);
+)
+;
 
