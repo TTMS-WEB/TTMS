@@ -28,20 +28,20 @@ export default class PlayPlan extends Component {
 
     setTip(addResult, modifyResult) {
         if (addResult === true) {
-            this.refs.tag1.innerHTML = '添加成功';
+            this.refs.playPlantag1.innerHTML = '添加成功';
         }
         if (addResult === false) {
-            this.refs.tag1.innerHTML = '添加失败';
+            this.refs.playPlantag1.innerHTML = '添加失败';
         }
         if (modifyResult === true) {
-            this.refs.tag2.innerHTML = '修改成功';
+            this.refs.playplantag2.innerHTML = '修改成功';
         }
         if (modifyResult === false) {
-            this.refs.tag2.innerHTML = '修改失败';
+            this.refs.playplantag2.innerHTML = '修改失败';
         }
         setTimeout(()=> {
-            this.refs.tag1.innerHTML = '';
-            this.refs.tag2.innerHTML = '';
+            this.refs.playPlantag1.innerHTML = '';
+            this.refs.playplantag2.innerHTML = '';
         }, 3000)
     }
 
@@ -119,7 +119,6 @@ export default class PlayPlan extends Component {
             default:
                 page = page;
         }
-// console.log(page);
         if (0 < page && (page - 1) * size < maxsize) {
             this.props.changePage(page);
         }
@@ -129,6 +128,7 @@ export default class PlayPlan extends Component {
     render() {
 
         const playPlan = this.props.playPlan;
+        console.log(playPlan);
         const plays = playPlan.plays;
         const studios = playPlan.studios;
         const page = playPlan.page;
@@ -243,7 +243,7 @@ export default class PlayPlan extends Component {
                             </select>
                         </div>
                         <div className="modal-footer">
-                            <div className="tag" ref="tag1"></div>
+                            <div className="tag" ref="playPlantag1"></div>
                             <button type="button" className="btn btn-primary" onClick={this.addPlan.bind(this, page)}>
                                 提交
                             </button>
@@ -290,7 +290,7 @@ export default class PlayPlan extends Component {
                             </select>
                         </div>
                         <div className="modal-footer">
-                            <div className="tag" ref="tag2"></div>
+                            <div className="tag" ref="playplantag2"></div>
                             <button type="button" className="btn btn-primary" onClick={this.modify.bind(this, page)}>
                                 提交
                             </button>

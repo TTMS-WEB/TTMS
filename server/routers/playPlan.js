@@ -16,7 +16,7 @@ router.post('/showPlan', (req, res, next)=> {
         const skip = (page - 1) * size;
         const maxsize = result.length;
         const planInfo = [];
-        PlayPlan.find({}, (err, plays)=> {
+        PlayInfo.find({}, (err, plays)=> {
             if (err) {
                 next(err);
             }
