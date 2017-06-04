@@ -22,6 +22,9 @@ const mapDispatchToProps =(dispatch)=>{
         },
         onFindPlan:(findInfo)=>{
             dispatch(plan.findDay(findInfo))
+        },
+        onModify:(modifyInfo)=>{
+            dispatch(plan.modifyPlan(modifyInfo));
         }
     }
 };

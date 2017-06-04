@@ -24,6 +24,12 @@ const findDay = (findInfo)=>{
         type:'FINDDAY',
         findInfo
     }
+};
 
+const modifyPlan = (modifyInfo)=>{
+    return{
+        type:'MODIFY',
+        modifyInfo
+    }
 }
-module.exports = {showPlan,addPlan,deletePlan,findDay};
+module.exports = {showPlan,addPlan,deletePlan,findDay,modifyPlan};

@@ -19,16 +19,24 @@ export default store=>next=>action=> {
     }
     else if (action.type === 'DELETEPLAN') {
         request.post('/deletePlan')
-            .send({deleteInfo:action.deleteInfo})
-            .end(()=>{
+            .send({deleteInfo: action.deleteInfo})
+            .end(()=> {
                 store.dispatch(plan.showPlan(action.deleteInfo.page))
             })
     }
-    else if(action.type === 'FINDDAY'){
+    else if (action.type === 'FINDDAY') {
         request.post('/find')
-            .send({findInfo:action.findInfo})
-            .end((err,res)=>{
-                next({type:'CHANGEPLANINFO',findResult:res.body.findResult});
+            .send({findInfo: action.findInfo})
+            .end((err, res)=> {
+                next({type: 'CHANGEPLANINFO', findResult: res.body.findResult});
+            })
+    }
+    else if (action.type === 'MODIFY') {
+        request.post('/modifyPlan')
+            .send({modifyInfo: action.modifyInfo})
+            .end((err, res)=> {
+                next({type:'CHANGEMODIFYRESULT',modifyResult:res.body.modifyResult});
+                store.dispatch(plan.showPlan(action.modifyInfo.page))
             })
     }
     else {

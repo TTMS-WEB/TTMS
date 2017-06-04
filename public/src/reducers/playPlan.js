@@ -5,7 +5,8 @@ export default (state = {
     maxsize: 0,
     plays: [],
     studios: [],
-    addResult:'0'
+    addResult:'0',
+    modifyResult:'0'
 }, action)=> {
     if (action.type === 'SHOWPLAN') {
         return Object.assign({}, state, {
@@ -19,6 +20,9 @@ export default (state = {
     }
     else if(action.type === 'CHANGEPLANINFO'){
         return Object.assign({},state,{planInfo:action.findResult});
+    }
+    else if(action.type === 'CHANGEMODIFYRESULT'){
+        return Object.assign({},state,{modifyResult:action.modifyResult})
     }
     return state;
 }
