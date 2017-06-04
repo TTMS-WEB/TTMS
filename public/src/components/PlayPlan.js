@@ -39,10 +39,6 @@ export default class PlayPlan extends Component {
         if (modifyResult === false) {
             this.refs.playplantag2.innerHTML = '修改失败';
         }
-        setTimeout(()=> {
-            this.refs.playPlantag1.innerHTML = '';
-            this.refs.playplantag2.innerHTML = '';
-        }, 3000)
     }
 
     deletePlan(id, page) {
@@ -75,8 +71,14 @@ export default class PlayPlan extends Component {
         this.props.onFindPlan({day, page});
     }
 
+    addModal(){
+        this.refs.playPlantag1.innerHTML ='';
+        $('#myModal').modal('show')
+    }
+
     modifyModal(val) {
         if (val.date.replace("T00:00:00.000Z", "") > this.GetDateStr(0)) {
+            this.refs.playplantag2.innerHTML = '';
             this.refs.mdplay.value = val.planName;
             this.refs.mdstudio.value = val.planStudio;
             this.refs.mddate.value = val.date.replace("T00:00:00.000Z", "");
@@ -128,7 +130,6 @@ export default class PlayPlan extends Component {
     render() {
 
         const playPlan = this.props.playPlan;
-        console.log(playPlan);
         const plays = playPlan.plays;
         const studios = playPlan.studios;
         const page = playPlan.page;
@@ -202,7 +203,7 @@ export default class PlayPlan extends Component {
                 <button ref='date2' value={date[2]} onClick={this.turnDay.bind(this, 'date2', page)}>{date[2]}</button>
                 <button ref='date3' value={date[3]} onClick={this.turnDay.bind(this, 'date3', page)}>{date[3]}</button>
                 <button ref='date4' value={date[4]} onClick={this.turnDay.bind(this, 'date4', page)}>{date[4]}</button>
-                <button type="button" className="btn" data-toggle="modal" data-target="#myModal">
+                <button type="button" className="btn" data-toggle="modal" onClick={this.addModal.bind(this)}>
                     添加演出计划
                 </button>
             </div>
