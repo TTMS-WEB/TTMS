@@ -12,11 +12,11 @@ const mapDispatchToProps = (dispatch)=>{
         getStudioInfo:()=>{
             dispatch(actions1.StudioInfo());
         },
-        sale:(studioId)=>{
-            dispatch(actions.sale(studioId));
+        sale:(ScheduleId)=>{
+            dispatch(actions.sale(ScheduleId));
         },
-        buyTicket:(studioId,location)=>{
-            dispatch(actions.buyTicket(studioId,location));
+        buyTicket:(ScheduleId,location)=>{
+            dispatch(actions.buyTicket(ScheduleId,location));
         }
 
     }

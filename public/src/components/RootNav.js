@@ -21,24 +21,6 @@ export default class RootNav extends Component {
                         </span>
                 </div>
             </div>
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col-md-2">
-                        <ul id="main-nav" className="nav nav-tabs nav-stacked">
-                            <li className="">
-                                <Link to="/schedule">
-                                    演出计划
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/sale">
-                                    售票
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
         </div>
     }
 }
