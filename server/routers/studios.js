@@ -1,5 +1,6 @@
 import express from 'express';
 import Studios from '../models/Studios';
+import Seat from '../models/Seat';
 
 const router = express.Router();
 
@@ -28,7 +29,23 @@ router.post('/addStudio',(req,res,next)=>{
         if(err){
             return next(err);
         }
-        res.status(201).end();
+        let seatArray = [];
+        let row = data.row;
+        let col = data.col;
+
+        for (let i = 0; i < row * col; i++) {
+            seatArray.push({status: 0});
+        }
+        let seat = new Seat({
+            studioId: data.id,
+            seatArray
+        });
+        seat.save((err, doc1)=> {
+            if (err) {
+                return next(err);
+            }
+            res.status(201).end();
+        });
     })
 });
 

@@ -31,13 +31,17 @@ export default store=>next=>action=> {
                 next({type: 'CHANGEPLANINFO', findResult: res.body.findResult});
             })
     }
-    else if (action.type === 'MODIFY') {
+    else if (action.type === 'MODIFYPLAN') {
         request.post('/modifyPlan')
             .send({modifyInfo: action.modifyInfo})
             .end((err, res)=> {
-                next({type:'CHANGEMODIFYRESULT',modifyResult:res.body.modifyResult});
+                next({type: 'CHANGEMODIFYRESULT', modifyResult: res.body.modifyResult});
                 store.dispatch(plan.showPlan(action.modifyInfo.page))
             })
+    }
+    else if (action.type === 'CHANGEPLANPAGE') {
+        store.dispatch({type:'CHANGEPLANPAGESTATE',page:action.page});
+        store.dispatch(plan.showPlan(action.page));
     }
     else {
         next(action);

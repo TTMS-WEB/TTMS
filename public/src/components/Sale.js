@@ -24,12 +24,22 @@ export default class Sale extends Component {
                 row = array[i].row;
             }
         }
-
         let z = (x - 1) * row + y - 1;
-        $("#seat" + z).css("background-color", "white");
-        let location = x + '排' + y + '列';
-        $("#chooseSeat").append(location);
 
+        let backgroundColor = document.getElementById(`seat${z}`).style.backgroundColor;
+        if (backgroundColor == "rosybrown") {
+            $("#seat" + z).css("background-color", "white");
+            let location = x + '排' + y + '列';
+            $("#chooseSeat").append(location);
+        }
+        else {
+            $("#seat" + z).css("background-color", "rosybrown");
+            let location = x + '排' + y + '列';
+            $('#chooseSeat').each(function() {
+                let text = $(this).text();
+                $(this).text(text.replace(location, ''));
+            });
+        }
         let number = $("#chooseSeat").text();
         let numberArray = number.split(/[\u4e00-\u9fa5]/);
         numberArray.pop();
