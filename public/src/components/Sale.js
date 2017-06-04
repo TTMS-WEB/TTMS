@@ -30,7 +30,7 @@ export default class Sale extends Component {
         if (backgroundColor == "rosybrown") {
             $("#seat" + z).css("background-color", "white");
             let location = x + '排' + y + '列';
-            $("#chooseSeat").append(location);
+            $("#chooseSeat").append("<span>{location}</span>");
 
             let number = $("#chooseSeat").text();
             let numberArray = number.split(/[\u4e00-\u9fa5]/);
@@ -41,7 +41,7 @@ export default class Sale extends Component {
         }
         else {
             $("#seat" + z).css("background-color", "rosybrown");
-            let location = x + '排' + y + '列';
+           /* let location = x + '排' + y + '列';
             $("#chooseSeat").text(location);
 
             let number = $("#chooseSeat").text();
@@ -49,7 +49,7 @@ export default class Sale extends Component {
             numberArray.pop();
             let length = (numberArray.length) / 2;
             let price = this.props.Sale.SchedulePrice * length;
-            $("#price").text(price);
+            $("#price").text(price);*/
         }
     }
 

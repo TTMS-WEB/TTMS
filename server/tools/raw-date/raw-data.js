@@ -57,51 +57,49 @@ export default {
             id: 1,
             studioName: '巨幕厅',
             studioInfo: '这是一个大厅',
-            col: 10,
-            row: 10
+            col: 5,
+            row: 5
         },
         {
             id: 2,
             studioName: '小厅',
             studioInfo: '这是一个小厅',
-            col: 10,
-            row: 10
+            col: 5,
+            row: 5
         },
         {
             id: 3,
             studioName: '中厅',
             studioInfo: '这是一个中厅',
-            col: 10,
-            row: 10
+            col: 5,
+            row: 5
         }],
     Seat: [
         {
             studioId: 1,
-            seatArray: [{status: -1}, {status: -1}, {status: -1},
-                {status: 0}, {status: 0}, {status: 0}, {status: 0},
-                {status: 0}, {status: 0}, {status: 0},{status: 0},
-                {status: 0}, {status: 0}, {status: 0}, {status: 0},
-                {status: 0}, {status: 0}, {status: 0}, {status: 0},]
+            seatArray: [
+                {status: -1}, {status: -1}, {status: -1}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0},{status: 0},
+            ]
         },
         {
             studioId: 2,
-            seatArray: [{status: 0}, {status: 0}, {status: 0},
-                {status: -1}, {status: -1}, {status: -1},
-                {status: 0}, {status: 0}, {status: 0}, {status: 0},
-                {status: 0}, {status: 0}, {status: 0},{status: 0},
-                {status: 0}, {status: 0}, {status: 0}, {status: 0},
-                {status: 0}, {status: 0}, {status: 0}, {status: 0},]
+            seatArray: [ {status: -1}, {status: -1}, {status: -1}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0},{status: 0}]
         },
         {
             studioId: 3,
-            seatArray: [{status: 0}, {status: 0}, {status: 0},
-                {status: 0}, {status: 0}, {status: 0},
-                {status: -1}, {status: -1}, {status: -1},
-                {status: 0}, {status: 0}, {status: 0}, {status: 0},
-                {status: 0}, {status: 0}, {status: 0},{status: 0},
-                {status: 0}, {status: 0}, {status: 0}, {status: 0},
-                {status: 0}, {status: 0}, {status: 0}, {status: 0},
-                {status: 0}, {status: 0}, {status: 0}, {status: 0},]
+            seatArray: [ {status: -1}, {status: -1}, {status: -1}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0},{status: 0}]
         },
     ],
     PlayPlan: [
