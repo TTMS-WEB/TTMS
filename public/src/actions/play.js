@@ -35,7 +35,7 @@ const changePage = (page)=>{
         type:"CHANGEPAGE",
         page
     }
-}
+};
 module.exports = {
     showPlay, addPlay, searchPlay, removePlay, modifyPlay,changePage
 };

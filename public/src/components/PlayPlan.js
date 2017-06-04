@@ -26,23 +26,23 @@ export default class PlayPlan extends Component {
         }
     }
 
-    setTip(addResult,modifyResult) {
+    setTip(addResult, modifyResult) {
         if (addResult === true) {
             this.refs.tag1.innerHTML = '添加成功';
         }
-       if (addResult === false) {
+        if (addResult === false) {
             this.refs.tag1.innerHTML = '添加失败';
         }
-        if(modifyResult === true){
+        if (modifyResult === true) {
             this.refs.tag2.innerHTML = '修改成功';
         }
-        if(modifyResult === false){
+        if (modifyResult === false) {
             this.refs.tag2.innerHTML = '修改失败';
         }
-        setTimeout(()=>{
+        setTimeout(()=> {
             this.refs.tag1.innerHTML = '';
             this.refs.tag2.innerHTML = '';
-        },3000)
+        }, 3000)
     }
 
     deletePlan(id, page) {
@@ -89,15 +89,43 @@ export default class PlayPlan extends Component {
         }
     }
 
-    modify(page){
+    modify(page) {
         const planId = this.refs.modal.value
         const mdPlay = this.refs.mdplay.value;
         const mdStudio = parseInt(this.refs.mdstudio.value);
         const mddate = this.refs.mddate.value;
         const mdtime = parseInt(this.refs.mdtime.value);
 
-        this.props.onModify({planId,mdPlay,mdStudio,mddate,mdtime,page})
+        this.props.onModify({planId, mdPlay, mdStudio, mddate, mdtime, page})
     }
+
+    paging(page, maxsize, size, value) {
+        switch (value) {
+            case 'first':
+                page = 1;
+                break;
+            case 'last':
+                page = Math.ceil(maxsize / size);
+                break;
+            case 'reduce':
+                page = page - 1;
+                break;
+            case 'add':
+                page = page + 1;
+                break;
+            case 'searchPage':
+                page = this.refs.searchPage.value;
+                break;
+            default:
+                page = page;
+        }
+// console.log(page);
+        if (0 < page && (page - 1) * size < maxsize) {
+            this.props.changePage(page);
+        }
+
+    }
+
     render() {
 
         const playPlan = this.props.playPlan;
@@ -106,8 +134,9 @@ export default class PlayPlan extends Component {
         const page = playPlan.page;
         const addResult = playPlan.addResult;
         const modifyResult = playPlan.modifyResult;
+        const maxsize = playPlan.maxsize;
+        const size = playPlan.size;
         let date = [];
-
         for (let i = 0; i < 5; i++) {
             date[i] = this.GetDateStr(i);
         }
@@ -152,7 +181,7 @@ export default class PlayPlan extends Component {
                     time = '';
             }
             return <tr key={index}>
-                <td>{index + 1}</td>
+                <td>{(page - 1) * size + index + 1}</td>
                 <td>{val.planName}</td>
                 <td>{val.planStudio}</td>
                 <td>{date}</td>
@@ -224,7 +253,7 @@ export default class PlayPlan extends Component {
                 </div>
             </div>
 
-            <div className="modal fade bs-example-modal-lg" id="modal" ref= 'modal'role="dialog" aria-hidden="true">
+            <div className="modal fade bs-example-modal-lg" id="modal" ref='modal' role="dialog" aria-hidden="true">
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -262,7 +291,7 @@ export default class PlayPlan extends Component {
                         </div>
                         <div className="modal-footer">
                             <div className="tag" ref="tag2"></div>
-                            <button type="button" className="btn btn-primary" onClick={this.modify.bind(this,page)}>
+                            <button type="button" className="btn btn-primary" onClick={this.modify.bind(this, page)}>
                                 提交
                             </button>
                             <button type="button" className="btn btn-secondary" data-dismiss="modal">关闭</button>
@@ -286,9 +315,35 @@ export default class PlayPlan extends Component {
                     </tr>
                     {planList}
                     </tbody>
+                    <tfoot>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button value='add' onClick={this.paging.bind(this, page, maxsize, size, "first")}>首页
+                            </button>
+                        </td>
+                        <td>
+                            <button onClick={this.paging.bind(this, page, maxsize, size, "reduce")}>上一页</button>
+                            第{page}页 共{Math.ceil(maxsize / size)}页
+
+                        </td>
+                        <td><input ref="searchPage" type="text" placeholder="输入想前往的页码"/></td>
+                        <td>
+                            <button onClick={this.paging.bind(this, page, maxsize, size, "searchPage")}>查询</button>
+                        </td>
+                        <td>
+                            <button onClick={this.paging.bind(this, page, maxsize, size, "add")}>下一页</button>
+                        </td>
+                        <td>
+                            <button onClick={this.paging.bind(this, page, maxsize, size, "last")}>末页</button>
+                        </td>
+                    </tr>
+
+                    </tfoot>
+
                 </table>
             </div>
-            {this.setTip(addResult,modifyResult)}
+            {this.setTip(addResult, modifyResult)}
         </div>
     }
 }

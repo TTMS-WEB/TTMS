@@ -28,8 +28,15 @@ const findDay = (findInfo)=>{
 
 const modifyPlan = (modifyInfo)=>{
     return{
-        type:'MODIFY',
+        type:'MODIFYPLAN',
         modifyInfo
     }
-}
-module.exports = {showPlan,addPlan,deletePlan,findDay,modifyPlan};
+};
+
+const changePage = (page)=>{
+    return {
+        type:"CHANGEPLANPAGE",
+        page
+    }
+};
+module.exports = {showPlan,addPlan,deletePlan,findDay,modifyPlan,changePage};

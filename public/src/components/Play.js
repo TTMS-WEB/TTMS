@@ -97,7 +97,7 @@ export default class Play extends Component {
         const size = play.size;
         const playlist = play.playInfo.map((val, index)=> {
             return <tr key={index}>
-                <td>{(page - 1) * 8 + index + 1}</td>
+                <td>{(page - 1) * size + index + 1}</td>
                 <td>{val.playName}</td>
                 <td>{val.playTime}</td>
                 <td>{val.playType}</td>
