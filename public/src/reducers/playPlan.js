@@ -12,7 +12,9 @@ export default (state = {
         return Object.assign({}, state, {
             planInfo: action.plan.planInfo,
             plays: action.plan.plays,
-            studios: action.plan.studios
+            studios: action.plan.studios,
+            maxsize:action.plan.maxsize,
+            size:action.plan.size
         });
     }
     else if(action.type === 'CHANGEADDRESULT'){
@@ -23,6 +25,9 @@ export default (state = {
     }
     else if(action.type === 'CHANGEMODIFYRESULT'){
         return Object.assign({},state,{modifyResult:action.modifyResult})
+    }
+    else if(action.type === 'CHANGEPLANPAGESTATE'){
+        return Object.assign({},state,{page:action.page})
     }
     return state;
 }

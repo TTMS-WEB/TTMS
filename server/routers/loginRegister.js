@@ -41,6 +41,7 @@ router.get('/users/:username', (req, res, next)=> {
         if (!data) {
             res.send({"isExit":false});
         } else {
+            res.cookie('username', name, {path: '/'});
             res.send({"isExit":true,"data":data});
         }
     });

@@ -110,14 +110,37 @@ export default {
             time: 3,
         },
         {
-            planName: "欢乐颂",
+            planName: "白鹿原",
             planStudio: 2,
+            date:new Date(GetDateStr(0)),
+            time: 3,
+        },
+        {
+            planName: "白鹿原",
+            planStudio: 3,
+            date:new Date(GetDateStr(0)),
+            time: 3,
+        },
+        {
+            planName: "欢乐颂",
+            planStudio: 1,
             date:new Date(GetDateStr(0)),
             time: 1,
         },
         {
-            planName: "致青春",
+            planName: "白鹿原",
+            planStudio: 1,
+            date:new Date(GetDateStr(1)),
+            time: 2,
+        },
+        {
+            planName: "白鹿原",
             planStudio: 2,
+            date:new Date(GetDateStr(1)),
+            time: 2,
+        }, {
+            planName: "白鹿原",
+            planStudio: 3,
             date:new Date(GetDateStr(1)),
             time: 2,
         },
@@ -129,16 +152,52 @@ export default {
         },
         {
             planName: "致青春",
+            planStudio: 2,
+            date:new Date(GetDateStr(2)),
+            time: 2,
+        },
+        {
+            planName: "致青春",
+            planStudio: 3,
+            date:new Date(GetDateStr(2)),
+            time: 2,
+        },
+        {
+            planName: "白鹿原",
+            planStudio: 1,
+            date:new Date(GetDateStr(3)),
+            time: 2,
+        },
+        {
+            planName: "白鹿原",
+            planStudio: 2,
+            date:new Date(GetDateStr(3)),
+            time: 2,
+        },
+        {
+            planName: "白鹿原",
             planStudio: 3,
             date:new Date(GetDateStr(3)),
             time: 2,
         },
         {
             planName: "致青春",
+            planStudio: 1,
+            date:new Date(GetDateStr(4)),
+            time: 5,
+        },
+        {
+            planName: "致青春",
             planStudio: 2,
             date:new Date(GetDateStr(4)),
             time: 5,
-        }
+        },
+        {
+            planName: "致青春",
+            planStudio: 3,
+            date:new Date(GetDateStr(4)),
+            time: 5,
+        },
     ],
     Schedule: [
         {

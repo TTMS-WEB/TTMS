@@ -25,6 +25,9 @@ const mapDispatchToProps =(dispatch)=>{
         },
         onModify:(modifyInfo)=>{
             dispatch(plan.modifyPlan(modifyInfo));
+        },
+        changePage:(page)=>{
+            dispatch(plan.changePage(page));
         }
     }
 };
