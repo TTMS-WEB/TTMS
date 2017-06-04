@@ -2,28 +2,28 @@ export default {
     UserInfo: [
         {
             username: 'li',
-            email:'15829061748@163.com',
+            email: '15829061748@163.com',
             password: '123456',
             phone: 123456789,
             address: '北京'
         },
         {
             username: 'huang',
-            email:'15829061748@163.com',
+            email: '15829061748@163.com',
             password: '123456',
             phone: 123456789,
             address: '北京'
         },
         {
             username: 'han',
-            email:'15829061748@163.com',
+            email: '15829061748@163.com',
             password: '123456',
             phone: 123456789,
             address: '北京'
         },
         {
             username: 'root',
-            email:'15829061748@163.com',
+            email: '15829061748@163.com',
             password: '123456',
             phone: 123456789,
             address: '北京'
@@ -57,27 +57,49 @@ export default {
             id: 1,
             studioName: '巨幕厅',
             studioInfo: '这是一个大厅',
-            col: 10,
-            row: 10
+            col: 5,
+            row: 5
         },
         {
             id: 2,
             studioName: '小厅',
             studioInfo: '这是一个小厅',
-            col: 10,
-            row: 10
+            col: 5,
+            row: 5
         },
         {
             id: 3,
             studioName: '中厅',
             studioInfo: '这是一个中厅',
-            col: 10,
-            row: 10
+            col: 5,
+            row: 5
         }],
     Seat: [
         {
-            studioId: 4,
-            seatArray: [{status: -1},{status: 0},{status: 0},{status: 0},{status: 0}, {status: -1}]
+            studioId: 1,
+            seatArray: [
+                {status: -1}, {status: -1}, {status: -1}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0},{status: 0},
+            ]
+        },
+        {
+            studioId: 2,
+            seatArray: [ {status: -1}, {status: -1}, {status: -1}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0},{status: 0}]
+        },
+        {
+            studioId: 3,
+            seatArray: [ {status: -1}, {status: -1}, {status: -1}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0},{status: 0}]
         },
     ],
     PlayPlan: [
@@ -181,13 +203,13 @@ export default {
         {
             ScheduleName: "致青春",
             ScheduleStudio: 1,
-            ScheduleDate:1,
+            ScheduleDate: 1,
             ScheduleTime: 1,
-            ScheduleActor:"赵薇",
-            SchedulePrice:30,
-            TicketArray:[{status: -1},{status: -1},{status: 0},{status: 0},
-                {status: 0}, {status: 0},{status: 0},{status: 0},
-                {status: 0},{status: 0},{status: 0}]
+            ScheduleActor: "赵薇",
+            SchedulePrice: 30,
+            TicketArray: [{status: -1}, {status: -1}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}]
         }
     ]
 }

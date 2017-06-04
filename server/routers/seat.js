@@ -18,32 +18,7 @@ router.post('/generateSeat', (req, res, next)=> {
         if (err) {
             return next(err);
         }
-        if (data == null) {
-            let seatArray = [];
-            Studios.findOne({id: req.body.studioId}, (err, doc)=> {
-                if (err) {
-                    return next(err);
-                }
-                let row = doc.row;
-                let col = doc.col;
-                for (let i = 0; i < row * col; i++) {
-                    seatArray.push({status: 0});
-                }
-                let seat = new Seat({
-                    studioId: req.body.studioId,
-                    seatArray
-                });
-                seat.save((err, doc1)=> {
-                    if (err) {
-                        return next(err);
-                    }
-                    res.send(doc1);
-                });
-            });
-        }
-        else {
-            res.send(data);
-        }
+        res.send(data);
     });
 });
 
