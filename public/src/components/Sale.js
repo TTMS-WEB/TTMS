@@ -30,27 +30,22 @@ export default class Sale extends Component {
         if (backgroundColor == "rosybrown") {
             $("#seat" + z).css("background-color", "white");
             let location = x + '排' + y + '列';
-            $("#chooseSeat").append("<span>{location}</span>");
-
-            let number = $("#chooseSeat").text();
-            let numberArray = number.split(/[\u4e00-\u9fa5]/);
-            numberArray.pop();
-            let length = (numberArray.length) / 2;
-            let price = this.props.Sale.SchedulePrice * length;
-            $("#price").text(price);
+            $("#chooseSeat").append(location);
         }
         else {
             $("#seat" + z).css("background-color", "rosybrown");
-           /* let location = x + '排' + y + '列';
-            $("#chooseSeat").text(location);
-
-            let number = $("#chooseSeat").text();
-            let numberArray = number.split(/[\u4e00-\u9fa5]/);
-            numberArray.pop();
-            let length = (numberArray.length) / 2;
-            let price = this.props.Sale.SchedulePrice * length;
-            $("#price").text(price);*/
+            let location = x + '排' + y + '列';
+            $('#chooseSeat').each(function() {
+                let text = $(this).text();
+                $(this).text(text.replace(location, ''));
+            });
         }
+        let number = $("#chooseSeat").text();
+        let numberArray = number.split(/[\u4e00-\u9fa5]/);
+        numberArray.pop();
+        let length = (numberArray.length) / 2;
+        let price = 30 * length;
+        $("#price").text(price);
     }
 
     BuyTicket() {

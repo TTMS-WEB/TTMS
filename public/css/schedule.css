@@ -6,3 +6,8 @@
 .ScheduleTableBody{
     border-bottom: solid 1px #7F7676;
 }
+.ScheduleTime{
+    /*background-color:#5bc0de;*/
+    /*opacity: 0.5;*/
+    border-radius: 4px;
+}
