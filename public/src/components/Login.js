@@ -2,9 +2,6 @@ import React, {Component} from 'react';
 class Login extends Component {
     constructor() {
         super();
-        this.state = {
-           isLogged: "密码错误，请重新登陆！"
-        }
     }
 
     verifyUser() {
@@ -29,9 +26,25 @@ class Login extends Component {
     }
 
     isLegal() {
+        const info = this.props.FindUsers;
+        // console.log();
+        if(info.isExit){
+            const psw = this.refs.psw.value;
+            if(info.data.password === psw){
+                this.props.router.push('/studios');
+            }
+            else{
+                $("#tip1").text("密码错误！");
+            }
+            }
+        else {
+            $("#tip").text("用户名不存在，请重新输入！");
+            this.refs.psw.value = '';
+            this.refs.input.value = '';
+        }
+
         const username = this.refs.input.value;
         const psw = this.refs.psw.value;
-        this.props.isLegal({username: username, psw: psw});
         if(username == 'root'&&psw=='123456'){
             this.props.router.push('/schedule');
         }
@@ -47,31 +60,17 @@ class Login extends Component {
         $("#tip1").text('');
     }
 
-    shouldComponentUpdate() {
-        if (this.refs.input.value) {
-            return true;
-        }
-        return false;
-    }
-
-    /*登录成功跳转到首页*/
-    componentWillUpdate(nextProps) {
-        if (nextProps.Login.isLogged != "密码错误，请重新登陆！"){
-            this.props.router.push('/studios');
-        }
-    }
-
     render() {
         return (
             <div>
                 <div className="row content1">
-                    <div className="col-md-10 col-md-offset-7" id="inputGroup">
+                    <div className="kuandu col-md-offset-7" id="inputGroup">
                         <input type="text" className="form-control input" id="img1" ref="input" placeholder="用户名"
                                onBlur={this.verifyUser.bind(this)} onFocus={this.clear.bind(this)}/>
-                        <span id="tip">{this.props.FindUsers}</span><br/>
+                        <span id="tip"> </span><br/>
                         <input type="password" className="form-control input" id="img2" ref="psw" placeholder="密码"
                                onBlur={this.isNull.bind(this)} onFocus={this.clearPsw.bind(this)}/>
-                        <span id="tip">{this.props.Login.isLogged}</span><br/>
+                        <span id="tip1"> </span><br/>
                         <br/>
                         <br/>
                         <br/>
@@ -79,7 +78,6 @@ class Login extends Component {
                         <br/>
                         <br/>
                         <button className="btn btn-default form-control" onClick={this.isLegal.bind(this)}>登 陆</button>
-                        <span id="tip1"> </span>
                     </div>
                 </div>
             </div>

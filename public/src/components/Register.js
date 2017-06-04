@@ -40,7 +40,7 @@ export default class Register extends Component {
     register() {
         let psTip = $("#passwordTip").text();
         let rpsTip = $("#repeatTip").text();
-        if (this.props.Register != "false") {
+        if (this.props.Register.isExit == true) {
             $("#usernameTip").text("用户名已被注册，请重新输入");
         }
         else if(psTip!=''){
@@ -63,7 +63,7 @@ export default class Register extends Component {
     render() {
         return <div>
             <div className="row content1">
-                <div className="col-md-10 col-md-offset-7" id="inputGroup">
+                <div className="kuandu col-md-offset-7" id="inputGroup">
                     <input type="text" ref="username" className="form-control input" id="img1" placeholder="用户名"
                            onFocus={this.focusUsername.bind(this)} onBlur={this.verifyUsername.bind(this)}/>
                     <span id="usernameTip"> </span><br/>
