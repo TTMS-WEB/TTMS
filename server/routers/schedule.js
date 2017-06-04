@@ -14,7 +14,6 @@ router.get('/getSchedule', (req, res, next)=> {
         }
 
         let length = 0;
-        let schedule;
         data.map((ele)=> {
             PlayInfo.findOne({playName: ele.planName}, (err, doc)=> {
                 if (err) {
@@ -48,30 +47,30 @@ router.get('/getSchedule', (req, res, next)=> {
                             }
                         }
 
-                        schedule = new Schedule({
+                        const schedule = new Schedule({
                             ScheduleName: ele.planName,
                             ScheduleStudio: ele.planStudio,
                             ScheduleDate: ele.date,
                             ScheduleTime: ele.time,
-                            ScheduleActor:doc.playActor,
-                            SchedulePrice:doc.playPrice,
+                            ScheduleActor: doc.playActor,
+                            SchedulePrice: doc.playPrice,
                             TicketArray
                         });
-
-                        Schedule.findOne({ScheduleName:ele.planName,ScheduleStudio: ele.planStudio,ScheduleDate: ele.date},
-                            (err, doc3)=> {
+                        Schedule.findOne({
+                            ScheduleName: schedule.ScheduleName, ScheduleStudio: schedule.ScheduleStudio,
+                            ScheduleDate: schedule.ScheduleDate, ScheduleTime: schedule.ScheduleTime
+                        }, (err, doc3)=> {
                             if (err) {
                                 return next(err);
                             }
                             if (doc3 == null) {
-                                schedule.save((err, doc4)=>     {
+                                schedule.save((err, doc4)=> {
                                     if (err) {
                                         return next(err);
                                     }
                                     length++;
                                     if (data.length == length) {
-                                        Schedule.find((err,doc5)=>{
-                                            console.log(1111111);
+                                        Schedule.find((err, doc5)=> {
                                             res.send(doc5);
                                         });
                                     }
@@ -80,15 +79,12 @@ router.get('/getSchedule', (req, res, next)=> {
                             else {
                                 length++;
                                 if (data.length == length) {
-                                    Schedule.find((err,doc5)=>{
-                                        console.log(2222222);
+                                    Schedule.find((err, doc5)=> {
                                         res.send(doc5);
                                     });
                                 }
                             }
-
                         });
-
                     });
                 });
             });
