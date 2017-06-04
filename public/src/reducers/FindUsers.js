@@ -1,6 +1,7 @@
-const FindUsers = (state = " ", action) => {
+const FindUsers = (state = {}, action) => {
     switch (action.type) {
         case "NOT_EXIT":
+            console.log(action.content);
             return action.content;
         break;
     }

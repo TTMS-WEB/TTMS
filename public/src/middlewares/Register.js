@@ -12,7 +12,7 @@ export default store=>next=>action=> {
                     "address": action.content.address,
                 })
                 .end((err, res)=> {
-                    if (res.statusCode == 201) {
+                    if (res.body.status == true) {
                         alert("注册成功");
                     }
                 });
@@ -21,7 +21,7 @@ export default store=>next=>action=> {
             request.post('/exitUser')
                 .send({"username": action.content})
                 .end((err, res)=> {
-                    next({type: 'USER_EXIT', content: res.text});
+                    next({type: 'USER_EXIT', content: res.body});
                 });
             break;
     }

@@ -7,9 +7,9 @@ router.post('/register', (req, res,next)=> {
     let userInfo = new UserInfo(req.body);
     userInfo.save((err, data)=> {
         if (err) {
-            return next(err);
+            res.send({"status":false});
         }
-        res.status(201).end();
+        res.send({"status":true});
     })
 });
 
@@ -26,7 +26,6 @@ router.post('/isLegal', (req, res) => {
             }
             else {
                 res.cookie('username', username, {path: '/'});
-
                 res.send("");
             }
         }
@@ -40,9 +39,9 @@ router.get('/users/:username', (req, res, next)=> {
             return next(err);
         }
         if (!data) {
-            res.send("用户名不存在，请重新输入");
+            res.send({"isExit":false});
         } else {
-            res.send(" ");
+            res.send({"isExit":true,"data":data});
         }
     });
 });
@@ -62,10 +61,10 @@ router.post('/exitUser', (req, res)=> {
             console.log("数据库出错");
         }
         if (data) {
-            res.send("用户名已被注册，请重新输入");
+            res.send({"isExit":true});
         }
         else {
-            res.send("false");
+            res.send({"isExit":false});
         }
     })
 });

@@ -5,44 +5,124 @@ export default class PlayPlan extends Component {
         this.props.showPlan(page);
     }
 
-
-    addPlan() {
-        const play = this.refs.play.value;
-        const studio = this.refs.studio.value;
-        const date = this.refs.date.value;
-        const time = this.refs.time.value;
+    GetDateStr(AddDayCount) {
+        var dd = new Date();
+        dd.setDate(dd.getDate() + AddDayCount);
+        var y = dd.getFullYear();
+        var m = (dd.getMonth() + 1) < 10 ? "0" + (dd.getMonth() + 1) : (dd.getMonth() + 1);
+        var d = dd.getDate() < 10 ? "0" + dd.getDate() : dd.getDate();
+        return y + "-" + m + "-" + d;
     }
 
+    addPlan(page) {
+        const planName = this.refs.play.value;
+        const planStudio = this.refs.studio.value;
+        const date = this.refs.date.value;
+        const time = this.refs.time.value;
+        if (planName && planName && date && time) {
+            this.props.onAddPlan({planName, planStudio, date, time, page});
+        } else {
+            this.refs.tag1.innerHTML = "请选择完整信息";
+        }
+    }
+
+    setTip(addResult,modifyResult) {
+        if (addResult === true) {
+            this.refs.tag1.innerHTML = '添加成功';
+        }
+       if (addResult === false) {
+            this.refs.tag1.innerHTML = '添加失败';
+        }
+        if(modifyResult === true){
+            this.refs.tag2.innerHTML = '修改成功';
+        }
+        if(modifyResult === false){
+            this.refs.tag2.innerHTML = '修改失败';
+        }
+        setTimeout(()=>{
+            this.refs.tag1.innerHTML = '';
+            this.refs.tag2.innerHTML = '';
+        },3000)
+    }
+
+    deletePlan(id, page) {
+        this.props.onDeletePlan({id, page});
+    }
+
+    turnDay(date, page) {
+        let day;
+        switch (date) {
+            case 'date0':
+                day = this.refs.date0.value;
+                break;
+            case 'date1':
+                day = this.refs.date1.value;
+                break;
+            case 'date2':
+                day = this.refs.date2.value;
+                break;
+            case 'date3':
+                day = this.refs.date3.value;
+                break;
+            case 'date4':
+                day = this.refs.date4.value;
+                break;
+            default:
+                day = this.refs.date0.value;
+                break;
+        }
+
+        this.props.onFindPlan({day, page});
+    }
+
+    modifyModal(val) {
+        if (val.date.replace("T00:00:00.000Z", "") > this.GetDateStr(0)) {
+            this.refs.mdplay.value = val.planName;
+            this.refs.mdstudio.value = val.planStudio;
+            this.refs.mddate.value = val.date.replace("T00:00:00.000Z", "");
+            this.refs.mdtime.value = val.time;
+            this.refs.modal.value = val.planId;
+            $("#modal").modal('show');
+        }
+        else {
+            alert('不能修改当天及过期演出计划');
+        }
+    }
+
+    modify(page){
+        const planId = this.refs.modal.value
+        const mdPlay = this.refs.mdplay.value;
+        const mdStudio = parseInt(this.refs.mdstudio.value);
+        const mddate = this.refs.mddate.value;
+        const mdtime = parseInt(this.refs.mdtime.value);
+
+        this.props.onModify({planId,mdPlay,mdStudio,mddate,mdtime,page})
+    }
     render() {
-        let d = new Date();
-        const year = d.getFullYear();
-        const month = d.getMonth() + 1;
-        const day0 = d.getDate();
-        const day1 = d.getDate() + 1;
-        const day2 = d.getDate() + 2;
-        const day3 = d.getDate() + 3;
-        const day4 = d.getDate() + 4;
 
-        const date0 = year + '.' + month + '.' + day0;
-        const date1 = year + '.' + month + '.' + day1;
-        const date2 = year + '.' + month + '.' + day2;
-        const date3 = year + '.' + month + '.' + day3;
-        const date4 = year + '.' + month + '.' + day4;
-
-        let time = "";
         const playPlan = this.props.playPlan;
         const plays = playPlan.plays;
         const studios = playPlan.studios;
+        const page = playPlan.page;
+        const addResult = playPlan.addResult;
+        const modifyResult = playPlan.modifyResult;
+        let date = [];
+
+        for (let i = 0; i < 5; i++) {
+            date[i] = this.GetDateStr(i);
+        }
 
         const playList = plays.map((play, index)=> {
-            return <option value={play} key={index}>{play.playName}</option>
+            return <option value={play.playName} key={index}>{play.playName}</option>
         });
 
         const studioList = studios.map((studio, index)=> {
-            return <option value={studio} key={index}>{studio.id}</option>
+            return <option value={studio.id} key={index}>{studio.id}</option>
         });
         const planList = playPlan.planInfo.map((val, index)=> {
-            const date = val.date.replace("T00:00:00.000Z","");
+            let time;
+            let date;
+            date = val.date.replace("T00:00:00.000Z", "");
             switch (val.time) {
                 case 1:
                     time = '第一场(8:00-10:00)';
@@ -80,19 +160,19 @@ export default class PlayPlan extends Component {
                 <td>{val.planPrice}</td>
                 <td>{val.planLong}</td>
                 <td>
-                    <button>修改</button>
-                    <button>删除</button>
+                    <button onClick={this.modifyModal.bind(this, val)}>修改</button>
+                    <button onClick={this.deletePlan.bind(this, val.planId, page)}>删除</button>
                 </td>
             </tr>
         });
 
         return <div className="playPlan">
             <div className="time">
-                <button>今天</button>
-                <button>{date1}</button>
-                <button>{date2}</button>
-                <button>{date3}</button>
-                <button>{date4}</button>
+                <button ref='date0' value={date[0]} onClick={this.turnDay.bind(this, 'date0', page)}>今天</button>
+                <button ref='date1' value={date[1]} onClick={this.turnDay.bind(this, 'date1', page)}>{date[1]}</button>
+                <button ref='date2' value={date[2]} onClick={this.turnDay.bind(this, 'date2', page)}>{date[2]}</button>
+                <button ref='date3' value={date[3]} onClick={this.turnDay.bind(this, 'date3', page)}>{date[3]}</button>
+                <button ref='date4' value={date[4]} onClick={this.turnDay.bind(this, 'date4', page)}>{date[4]}</button>
                 <button type="button" className="btn" data-toggle="modal" data-target="#myModal">
                     添加演出计划
                 </button>
@@ -101,7 +181,7 @@ export default class PlayPlan extends Component {
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h4 className="modal-title" id="myModalLabel">添加一个剧目</h4>
+                            <h4 className="modal-title" id="myModalLabel">添加一个演出计划</h4>
                         </div>
                         <div className="input-group">
                             <select name="play" id="play" ref='play'>
@@ -115,10 +195,10 @@ export default class PlayPlan extends Component {
                             </select>
                             <select name="Date" ref="date" id="date">
                                 <option value="" hidden>放映日期</option>
-                                <option value={date1}>{date1}</option>
-                                <option value={date2}>{date2}</option>
-                                <option value={date3}>{date3}</option>
-                                <option value={date4}>{date4}</option>
+                                <option value={date[1]}>{date[1]}</option>
+                                <option value={date[2]}>{date[2]}</option>
+                                <option value={date[3]}>{date[3]}</option>
+                                <option value={date[4]}>{date[4]}</option>
                             </select>
                             <br/>
                             <select name="Time" ref="time" id="time">
@@ -135,7 +215,7 @@ export default class PlayPlan extends Component {
                         </div>
                         <div className="modal-footer">
                             <div className="tag" ref="tag1"></div>
-                            <button type="button" className="btn btn-primary" onClick={this.addPlan.bind(this)}>
+                            <button type="button" className="btn btn-primary" onClick={this.addPlan.bind(this, page)}>
                                 提交
                             </button>
                             <button type="button" className="btn btn-secondary" data-dismiss="modal">关闭</button>
@@ -143,6 +223,54 @@ export default class PlayPlan extends Component {
                     </div>
                 </div>
             </div>
+
+            <div className="modal fade bs-example-modal-lg" id="modal" ref= 'modal'role="dialog" aria-hidden="true">
+                <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h4 className="modal-title" id="myModalLabel">修改演出计划</h4>
+                        </div>
+                        <div className="input-group">
+                            <select name="play" id="mdplay" ref='mdplay'>
+                                <option value="" hidden>请选择剧目</option>
+                                {playList}
+                            </select>
+
+                            <select name="studio" id="mdstudio" ref="mdstudio">
+                                <option value="" hidden>请选择在几号影厅放映</option>
+                                {studioList}
+                            </select>
+                            <select name="Date" ref="mddate" id="mddate">
+                                <option value="" hidden>放映日期</option>
+                                <option value={date[1]}>{date[1]}</option>
+                                <option value={date[2]}>{date[2]}</option>
+                                <option value={date[3]}>{date[3]}</option>
+                                <option value={date[4]}>{date[4]}</option>
+                            </select>
+                            <br/>
+                            <select name="Time" ref="mdtime" id="mdtime">
+                                <option value="" hidden>放映时间</option>
+                                <option value='1'>第一场(8:00-10:00)</option>
+                                <option value="2">第二场(10:00-12:00)</option>
+                                <option value="3">第三场(12:00-14:00)</option>
+                                <option value="4">第四场(14:00-16:00)</option>
+                                <option value="5">第五场(16:00-18:00)</option>
+                                <option value="6">第六场(18:00-20:00)</option>
+                                <option value="7">第七场(20:00-22:00)</option>
+                                <option value="8">第八场(22:00-24:00)</option>
+                            </select>
+                        </div>
+                        <div className="modal-footer">
+                            <div className="tag" ref="tag2"></div>
+                            <button type="button" className="btn btn-primary" onClick={this.modify.bind(this,page)}>
+                                提交
+                            </button>
+                            <button type="button" className="btn btn-secondary" data-dismiss="modal">关闭</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div className="planInfo">
                 <table className="table table-hover">
                     <tbody>
@@ -160,6 +288,7 @@ export default class PlayPlan extends Component {
                     </tbody>
                 </table>
             </div>
+            {this.setTip(addResult,modifyResult)}
         </div>
     }
 }

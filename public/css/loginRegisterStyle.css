@@ -87,3 +87,7 @@ input{
 #tip,#tip1,#usernameTip,#passwordTip,#repeatTip {
     color: red;
 }
+
+.kuandu {
+    width: 60%
+}

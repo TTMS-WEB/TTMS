@@ -108,20 +108,38 @@ export default {
         {
             planName: "白鹿原",
             planStudio: 1,
-            date: new Date('2017-06-02'),
-            time: 1,
+            date:new Date(GetDateStr(-1)),
+            time: 3,
         },
         {
             planName: "欢乐颂",
             planStudio: 2,
-            date: new Date('2017-06-01'),
+            date:new Date(GetDateStr(0)),
+            time: 1,
+        },
+        {
+            planName: "致青春",
+            planStudio: 2,
+            date:new Date(GetDateStr(1)),
+            time: 2,
+        },
+        {
+            planName: "致青春",
+            planStudio: 1,
+            date:new Date(GetDateStr(2)),
             time: 2,
         },
         {
             planName: "致青春",
             planStudio: 3,
-            date: new Date('2017-06-03'),
-            time: 3,
+            date:new Date(GetDateStr(3)),
+            time: 2,
+        },
+        {
+            planName: "致青春",
+            planStudio: 2,
+            date:new Date(GetDateStr(4)),
+            time: 5,
         }
     ],
     Schedule: [
@@ -137,4 +155,14 @@ export default {
                 {status: 0}, {status: 0}, {status: 0}]
         }
     ]
+}
+
+
+function GetDateStr(AddDayCount) {
+    var dd = new Date();
+    dd.setDate(dd.getDate() + AddDayCount);
+    var y = dd.getFullYear();
+    var m = (dd.getMonth() + 1) < 10 ? "0" + (dd.getMonth() + 1) : (dd.getMonth() + 1);
+    var d = dd.getDate() < 10 ? "0" + dd.getDate() : dd.getDate();
+    return y + "-" + m + "-" + d;
 }

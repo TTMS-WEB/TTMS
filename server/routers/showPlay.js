@@ -63,7 +63,7 @@ router.post('/removePlay', (req, res, next)=> {
         if (err) {
             return next(err);
         }
-        res.end();
+        res.send({deleteResult:true});
     })
 });
 
@@ -78,7 +78,7 @@ router.post('/modifyPlay', (req, res, next)=> {
         if (err) {
             return next(err);
         }
-        res.end();
+        res.send({modifyResult:true});
     })
 });
 module.exports = router;
