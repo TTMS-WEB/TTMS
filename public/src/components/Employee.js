@@ -3,6 +3,10 @@ import React, {Component} from 'react';
 class Employee extends Component {
     searchEmployee() {
         let employeeName = this.refs.searchEmployee.value;
+        if(!employeeName){
+            this.props.getAllEmployees();
+        }
+        else
         this.props.searchEmployee(employeeName);
     }
 
