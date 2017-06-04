@@ -1,4 +1,6 @@
-#Content{
-    margin-top: -90px;
+.root{
     background: rgba(0,0,0,0.5);
+    border-radius: 4px;
+    margin-left: 2%;
+    margin-right: 2%;
 }

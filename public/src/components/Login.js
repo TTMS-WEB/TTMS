@@ -33,7 +33,7 @@ class Login extends Component {
         const psw = this.refs.psw.value;
         this.props.isLegal({username: username, psw: psw});
         if(username == 'root'&&psw=='123456'){
-            this.props.router.push('/playPlan');
+            this.props.router.push('/schedule');
         }
     }
 
@@ -72,6 +72,12 @@ class Login extends Component {
                         <input type="password" className="form-control input" id="img2" ref="psw" placeholder="密码"
                                onBlur={this.isNull.bind(this)} onFocus={this.clearPsw.bind(this)}/>
                         <span id="tip">{this.props.Login.isLogged}</span><br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
                         <button className="btn btn-default form-control" onClick={this.isLegal.bind(this)}>登 陆</button>
                         <span id="tip1"> </span>
                     </div>

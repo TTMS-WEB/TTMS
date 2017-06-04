@@ -9,7 +9,7 @@ export default class App extends Component {
             <div className="nav-left">
                 <RootNav/>
             </div>
-            <div className="col-md-10 content" id="Content">
+            <div className="root">
                 {this.props.children}
             </div>
             <div className="footer-style">

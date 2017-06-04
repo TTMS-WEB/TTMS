@@ -10,7 +10,7 @@ export default store=>next=>action=> {
             break;
         case 'GENERATE_SEAT':
             request.post('/generateSeat')
-                .send({"studioId": action.studioId, "seatArray": action.seatArray})
+                .send({"studioId": action.studioId})
                 .end((err, res)=> {
                     next({type: 'GET_STUDIO_SEATS', content: res.body});
                 });

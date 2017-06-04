@@ -7,51 +7,89 @@ import Studio from '../models/Studios';
 import Seat from '../models/Seat';
 import Schedule from '../models/Schedule';
 
-/*router.get('/schedule', (req, res, next)=> {
+router.get('/getSchedule', (req, res, next)=> {
     PlayPlan.find({}, (err, data)=> {
         if (err) {
             return next(err);
         }
-        console.log(data);
 
-        let seatStatus;
-        let TicketArray = [];
-
+        let length = 0;
         data.map((ele)=> {
-            Seat.find({studioId: ele.Id}, (err, doc)=> {
+            PlayInfo.findOne({playName: ele.planName}, (err, doc)=> {
                 if (err) {
                     return next(err);
                 }
-                seatStatus = doc.seatArray.filter((d)=>indexOf(d.status == -1));
-            });
+                Seat.findOne({studioId: ele.planStudio}, (err, doc1)=> {
+                    let badSeatStatusArray = [];
+                    if (err) {
+                        return next(err);
+                    }
+                    for (let i = 0; i < doc1.seatArray.length; i++) {
+                        if (doc1.seatArray[i].status == -1) {
+                            badSeatStatusArray.push(i);
+                        }
+                    }
+                    Studio.findOne({id: ele.planStudio}, (err, doc2)=> {
+                        if (err) {
+                            return next(err);
+                        }
 
-            Studio.find({id: ele.Id}, (err, doc1)=> {
-                let row = doc1.row;
-                let col = doc1.col;
-                for (let n = 0; k < seatStatus.length; i++) {
+                        let row = doc2.row;
+                        let col = doc2.col;
+                        let TicketArray = [];
 
-                    for (let i = 0; i < row; i++) {
-                        for (let j = 0; j < col; j++) {
-                            if (n == i * row + j) {
+                        for (let i = 0; i < row * col; i++) {
+                            if (badSeatStatusArray.includes(i)) {
                                 TicketArray.push({status: -1});
                             }
                             else {
                                 TicketArray.push({status: 0});
                             }
                         }
-                    }
-                }
-            });
 
-            let schedule =new Schedule({playPlanId:,ticketArray});
-            schedule.save((err,doc2)=>{
-                if (err) {
-                    return next(err);
-                }
+                        const schedule = new Schedule({
+                            ScheduleName: ele.planName,
+                            ScheduleStudio: ele.planStudio,
+                            ScheduleDate: ele.date,
+                            ScheduleTime: ele.time,
+                            ScheduleActor: doc.playActor,
+                            SchedulePrice: doc.playPrice,
+                            TicketArray
+                        });
+                        Schedule.findOne({
+                            ScheduleName: schedule.ScheduleName, ScheduleStudio: schedule.ScheduleStudio,
+                            ScheduleDate: schedule.ScheduleDate, ScheduleTime: schedule.ScheduleTime
+                        }, (err, doc3)=> {
+                            if (err) {
+                                return next(err);
+                            }
+                            if (doc3 == null) {
+                                schedule.save((err, doc4)=> {
+                                    if (err) {
+                                        return next(err);
+                                    }
+                                    length++;
+                                    if (data.length == length) {
+                                        Schedule.find((err, doc5)=> {
+                                            res.send(doc5);
+                                        });
+                                    }
+                                });
+                            }
+                            else {
+                                length++;
+                                if (data.length == length) {
+                                    Schedule.find((err, doc5)=> {
+                                        res.send(doc5);
+                                    });
+                                }
+                            }
+                        });
+                    });
+                });
             });
         });
-
-
     })
-});*/
-module.exports = {router};
+});
+
+module.exports = router;

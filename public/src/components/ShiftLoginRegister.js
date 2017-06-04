@@ -16,7 +16,7 @@ export default class LoginRegisterStyle extends Component {
 
     render() {
         return <div>
-            <div id="carousel1" className="col-md-offset-7">
+            <div id="carousel1" className="col-md-offset-4">
                 <ul id="ul">
                     <li className="li" id="li1"><a onClick={this.login.bind(this)}>登陆</a></li>
 

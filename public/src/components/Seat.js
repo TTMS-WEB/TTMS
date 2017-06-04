@@ -8,22 +8,7 @@ export default class Seat extends Component {
 
     chooseStudioId() {
         const studioId = $("#studioId").val();
-        const array = this.props.Seat;
-        let seatArray = [];
-        let row;
-        let col;
-        for (let i = 0; i < array.length; i++) {
-            if (array[i].id == studioId) {
-                row = array[i].row;
-                col = array[i].col;
-            }
-        }
-        for (let i = 1; i <= row; i++) {
-            for (let j = 1; j <= col; j++) {
-                seatArray.push({status: 0});
-            }
-        }
-        this.props.generateSeat(studioId, seatArray);
+        this.props.generateSeat(studioId);
     }
 
     render() {

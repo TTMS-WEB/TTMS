@@ -11,8 +11,8 @@ const mapDispatchToProps = (dispatch)=>{
         getStudioInfo:()=>{
           dispatch(actions.StudioInfo());
         },
-        generateSeat:(studioId,seatArray)=>{
-            dispatch(actions.generateSeat(studioId,seatArray));
+        generateSeat:(studioId)=>{
+            dispatch(actions.generateSeat(studioId));
         }
     }
 };
