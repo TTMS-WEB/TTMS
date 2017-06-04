@@ -22,7 +22,10 @@ export default class AddStudios extends Component {
 
     searchStudio() {
         const id = this.refs.searchStudio.value;
-        this.props.searchStudio(id);
+        if(!id){
+            this.props.getStudios();
+        }
+        else this.props.searchStudio(id);
     }
 
 
