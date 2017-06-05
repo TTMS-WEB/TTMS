@@ -4,7 +4,6 @@ import React,{Component} from 'react';
 export default class AddEmployees extends Component{
     componentWillMount() {
         this.props.getAllEmployees();
-        this.props.getStudios();
         if(!this.props.Nav){
             this.props.router.push('/');
         }
