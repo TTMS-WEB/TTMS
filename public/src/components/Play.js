@@ -3,10 +3,10 @@ export default class Play extends Component {
     componentWillMount() {
         const page = this.props.play.page;
         this.props.showPlay(page);
-            if(!this.props.Nav){
+            if(!this.props.Login){
                 this.props.router.push('/');
             }
-            else if(this.props.Nav === "root"){
+            else if(this.props.Login === "root"){
                 this.props.router.push('/ticket');
             }
     }
