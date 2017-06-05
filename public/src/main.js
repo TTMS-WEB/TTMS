@@ -7,6 +7,7 @@ import {createLogger} from 'redux-logger';
 import  thunkMiddleware from 'redux-thunk';
 
 import App from './components/App';
+import Root from './components/Root';
 
 import ShowLoginRegister from './containers/ShowLoginRegister';
 import AllEmployees from './containers/AllEmployees';
@@ -51,11 +52,11 @@ ReactDom.render(
                 <Route path="/ticket" component={Ticket}/>
                 <Route path='/playPlan' component={PlayPlan}/>
             </Route>
-            <Route path='/schedule' component={Schedule}>
-
+            <Route path="/root" component={Root}>
+                <Route path='/schedule' component={Schedule}/>
+                <Route path="/sale:id" component={Sale}/>
             </Route>
-            <Route path="/sale/:id" component={Sale}/>
-            < Route path="/" component={ShowLoginRegister}/>
+            <Route path="/" component={ShowLoginRegister}/>
         </ Router >
     </ Provider >
     ,

@@ -8,7 +8,7 @@ export default class Schedule extends Component {
     }
 
     linkToSale(id) {
-        this.props.router.push(`/sale/` + id);
+        this.props.router.push(`/sale` + ":" + id);
     }
 
     render() {
@@ -55,9 +55,7 @@ export default class Schedule extends Component {
             </tr>
         });
         return <div>
-            <div className="nav-left">
-                <RootNav/>
-            </div>
+
             <div className="root">
                 <div className="Schedule">
                     <table className="table table-style">
@@ -77,9 +75,6 @@ export default class Schedule extends Component {
                         </tbody>
                     </table>
                 </div>
-            </div>
-            <div className="footer-style">
-                <Footer/>
             </div>
         </div>
     }
