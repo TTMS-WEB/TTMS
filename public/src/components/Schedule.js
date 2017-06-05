@@ -5,6 +5,12 @@ import RootNav from '../containers/RootNav';
 export default class Schedule extends Component {
     componentWillMount() {
         this.props.getPlayScheduleInfo();
+            if(!this.props.Nav){
+                this.props.router.push('/');
+            }
+            else if(this.props.Nav === "root"){
+                this.props.router.push('/ticket');
+            }
     }
 
     linkToSale(id) {
