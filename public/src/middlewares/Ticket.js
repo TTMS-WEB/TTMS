@@ -2,10 +2,10 @@ import request from 'superagent';
 
 export default store=>next=>action=>{
     switch (action.type){
-        case'':
-            request.get('/ticket')
+        case 'GET_TICKET_INFO':
+            request.get('/getTicketInfo')
                 .end((err,res)=>{
-                    next({})
+                    next({type:'SHOW_PLAY_SCHEDULE',content:res.body})
                 });
             break;
     }

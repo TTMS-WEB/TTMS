@@ -32,8 +32,8 @@ export default class Seat extends Component {
             <br />
             <div className="seatInfo">
                 <label className="studioId">{studioId}号厅</label>
-                <input type="checkbox" className="img-rounded" style={{backgroundColor: "rosybrown"}}/>可用
-                <input type="checkbox" className="img-rounded" style={{backgroundColor: "forestgreen"}}/>不可用
+                <img src="../../images/goodSeat.png" />可用
+                <img src="../../images/badSeat.png" />不可用
             </div>
             <div>
                 <GenerateSeat />

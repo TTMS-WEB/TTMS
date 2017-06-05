@@ -3,8 +3,9 @@ import GenerateSeat from '../containers/GenerateSeat';
 
 export default class Sale extends Component {
     componentWillMount() {
-        let playPlanId = this.props.params._id;
-        this.props.sale(playPlanId);
+        let playPlanId = this.props.params.id;
+        let id = playPlanId.split(':');
+        this.props.sale(id[1]);
         this.props.getStudioInfo();
     }
 
@@ -25,17 +26,16 @@ export default class Sale extends Component {
             }
         }
         let z = (x - 1) * row + y - 1;
-
-        let backgroundColor = document.getElementById(`seat${z}`).style.backgroundColor;
-        if (backgroundColor == "rosybrown") {
-            $("#seat" + z).css("background-color", "white");
+        let imgSrc = document.getElementById(`seat${z}`).src;
+        if (imgSrc == "http://localhost:3000/images/goodSeat.png") {
+            document.getElementById(`seat${z}`).src = "http://localhost:3000/images/chooseSeat.png"
             let location = x + '排' + y + '列';
             $("#chooseSeat").append(location);
         }
         else {
-            $("#seat" + z).css("background-color", "rosybrown");
+            document.getElementById(`seat${z}`).src = "http://localhost:3000/images/goodSeat.png";
             let location = x + '排' + y + '列';
-            $('#chooseSeat').each(function() {
+            $('#chooseSeat').each(function () {
                 let text = $(this).text();
                 $(this).text(text.replace(location, ''));
             });
@@ -45,7 +45,7 @@ export default class Sale extends Component {
         numberArray.pop();
         let length = (numberArray.length) / 2;
         let price = 30 * length;
-        $("#price").text(price);
+        $("#price").html(price);
     }
 
     BuyTicket() {
@@ -71,6 +71,8 @@ export default class Sale extends Component {
             i++;
         }
         this.props.buyTicket(ScheduleId, z);
+        $("#price").text(0);
+        $("#chooseSeat").text('');
     }
 
     render() {
@@ -92,25 +94,22 @@ export default class Sale extends Component {
                 seatArray.push(<br />);
             }
             if (seat[i].status == 0) {
-                seatArray.push(<input key={i} type="checkbox" id={`seat${i}`} className='img-rounded'
-                                      style={{backgroundColor: "rosybrown"}}
-                                      title={`${x}排${y}列`} data-toggle='tooltip' data-placement='right'
-                                      onClick={this.onChecked.bind(this, x, y)}
-                                      onMouseOver={this.showSeatRowCol.bind(this)}/>);
+                seatArray.push(<img src="../../images/goodSeat.png" key={i} id={`seat${i}`} className='img-rounded'
+                                    title={`${x}排${y}列`} data-toggle='tooltip' data-placement='right'
+                                    onClick={this.onChecked.bind(this, x, y)}
+                                    onMouseOver={this.showSeatRowCol.bind(this)}/>);
 
             }
             if (seat[i].status == 1) {
-                seatArray.push(<input key={i} type='checkbox' id={`seat${i}`} className='img-rounded'
-                                      style={{backgroundColor: "dodgerblue"}}
-                                      title={`${x}排${y}列`} data-toggle='tooltip' data-placement='right'
-                                      onMouseOver={this.showSeatRowCol.bind(this)}/>);
+                seatArray.push(<img src="../../images/choosed.png" key={i} id={`seat${i}`} className='img-rounded'
+                                    title={`${x}排${y}列`} data-toggle='tooltip' data-placement='right'
+                                    onMouseOver={this.showSeatRowCol.bind(this)}/>);
 
             }
             if (seat[i].status == -1) {
-                seatArray.push(<input key={i} type='checkbox' id={`seat${i}`} className='img-rounded'
-                                      style={{backgroundColor: "forestgreen"}}
-                                      title={`${x}排${y}列`} data-toggle='tooltip' data-placement='right'
-                                      onMouseOver={this.showSeatRowCol.bind(this)}/>);
+                seatArray.push(<img src="../../images/badSeat.png" key={i} id={`seat${i}`} className='img-rounded'
+                                    title={`${x}排${y}列`} data-toggle='tooltip' data-placement='right'
+                                    onMouseOver={this.showSeatRowCol.bind(this)}/>);
 
             }
         }
@@ -150,10 +149,10 @@ export default class Sale extends Component {
                 <GenerateSeat />
                 <div className="seatInfo">
                     <label className="studioId">{studioId}号厅</label>
-                    <input type="checkbox" className="img-rounded" style={{backgroundColor: "rosybrown"}}/>可选
-                    <input type="checkbox" className="img-rounded" style={{backgroundColor: "forestgreen"}}/>已坏
-                    <input type="checkbox" className="img-rounded" style={{backgroundColor: "dodgerblue"}}/>已购
-                    <input type="checkbox" className="img-rounded" style={{backgroundColor: "white"}}/>选中
+                    <img src="../../images/goodSeat.png"/>可用
+                    <img src="../../images/badSeat.png"/>已坏
+                    <img src="../../images/chooseSeat.png"/>选中
+                    <img src="../../images/choosed.png"/>已购
                 </div>
                 {seatArray}
             </div>
@@ -166,9 +165,10 @@ export default class Sale extends Component {
                 </div>
                 <div><span className="label">时长：</span><span>{time}</span></div>
                 <div><span className="label">座位：</span><span id="chooseSeat"></span></div>
-                <div><span className="label">总计：</span><span id="price"></span></div>
+                <div><span className="label">总计：</span><span id="price" ref="price"></span></div>
                 <button className="btn btn-info col-md-4" onClick={this.BuyTicket.bind(this)}>购票</button>
             </div>
         </div>
+
     }
 }

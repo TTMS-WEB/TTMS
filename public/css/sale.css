@@ -1,15 +1,18 @@
 .sale{
+    background: rgba(0,0,0,0.5);
+    height: 500px;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-radius: 4px;
 }
 #saleLeft{
-    border-right: solid 2px white;
-    background: rgba(0,0,0,0.5);
     text-align: center;
 }
 #saleRight{
+    border-left: solid 2px white;
     padding-left: 3%;
     color: white;
     font-size: large;
-    background: rgba(0,0,0,0.5);
     line-height: 3;
     padding-bottom: 2%;
     border-radius: 4px;
