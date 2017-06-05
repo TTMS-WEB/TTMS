@@ -6,10 +6,12 @@ const router = express.Router();
 
 router.get('/allStudios',(req,res,next)=>{
     Studios.find({},(err,data)=>{
-        if(err){
-            return next(err);
+        if(req.headers.cookie){
+            res.send(data);
         }
-        res.send(data);
+        else {
+            res.redirect(302,'/');
+        }
     })
 });
 
@@ -17,7 +19,7 @@ router.get('/search/studio/:id',(req,res,next)=>{
     let id = req.params.id;
     Studios.find({id:id},(err,data)=>{
         if(err){
-            next(err)
+            next(err);
         }
         res.send(data);
     })
@@ -44,7 +46,9 @@ router.post('/addStudio',(req,res,next)=>{
             if (err) {
                 return next(err);
             }
-            res.status(201).end();
+            else {
+                res.send("succeed");
+            }
         });
     })
 });
@@ -59,7 +63,6 @@ router.delete('/delete/studio/:id', (req, res)=> {
 });
 router.post('/modifyStudio',(req,res,next)=>{
     let studio = req.body;
-    console.log(studio);
     let id = Number(studio.id);
     Studios.update({id:id},
         {
@@ -72,7 +75,9 @@ router.post('/modifyStudio',(req,res,next)=>{
         if(err){
             return next(err);
         }
-        res.status(201).end();
+        else{
+            res.send("succeed");
+        }
     })
 });
 

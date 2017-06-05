@@ -3,6 +3,12 @@ import React, {Component} from 'react';
 export default class Schedule extends Component {
     componentWillMount() {
         this.props.getPlayScheduleInfo();
+            if(!this.props.Nav){
+                this.props.router.push('/');
+            }
+            else if(this.props.Nav === "root"){
+                this.props.router.push('/ticket');
+            }
     }
     linkToSale(id){
         this.props.router.push(`/sale/`+id);

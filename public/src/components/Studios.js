@@ -8,6 +8,12 @@ export default class Studios extends Component {
 
     componentWillMount() {
         this.props.getStudios();
+        if(!this.props.Nav){
+            this.props.router.push('/');
+        }
+        else if(this.props.Nav === "root"){
+            this.props.router.push('/ticket');
+        }
     }
 
     deleteStudio(id) {
