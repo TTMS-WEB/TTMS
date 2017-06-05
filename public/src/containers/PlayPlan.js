@@ -4,7 +4,8 @@ import plan from '../actions/playPlan';
 
 const mapStateToProps = (state)=>{
     return {
-        playPlan:state.playPlan
+        playPlan:state.playPlan,
+        Login:state.Login
     }
 };
 

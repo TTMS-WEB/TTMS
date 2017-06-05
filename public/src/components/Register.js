@@ -40,6 +40,7 @@ export default class Register extends Component {
     register() {
         let psTip = $("#passwordTip").text();
         let rpsTip = $("#repeatTip").text();
+        console.log(this.props.Register.isExit);
         if (this.props.Register.isExit == true) {
             $("#usernameTip").text("用户名已被注册，请重新输入");
         }

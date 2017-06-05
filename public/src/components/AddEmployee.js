@@ -4,6 +4,12 @@ import React,{Component} from 'react';
 export default class AddEmployees extends Component{
     componentWillMount() {
         this.props.getAllEmployees();
+        if(!this.props.Login){
+            this.props.router.push('/');
+        }
+        else if(this.props.Login === "root"){
+            this.props.router.push('/schedule');
+        }
     }
 
     deleteEmployee(name) {

@@ -3,7 +3,8 @@ import Play from "../components/Play";
 import play from "../actions/play";
 
 const mapStateToProps = (state)=> {
-    return {play: state.ShowPlay};
+    return {play: state.ShowPlay,
+    Login:state.Login};
 };
 
 const dispatchToProps = (dispatch)=> {
@@ -14,16 +15,16 @@ const dispatchToProps = (dispatch)=> {
         addPlay: (newPlay)=> {
             dispatch(play.addPlay(newPlay))
         },
-        searchPlay:(searchPlay)=>{
+        searchPlay: (searchPlay)=> {
             dispatch(play.searchPlay(searchPlay))
         },
-        removePlay:(deletePlay)=>{
+        removePlay: (deletePlay)=> {
             dispatch(play.removePlay(deletePlay))
         },
-        modifyPlay:(newPlay)=>{
+        modifyPlay: (newPlay)=> {
             dispatch(play.modifyPlay(newPlay))
         },
-        changePage:(page)=>{
+        changePage: (page)=> {
             dispatch(play.changePage(page));
         }
     }

@@ -2,6 +2,7 @@ import {connect} from 'react-redux';
 import Login from '../components/Login';
 import actions from '../actions/Login';
 import {withRouter} from 'react-router';
+import GetAllEmployees from '../actions/GetAllEmployees';
 
 const mapStateToProps = (state)=> {
     return state
@@ -16,6 +17,9 @@ const mapDispatchToProps = (dispatch)=> {
         isLegal: (content) => {
             dispatch(actions.isLegal(content));
         },
+        loadUsername:()=>{
+            dispatch(GetAllEmployees.loadUsername());
+        }
     }
 };
 

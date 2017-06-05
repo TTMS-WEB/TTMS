@@ -3,13 +3,15 @@ import UserInfo from '../models/UserInfo';
 
 const router = express.Router();
 
-router.post('/register', (req, res,next)=> {
+router.post('/register', (req, res, next)=> {
     let userInfo = new UserInfo(req.body);
     userInfo.save((err, data)=> {
         if (err) {
-            res.send({"status":false});
+            res.send({"status": false});
         }
-        res.send({"status":true});
+        else {
+            res.send({"status": true});
+        }
     })
 });
 
@@ -22,11 +24,11 @@ router.post('/isLegal', (req, res) => {
         }
         if (data) {
             if (psw !== data.password) {
-                res.send("密码错误，请重新登陆！");
+                res.send({"status":false});
             }
             else {
                 res.cookie('username', username, {path: '/'});
-                res.send("");
+                res.send({"status":true});
             }
         }
     });
@@ -39,10 +41,9 @@ router.get('/users/:username', (req, res, next)=> {
             return next(err);
         }
         if (!data) {
-            res.send({"isExit":false});
+            res.send({"isExit": false});
         } else {
-            res.cookie('username', name, {path: '/'});
-            res.send({"isExit":true,"data":data});
+            res.send({"isExit": true});
         }
     });
 });
@@ -62,10 +63,10 @@ router.post('/exitUser', (req, res)=> {
             console.log("数据库出错");
         }
         if (data) {
-            res.send({"isExit":true});
+            res.send({"isExit": true});
         }
         else {
-            res.send({"isExit":false});
+            res.send({"isExit": false});
         }
     })
 });
@@ -88,6 +89,14 @@ router.post('/isLegal', (req, res) => {
             }
         }
     });
+});
+
+router.get('/legal-username', (req, res, next)=> {
+    if (req.cookies.username) {
+        res.send(req.cookies.username);
+    } else {
+        res.status(403).send('');
+    }
 });
 
 module.exports = router;

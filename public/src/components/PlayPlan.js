@@ -3,6 +3,13 @@ export default class PlayPlan extends Component {
     componentWillMount() {
         const page = this.props.playPlan.page;
         this.props.showPlan(page);
+            if(!this.props.Login){
+                this.props.router.push('/');
+            }
+            else if(this.props.Login === "root"){
+                this.props.router.push('/ticket');
+            }
+
     }
 
     GetDateStr(AddDayCount) {
