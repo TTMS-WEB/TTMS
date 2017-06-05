@@ -36,8 +36,12 @@ class Login extends Component {
         if (username == 'root' && psw == '123456') {
             this.props.router.push('/schedule');
         }
-       console.log(this.props.Login.status);
-        if (this.props.Login.status) {
+
+        else if (username == 'root1' && psw == '456789') {
+            this.props.router.push('/schedule');
+        }
+
+       else if (this.props.Login.status) {
                 this.props.router.push('/studios');
             }
     }
