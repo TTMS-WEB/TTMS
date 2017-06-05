@@ -8,7 +8,11 @@ export default class Seat extends Component {
                 this.props.router.push('/');
             }
             else if(this.props.Login === "root"){
-                this.props.router.push('/ticket');
+                this.props.router.push('/schedule');
+            }
+
+            else if(this.props.Login === "root"){
+                this.props.router.push('/schedule');
             }
     }
 
@@ -18,7 +22,9 @@ export default class Seat extends Component {
     }
 
     render() {
-        let studioId = this.props.SeatInfo.studioId;
+        const id  = this.props.Seat.map((ele)=>ele.id);
+
+        let studioId = $("#studioId").val()||id[0];
         return <div id="seatBorder">
             <div className="form-group">
                 <select  id="studioId" className="selectpicker form-control"

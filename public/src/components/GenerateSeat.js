@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 
 export default class GenerateSeat extends Component {
-
+    componentWillMount(){
+        this.props.getStudioInfo();
+    }
     seatStatus(studioId, index) {
         let i = '' + index;
         this.props.changeSeatStatus(studioId, i);
@@ -14,8 +16,11 @@ export default class GenerateSeat extends Component {
     }
 
     render() {
-        const studioId = this.props.SeatInfo.studioId;
+        const id  = this.props.Seat.map((ele)=>ele.id);
+        const studioId = id[0];
+        console.log(studioId);
         const array = this.props.Seat;
+        console.log(array);
         let row;
         for (let i = 0; i < array.length; i++) {
             if (array[i].id == studioId) {

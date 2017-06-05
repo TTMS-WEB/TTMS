@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import Footer from'./Footer';
-import RootNav from '../containers/RootNav';
 
 export default class Schedule extends Component {
     componentWillMount() {
@@ -9,6 +7,10 @@ export default class Schedule extends Component {
                 this.props.router.push('/');
             }
             else if(this.props.Login === "root"){
+                this.props.router.push('/schedule');
+            }
+
+            else if(this.props.Login === "root1"){
                 this.props.router.push('/schedule');
             }
     }

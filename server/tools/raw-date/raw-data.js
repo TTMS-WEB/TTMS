@@ -28,6 +28,13 @@ export default {
             phone: 123456789,
             address: '北京'
         },
+        {
+            username: 'root1',
+            email: '15829061748@163.com',
+            password: '456789',
+            phone: 123456789,
+            address: '北京'
+        },
     ],
     PlayInfo: [
         {

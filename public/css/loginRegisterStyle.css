@@ -5,7 +5,6 @@
 body {
     background: url(../images/timg.jpg) no-repeat center center fixed;
     background-size: cover;
-
 }
 
 .content{
@@ -49,18 +48,27 @@ body {
 }
 
 input{
+    color:#cccccc;
     text-indent: 17px;
 }
 .input:focus {
     color: white;
 }
 
+#img
+{
+    background: url(../images/user.png) no-repeat;
+    background-position: 5%;
+    border-radius:15px;
+    margin-top: 270%;
+}
 #img1
 {
     background: url(../images/user.png) no-repeat;
     background-position: 5%;
     border-radius:15px;
 }
+
 #img2
 {
     background: url(../images/password.png) no-repeat;
