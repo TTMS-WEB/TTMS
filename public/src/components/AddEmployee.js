@@ -7,7 +7,7 @@ export default class AddEmployees extends Component{
         if(!this.props.Login){
             this.props.router.push('/');
         }
-        else if(this.props.Login=== "root"){
+        else if(this.props.Login === "root"){
             this.props.router.push('/schedule');
         }
     }

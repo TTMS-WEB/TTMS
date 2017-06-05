@@ -9,6 +9,7 @@ export default class PlayPlan extends Component {
             else if(this.props.Login === "root"){
                 this.props.router.push('/ticket');
             }
+
     }
 
     GetDateStr(AddDayCount) {

@@ -3,9 +3,8 @@ import Play from "../components/Play";
 import play from "../actions/play";
 
 const mapStateToProps = (state)=> {
-    // console.log(state);
     return {play: state.ShowPlay,
-    Nav:state.Nav};
+    Login:state.Login};
 };
 
 const dispatchToProps = (dispatch)=> {

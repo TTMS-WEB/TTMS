@@ -5,7 +5,7 @@ import plan from '../actions/playPlan';
 const mapStateToProps = (state)=>{
     return {
         playPlan:state.playPlan,
-        Nav:state.Nav
+        Login:state.Login
     }
 };
 
