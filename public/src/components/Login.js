@@ -34,10 +34,10 @@ class Login extends Component {
         const psw = this.refs.psw.value;
         this.props.loadUsername();
         if (username == 'root' && psw == '123456') {
+            console.log('root');
             this.props.router.push('/schedule');
         }
-       console.log(this.props.Login.status);
-        if (this.props.Login.status) {
+       else if (this.props.Login.status) {
                 this.props.router.push('/studios');
             }
     }

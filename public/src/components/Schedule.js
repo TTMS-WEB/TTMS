@@ -9,7 +9,7 @@ export default class Schedule extends Component {
                 this.props.router.push('/');
             }
             else if(this.props.Login === "root"){
-                this.props.router.push('/ticket');
+                this.props.router.push('/schedule');
             }
     }
 
