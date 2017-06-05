@@ -8,13 +8,6 @@ router.get('/getTicketInfo', (req, res, err)=> {
         if (err) {
             return next(err)
         }
-        /*let dataStatusArray = data.map((ele)=> {
-            return ele.TicketArray.filter((data) =>data.status == 1);
-        });
-        let dataLengthArray = dataStatusArray.map((ele)=> {
-            return ele.length;
-        });
-        console.log(dataLengthArray);*/
         res.send(data);
     })
 });
