@@ -1,14 +1,12 @@
 import React, {Component} from 'react';
-import Footer from'./Footer';
-import RootNav from '../containers/RootNav';
 
 export default class Schedule extends Component {
     componentWillMount() {
         this.props.getPlayScheduleInfo();
-            if(!this.props.Nav){
+            if(!this.props.Login){
                 this.props.router.push('/');
             }
-            else if(this.props.Nav === "root"){
+            else if(this.props.Login === "root"){
                 this.props.router.push('/ticket');
             }
     }

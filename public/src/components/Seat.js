@@ -4,10 +4,10 @@ import GenerateSeat from '../containers/GenerateSeat';
 export default class Seat extends Component {
     componentWillMount() {
         this.props.getStudioInfo();
-            if(!this.props.Nav){
+            if(!this.props.Login){
                 this.props.router.push('/');
             }
-            else if(this.props.Nav === "root"){
+            else if(this.props.Login === "root"){
                 this.props.router.push('/ticket');
             }
     }
