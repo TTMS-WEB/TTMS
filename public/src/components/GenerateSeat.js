@@ -2,15 +2,6 @@ import React, {Component} from 'react';
 
 export default class GenerateSeat extends Component {
 
-    componentWillMount() {
-        if(!this.props.Nav){
-            this.props.router.push('/');
-        }
-        else if(this.props.Nav === "root"){
-            this.props.router.push('/ticket');
-        }
-    }
-
     seatStatus(studioId, index) {
         let i = '' + index;
         this.props.changeSeatStatus(studioId, i);

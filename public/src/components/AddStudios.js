@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 export default class AddStudios extends Component {
     componentWillMount() {
         this.props.getStudios();
-
     }
 
     addStudio() {

@@ -3,6 +3,9 @@ import React, {Component} from 'react';
 export default class Ticket extends Component {
     componentWillMount() {
         this.props.getTicketInfo();
+            if(!this.props.Nav){
+                this.props.router.push('/');
+            }
     }
 
     render() {

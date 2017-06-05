@@ -7,11 +7,10 @@ export default class Studios extends Component {
     }
 
     componentWillMount() {
-        this.props.getStudios();
-        if(!this.props.Nav){
+        if(!this.props.Login){
             this.props.router.push('/');
         }
-        else if(this.props.Nav === "root"){
+        else if(this.props.Login === "root"){
             this.props.router.push('/ticket');
         }
     }
