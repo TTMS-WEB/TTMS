@@ -2,6 +2,7 @@ import {connect} from 'react-redux';
 import Sale from '../components/Sale';
 import actions from '../actions/Sale';
 import actions1 from '../actions/Seat';
+import {withRouter} from 'react-router';
 
 const mapStateToProps = (state)=>{
     return state
@@ -22,4 +23,4 @@ const mapDispatchToProps = (dispatch)=>{
     }
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(Sale);
+export default connect(mapStateToProps,mapDispatchToProps)(withRouter(Sale));

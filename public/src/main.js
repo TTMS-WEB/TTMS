@@ -36,7 +36,7 @@ import playPlan from './middlewares/PlayPlan'
 
 const Middleware = applyMiddleware(thunkMiddleware, createLogger(),
     login, register, allEmployees, seat, getStudios, showPlay, nav, ticket,
-    sale,schedule,playPlan);
+    sale, schedule, playPlan);
 
 
 let store = createStore(reducer, Middleware);
@@ -54,12 +54,13 @@ ReactDom.render(
             </Route>
             <Route path="/root" component={Root}>
                 <Route path='/schedule' component={Schedule}/>
-                <Route path="/sale/:_id" component={Sale}/>
+                <Route path="/sale:id" component={Sale}/>
             </Route>
             <Route path="/" component={ShowLoginRegister}/>
-        </Router>
-    </Provider>
+        </ Router >
+    </ Provider >
     ,
     document.getElementById('root')
-);
+)
+;
 

@@ -4,7 +4,6 @@ import UserInfo from '../models/UserInfo';
 import Seat from '../models/Seat';
 import PlayInfo from '../models/playInfo';
 import Studios from '../models/Studios';
-import Ticket from '../models/Ticket';
 import Schedule from '../models/Schedule';
 import PlayPlan from '../models/playPlan'
 
@@ -15,7 +14,6 @@ const modelsMap = {
     Studios,
     PlayInfo,
     Seat,
-    Ticket,
     Schedule,
     PlayPlan
 };

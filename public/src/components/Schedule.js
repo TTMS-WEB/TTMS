@@ -1,14 +1,17 @@
 import React, {Component} from 'react';
+import Footer from'./Footer';
+import RootNav from '../containers/RootNav';
 
 export default class Schedule extends Component {
     componentWillMount() {
         this.props.getPlayScheduleInfo();
     }
-    linkToSale(id){
-        this.props.router.push(`/sale/`+id);
-    }
-    render() {
 
+    linkToSale(id) {
+        this.props.router.push(`/sale` + ":" + id);
+    }
+
+    render() {
         let Schedule = this.props.Schedule.map((data, index)=> {
             let time = data.ScheduleTime;
             switch (time) {
@@ -46,26 +49,33 @@ export default class Schedule extends Component {
                 <td>{time}</td>
                 <td>{data.ScheduleActor}</td>
                 <td>{data.SchedulePrice}/元</td>
-                <td><button className="btn btn-info" onClick={this.linkToSale.bind(this,data._id)}>去购票</button></td>
+                <td>
+                    <button className="btn btn-info" onClick={this.linkToSale.bind(this, data._id)}>去购票</button>
+                </td>
             </tr>
         });
-        return <div className="Schedule">
-            <table className="table table-style">
-                <thead>
-                <tr>
-                    <th>影片</th>
-                    <th>影厅</th>
-                    <th>日期</th>
-                    <th>场次</th>
-                    <th>主演</th>
-                    <th>价格</th>
-                    <th>操作</th>
-                </tr>
-                </thead>
-                <tbody>
-                {Schedule}
-                </tbody>
-            </table>
+        return <div>
+
+            <div className="root">
+                <div className="Schedule">
+                    <table className="table table-style">
+                        <thead>
+                        <tr>
+                            <th>影片</th>
+                            <th>影厅</th>
+                            <th>日期</th>
+                            <th>场次</th>
+                            <th>主演</th>
+                            <th>价格</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {Schedule}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     }
 }
