@@ -25,7 +25,7 @@ class Login extends Component {
             $("#tip1").text("输入不能为空！");
         }
         else {
-            this.props.isLegal({"username":username, "psw":psw});
+            this.props.isLegal({"username": username, "psw": psw});
         }
     }
 
@@ -61,18 +61,13 @@ class Login extends Component {
             <div>
                 <div className="row content1">
                     <div className="kuandu col-md-offset-7" id="inputGroup">
-                        <input type="text" className="form-control input" id="img1" ref="input" placeholder="用户名"
+                        <input type="text" className="form-control input" id="img" ref="input" placeholder="用户名"
                                onBlur={this.verifyUser.bind(this)} onFocus={this.clear.bind(this)}/>
                         <span id="tip">{this.props.FindUsers.isExit === false ? "用户名不存在！" : ""}</span><br/>
                         <input type="password" className="form-control input" id="img2" ref="psw" placeholder="密码"
                                onBlur={this.isNull.bind(this)} onFocus={this.clearPsw.bind(this)}/>
                         <span id="tip1">{this.props.Login.status === false ? "密码错误！" : ""} </span><br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
+                        <br />
                         <button className="btn btn-default form-control" onClick={this.isLegal.bind(this)}>登 陆</button>
                     </div>
                 </div>
