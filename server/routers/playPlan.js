@@ -21,7 +21,6 @@ router.post('/showPlan', (req, res, next)=> {
                 next(err);
             }
             PlayPlan.find({'date': {$gte: currentDate}}, (err, plans)=> {
-
                 if (err) {
                     next(err);
                 }
@@ -47,20 +46,19 @@ router.post('/showPlan', (req, res, next)=> {
                             };
                             planInfo.push(play);
                             if (planInfo.length === plans.length) {
-                                planInfo.sort(compare('date', 'time'));
-
+                                planInfo.sort(compare('time', 'planStudio'));
                                 res.send({planInfo, plays, studios, maxsize, size});
                             }
                         });
                     });
                 });
-            }).limit(size).skip(skip);
+            }).sort('date').limit(size).skip(skip);
         })
     })
 });
 
 router.post('/addPlan', (req, res, next)=> {
-    const playPlan = new PlayPlan(req.body.planInfo);
+    const playPlan = new PlayPlan(req.body);
     PlayPlan.find({planStudio: playPlan.planStudio, date: new Date(playPlan.date), time: playPlan.time}, (err, data)=> {
         if (err) {
             next(err);
@@ -85,7 +83,8 @@ router.post('/addPlan', (req, res, next)=> {
 });
 
 router.post('/deletePlan', (req, res, next)=> {
-    const deleteId = req.body.deleteInfo.id;
+    const deleteId = req.body.id;
+    console.log(req.body);
     PlayPlan.remove({_id: ObjectID(deleteId)}, (err, result)=> {
         if (err) {
             next(err);
@@ -95,11 +94,14 @@ router.post('/deletePlan', (req, res, next)=> {
 });
 
 router.post('/find', (req, res, next)=> {
-    const date = new Date(req.body.findInfo.day);
+    const date = new Date(req.body.day);
     const planInfo = [];
     PlayPlan.find({date: date}, (err, plans)=> {
-        plans.forEach((plan, index)=> {
 
+        if (plans.length === 0) {
+            res.send({findResult: plans});
+        }
+        plans.forEach((plan, index)=> {
             PlayInfo.findOne({playName: plan.planName}, {playPrice: 1, playTime: 1}, (err, playdata)=> {
                 if (err) {
                     next(err);
@@ -115,19 +117,17 @@ router.post('/find', (req, res, next)=> {
                 };
                 planInfo.push(play);
                 if (planInfo.length === plans.length) {
-                    planInfo.sort(compare('date', 'time'));
-
                     res.send({findResult: planInfo});
                 }
             });
 
         })
-    });
+    }).sort('time');
 });
 
 
 router.post('/modifyPlan', (req, res, next)=> {
-    const mdPlan = req.body.modifyInfo;
+    const mdPlan = req.body;
     const newPlanCheck = {
         planStudio: mdPlan.mdStudio,
         date: mdPlan.mddate,
