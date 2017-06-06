@@ -3,15 +3,15 @@ export default class PlayPlan extends Component {
     componentWillMount() {
         const page = this.props.playPlan.page;
         this.props.showPlan(page);
-            if(!this.props.Login){
-                this.props.router.push('/');
-            }
-            else if(this.props.Login === "root"){
-                this.props.router.push('/schedule');
-            }
-            else if(this.props.Login === "root1"){
-                this.props.router.push('/schedule');
-            }
+        if (!this.props.Login) {
+            this.props.router.push('/');
+        }
+        else if (this.props.Login === "root") {
+            this.props.router.push('/schedule');
+        }
+        else if (this.props.Login === "root1") {
+            this.props.router.push('/schedule');
+        }
 
     }
 
@@ -138,8 +138,8 @@ export default class PlayPlan extends Component {
     }
 
     render() {
-
         const playPlan = this.props.playPlan;
+        console.log(playPlan.planInfo);
         const plays = playPlan.plays;
         const studios = playPlan.studios;
         const page = playPlan.page;
@@ -230,7 +230,7 @@ export default class PlayPlan extends Component {
                             <h4 className="modal-title" id="myModalLabel">添加一个演出计划</h4>
                         </div>
                         <div className="input-group">
-                            <select name="play"  className="btn" id="play" ref='play'>
+                            <select name="play" className="btn" id="play" ref='play'>
                                 <option value="" hidden>请选择剧目</option>
                                 {playList}
                             </select>
@@ -239,7 +239,7 @@ export default class PlayPlan extends Component {
                                 <option value="" hidden>请选择在几号影厅放映</option>
                                 {studioList}
                             </select>
-                            <select name="Date"  className="btn" ref="date" id="date">
+                            <select name="Date" className="btn" ref="date" id="date">
                                 <option value="" hidden>放映日期</option>
                                 <option value={date[1]}>{date[1]}</option>
                                 <option value={date[2]}>{date[2]}</option>
