@@ -6,11 +6,11 @@ const router = express.Router();
 
 router.get('/allStudios',(req,res,next)=>{
     Studios.find({},(err,data)=>{
-        if(req.headers.cookie){
-            res.send(data);
+        if(err){
+            next(err);
         }
         else {
-            res.redirect(302,'/');
+            res.send(data);
         }
     })
 });
