@@ -1,7 +1,7 @@
 .playPlan table {
     color: #b99423;
-    background-color: #2B2E33;
-    opacity: 0.5;
+    /*background-color: #2B2E33;*/
+    /*opacity: 0.5;*/
     width: 100%;
 }
 .playPlan table th, .playPlan table td {
@@ -10,12 +10,12 @@
     font-size: larger;
     width: 8%;
     text-align: left;
-    opacity: 1;
+    /*opacity: 1;*/
 }
 .playPlan table tfoot input,.playPlan table tfoot button{
     border-radius:2px;
     outline-color: white;
-    opacity: 1;
+    /*opacity: 1;*/
     color: #363636;
     background-color: white;
     border: hidden;

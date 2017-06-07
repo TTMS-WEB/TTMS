@@ -8,23 +8,23 @@
 
 .playInfo table {
     padding-top: 50px;
-    background-color: #2B2E33;
-    opacity: 0.5;
+    /*background-color: #2B2E33;*/
+    /*opacity: 0.5;*/
     color: #b99423;
 }
 
 .play .operate {
     padding-top: 10px;
     padding-bottom: 30px;
-    background-color: #2B2E33;
-    opacity: 0.5;
+    /*background-color: #2B2E33;*/
+    /*opacity: 0.5;*/
     color: white;
 }
 
 .playInfo table tbody tr th, .playInfo table tbody tr td {
     font-size: larger;
     font-weight: bolder;
-    opacity: 1;
+    /*opacity: 1;*/
     text-align: left;
     width: 15%;
 }
@@ -82,4 +82,8 @@ width: 5px;
 .play .tag {
     color: darkred;
     font-size: small;
+}
+
+table:hover{
+    color: #3f4431;
 }

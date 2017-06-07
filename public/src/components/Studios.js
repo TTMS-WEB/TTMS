@@ -55,7 +55,7 @@ export default class Studios extends Component {
             const studioInfo = ele.studioInfo;
             return (
                 <div className="studios" key={index}>
-                    <table className="table table-bordered" width="200">
+                    <table className="table table-hover" width="200">
                         <tbody className="studioBody">
                         <tr>
                             <th>{id}</th>

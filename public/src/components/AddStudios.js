@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 
 export default class AddStudios extends Component {
     componentWillMount() {
@@ -18,74 +18,73 @@ export default class AddStudios extends Component {
         else {
             alert("请输入完整信息！");
         }
+        this.refs.studioInfo.value = this.refs.studioName.value = this.refs.row.value = this.refs.col.value = '';
     }
 
     searchStudio() {
         const id = this.refs.searchStudio.value;
-        if(!id){
+        if (!id) {
             this.props.getStudios();
         }
         else this.props.searchStudio(id);
+        this.refs.searchStudio.value = '';
     }
 
 
     render() {
         return <div className="panel panel-default">
             <div className="panel-body">
-                <div className="row">
-                    <div className="col-lg-3">
-                        <div className="input-group">
-                            <span className="input-group-addon">演出厅名称</span>
-                            <input type="text" className="form-control" name="studio" ref="studioName"/>
+                <div className="addStudio form-inline">
+                    <div className=" input-group">
+                        <div className="form-group">
+                            <div className="input-group">
+                                <span className="input-group-addon">名称</span>
+                                <input type="text" name="studio" ref="studioName"/>
+                            </div>
                         </div>
-                    </div>
-                    <div className="col-lg-4">
-                        <div className="input-group">
-                            <span className="input-group-addon">演出厅简介</span>
-                            <input type="text" className="form-control" name="studio" ref="studioInfo"/>
+                        <div className="form-group">
+                            <div className="input-group">
+                                <span className="input-group-addon">行数</span>
+                                <select className="selectpicker" data-style="btn-info" name="seat"
+                                        ref="row">
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                    <option>13</option>
+                                    <option>14</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div className="col-lg-2">
-                        <div className="input-group">
-                            <span className="input-group-addon">座位行数</span>
-                            <select className="selectpicker form-control" data-style="btn-info" name="seat" ref="row">
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                                <option>11</option>
-                                <option>12</option>
-                                <option>13</option>
-                                <option>14</option>
-                            </select>
+                        <div className="form-group">
+                            <div className="input-group">
+                                <span className="input-group-addon">列数</span>
+                                <select className="selectpicker " data-style="btn-info" name="seat"
+                                        ref="col">
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                    <option>13</option>
+                                    <option>14</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div className="col-lg-2">
-                        <div className="input-group">
-                            <span className="input-group-addon">座位列数</span>
-                            <select className="selectpicker form-control" data-style="btn-info" name="seat" ref="col">
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                                <option>11</option>
-                                <option>12</option>
-                                <option>13</option>
-                                <option>14</option>
-                            </select>
+                        <span className="input-group-addon">简介</span>
+                        <div className="form-group">
+                            <input type="text" name="studio" ref="studioInfo"/>
+
                         </div>
-                    </div>
-                    <button className="btn btn-success" onClick={this.addStudio.bind(this)}>添加</button>
-                </div>
-                <br/>
-                <div className="row">
-                    <div className="col-lg-3">
-                        <div className="input-group">
-                            <span className="input-group-addon">查询演出厅</span>
-                            <input type="text" className="form-control" placeholder="请输入演出厅ID" ref="searchStudio"/>
+                        <div className="form-group">
+                            <button className="btn btn-success " onClick={this.addStudio.bind(this)}>添加</button>
                         </div>
-                    </div>
-                    <div className="col-lg-4">
-                        <button className="btn btn-warning" onClick={this.searchStudio.bind(this)}>查询</button>
-                        <span>   </span>
+                        <div className="input-group">
+                            <span className="input-group-addon">ID</span>
+                            <input type="text" placeholder="演出厅ID" ref="searchStudio"/>
+                            <button className="btn btn-warning " onClick={this.searchStudio.bind(this)}>查询</button>
+                        </div>
                     </div>
                 </div>
                 <br/>

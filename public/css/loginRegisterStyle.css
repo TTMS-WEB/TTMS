@@ -9,6 +9,9 @@ body {
 
 .content{
     margin-top: -280px;
+    background-color: rgba(54, 54, 54, 0.4);
+    height: 595px;
+    overflow-y: scroll;
 }
 
 .content1{
@@ -17,7 +20,7 @@ body {
 
 #carousel1{
     border-radius: 25px;
-    background: rgba(0,0,0,0.5);
+    background: rgba(54, 54, 54, 0.4);
     width: 400px;
     height: 600px;
     margin-top: 40px;

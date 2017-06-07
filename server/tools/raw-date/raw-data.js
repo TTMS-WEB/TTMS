@@ -64,8 +64,8 @@ export default {
             id: 1,
             studioName: '巨幕厅',
             studioInfo: '这是一个大厅',
-            col: 5,
-            row: 5
+            col: 10,
+            row: 10
         },
         {
             id: 2,
@@ -85,6 +85,21 @@ export default {
         {
             studioId: 1,
             seatArray: [
+                {status: -1}, {status: -1}, {status: -1}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0},{status: 0},
+                {status: -1}, {status: -1}, {status: -1}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0},{status: 0},
+                {status: -1}, {status: -1}, {status: -1}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
+                {status: 0}, {status: 0}, {status: 0}, {status: 0},{status: 0},
                 {status: -1}, {status: -1}, {status: -1}, {status: 0}, {status: 0},
                 {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
                 {status: 0}, {status: 0}, {status: 0}, {status: 0}, {status: 0},
