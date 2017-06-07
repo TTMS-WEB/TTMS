@@ -22,9 +22,9 @@ export default class Seat extends Component {
     }
 
     render() {
-        const id  = this.props.Seat.map((ele)=>ele.id);
-
-        let studioId = $("#studioId").val()||id[0];
+        let id = this.props.SeatInfo.studioId;
+        console.log();
+        let studioId = $("#studioId").val()||id;
         return <div id="seatBorder">
             <div className="form-group">
                 <select  id="studioId" className="selectpicker form-control"
