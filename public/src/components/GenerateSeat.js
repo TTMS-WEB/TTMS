@@ -16,9 +16,7 @@ export default class GenerateSeat extends Component {
     }
 
     render() {
-        const id  = this.props.Seat.map((ele)=>ele.id);
-        const studioId = id[0];
-        console.log(studioId);
+        const studioId = this.props.SeatInfo.studioId;
         const array = this.props.Seat;
         console.log(array);
         let row;
