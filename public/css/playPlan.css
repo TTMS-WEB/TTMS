@@ -1,21 +1,15 @@
 .playPlan table {
-    color: #b99423;
-    /*background-color: #2B2E33;*/
-    /*opacity: 0.5;*/
+    font-size: larger;
     width: 100%;
 }
 .playPlan table th, .playPlan table td {
     line-height: 100%;
-    font-weight: bolder;
-    font-size: larger;
-    width: 8%;
-    text-align: left;
-    /*opacity: 1;*/
+    width: 10%;
+    text-align: center;
 }
 .playPlan table tfoot input,.playPlan table tfoot button{
     border-radius:2px;
     outline-color: white;
-    /*opacity: 1;*/
     color: #363636;
     background-color: white;
     border: hidden;
@@ -36,15 +30,12 @@
      width: 100%;
  }
 .playPlan table tfoot td{
-    font-size: small;
     color: white;
     width: 5px;
 }
 .playPlan .time {
     padding-top: 10px;
     padding-bottom: 30px;
-    background-color: #2B2E33;
-    opacity: 0.5;
     color: white;
 }
 

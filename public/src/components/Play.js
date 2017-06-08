@@ -214,7 +214,7 @@ export default class Play extends Component {
                     <tr>
                         <th>序号</th>
                         <th>影片名称</th>
-                        <th>时长(minitues)</th>
+                        <th>时长(分)</th>
                         <th>类型</th>
                         <th>主演</th>
                         <th>价格(元)</th>
@@ -224,15 +224,13 @@ export default class Play extends Component {
                     </tbody>
                     <tfoot>
                     <tr>
-                        <td></td>
                         <td>
                             <button value='add' onClick={this.paging.bind(this, page,maxsize,size, "first")}>首页</button>
                         </td>
                         <td>
                             <button onClick={this.paging.bind(this, page, maxsize, size, "reduce")}>上一页</button>
-                            第{page}页 共{Math.ceil(maxsize / size)}页
-
                         </td>
+                        <td> 第{page}页 共{Math.ceil(maxsize / size)}页</td>
                         <td><input ref="searchPage" type="text" placeholder="输入想前往的页码"/></td>
                         <td>
                             <button onClick={this.paging.bind(this, page, maxsize, size, "searchPage")}>查询</button>

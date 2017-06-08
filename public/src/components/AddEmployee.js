@@ -28,7 +28,7 @@ export default class AddEmployees extends Component{
             const address = ele.address;
             return (
                 <div className="studios" key={index}>
-                    <table className="table table-style" width="200">
+                    <table className="table table-hover" width="200">
                         <thead>
                         <tr>
                             <th className="th">{index}</th>

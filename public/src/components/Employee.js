@@ -25,7 +25,7 @@ class Employee extends Component {
                     </div>
                 </div>
                 <br/>
-                <table className="table table-style">
+                <table className="table table-hover">
                     <thead>
                     <tr>
                         <th className="th">员工序号</th>

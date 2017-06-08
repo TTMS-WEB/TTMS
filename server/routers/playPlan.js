@@ -12,7 +12,7 @@ router.post('/showPlan', (req, res, next)=> {
 
     PlayPlan.find({'date': {$gte: currentDate}}, (err, result)=> {
         const page = req.body.page;
-        const size = 4;
+        const size = 7;
         const skip = (page - 1) * size;
         const maxsize = result.length;
         const planInfo = [];

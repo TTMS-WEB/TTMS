@@ -1,41 +1,33 @@
-/*.play {*/
-/*margin-top: 30px;*/
-/*margin-left: 30px;*/
-/*}*/
+
 .play input, .play button {
     outline: hidden;
 }
 
 .playInfo table {
     padding-top: 50px;
-    /*background-color: #2B2E33;*/
-    /*opacity: 0.5;*/
     color: #b99423;
 }
 
 .play .operate {
     padding-top: 10px;
     padding-bottom: 30px;
-    /*background-color: #2B2E33;*/
-    /*opacity: 0.5;*/
     color: white;
 }
 
-.playInfo table tbody tr th, .playInfo table tbody tr td {
+.playInfo table  tr th, .playInfo table tbody tr td {
     font-size: larger;
     font-weight: bolder;
-    /*opacity: 1;*/
-    text-align: left;
+    text-align: center;
     width: 15%;
 }
 
 .playInfo table tfoot tr td {
-    color: white;
-width: 5px;
+    font-size: small;
+    text-align: center;
 }
 
-.playInfo table tfoot tr td input, .playInfo table tfoot tr td button {
-    border-radius:2px;
+ table tfoot tr td input, table tfoot tr td button{
+    border-radius: 2px;
     outline-color: white;
     font-size: small;
     opacity: 1;
@@ -43,7 +35,9 @@ width: 5px;
     background-color: white;
     border: hidden;
 }
-
+table tfoot tr td{
+    font-size: small;
+}
 .play .operate {
     font-size: x-large;
     color: #3f4431;
@@ -84,6 +78,17 @@ width: 5px;
     font-size: small;
 }
 
-table:hover{
+table tr {
+    font-weight: bolder;
+    color: whitesmoke;
+    border-bottom: solid 1px #faf2cc;
+}
+
+table tbody tr:hover {
+    background-color: white;
     color: #3f4431;
+}
+
+table tr {
+    height: 30px !important;
 }

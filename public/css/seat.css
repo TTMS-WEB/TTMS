@@ -9,11 +9,10 @@ input[type=checkbox]{
     color: white;
 }
 .img-rounded{
-    margin-left: 10px;
+    margin-left: 20px;
     margin-bottom: 10px;
 }
 
 #seatBorder{
-    /*background: rgba(0,0,0,0.5);*/
     text-align: center;
 }

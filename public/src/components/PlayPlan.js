@@ -165,28 +165,28 @@ export default class PlayPlan extends Component {
             date = val.date.replace("T00:00:00.000Z", "");
             switch (val.time) {
                 case 1:
-                    time = '第一场(8:00-10:00)';
+                    time = '8:00-10:00';
                     break;
                 case 2:
-                    time = '第二场(10:00-12:00)';
+                    time = '10:00-12:00';
                     break;
                 case 3:
-                    time = '第三场(12:00-14:00)';
+                    time = '12:00-14:00';
                     break;
                 case 4:
-                    time = '第四场(14:00-16:00)';
+                    time = '14:00-16:00';
                     break;
                 case 5:
-                    time = '第五场(16:00-18:00)';
+                    time = '16:00-18:00';
                     break;
                 case 6:
-                    time = '第六场(18:00-20:00)';
+                    time = '18:00-20:00';
                     break;
                 case 7:
-                    time = '第七场(20:00-22:00)';
+                    time = '20:00-22:00';
                     break;
                 case 8:
-                    time = '第八场(22:00-24:00)';
+                    time = '22:00-24:00';
                     break;
                 default:
                     time = '';
@@ -327,26 +327,30 @@ export default class PlayPlan extends Component {
                         <th>日期</th>
                         <th>场次</th>
                         <th>价格(元)</th>
-                        <th>时长(minites)</th>
+                        <th>时长(分)</th>
                         <th colSpan="2">操作</th>
                     </tr>
                     {planList}
                     </tbody>
                     <tfoot>
                     <tr>
-                        <td></td>
+
                         <td>
                             <button value='add' onClick={this.paging.bind(this, page, maxsize, size, "first")}>首页
                             </button>
                         </td>
                         <td>
                             <button onClick={this.paging.bind(this, page, maxsize, size, "reduce")}>上一页</button>
-                            第{page}页 共{Math.ceil(maxsize / size)}页
 
+                        </td>
+                        <td> 第{page}页</td>
+
+                        <td> 共{Math.ceil(maxsize / size)}页
                         </td>
                         <td><input ref="searchPage" type="text" placeholder="输入想前往的页码"/></td>
                         <td>
-                            <button onClick={this.paging.bind(this, page, maxsize, size, "searchPage")}>查询</button>
+                            <button onClick={this.paging.bind(this, page, maxsize, size, "searchPage")}>查询
+                            </button>
                         </td>
                         <td>
                             <button onClick={this.paging.bind(this, page, maxsize, size, "add")}>下一页</button>

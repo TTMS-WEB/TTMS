@@ -22,7 +22,7 @@ export default class Ticket extends Component {
         });
 
         return <div className="ticketBorder">
-            <table className="table table-style">
+            <table className="table table-hover">
                 <thead>
                 <tr>
                     <th>剧目</th>
