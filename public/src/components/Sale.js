@@ -73,6 +73,7 @@ export default class Sale extends Component {
         this.props.buyTicket(ScheduleId, z);
         $("#price").text(0);
         $("#chooseSeat").text('');
+        alert("购票成功");
     }
 
     render() {
